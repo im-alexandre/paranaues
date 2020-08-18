@@ -1,0 +1,8 @@
+ # Lock it up! 
+ i3lock -c 000000
+  
+ # If still locked after $timeout milliseconds, turn off screen. 
+ while [[ $(pgrep -x i3lock) ]]; do 
+ 	xset dpms force off 
+ 	sleep 14 
+ done 

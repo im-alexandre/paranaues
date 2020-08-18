@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+arg=$1
+
+cd ~/.config/nvim/plugged/vim-snippets/snippets
+
+nvim $arg.snippets
