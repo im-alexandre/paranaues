@@ -1,2 +1,2 @@
 # Paranauês
-###Scripts e arquivos de configuração dos principais softwares. 
+### Scripts e arquivos de configuração dos principais softwares. 
