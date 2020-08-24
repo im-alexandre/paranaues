@@ -89,6 +89,7 @@ set shell=/bin/bash
     let g:user_emmet_leader_key=' '
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     map <F9> :call ExecSelectionInTerminal() <CR>
+    map <leader>rj :call RunJava()<CR>
 
 "settings
     syntax on
@@ -194,6 +195,12 @@ let fancy_symbols_enabled = 1
         :silent !captura
         :pu
     endfunction
+
+    function! RunJava()
+        :up
+        :!javac %
+        :!java %:r
+    endfunction 
     
     function! ExecSelectionInTerminal()
         :wincmd H
