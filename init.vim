@@ -200,6 +200,7 @@ let fancy_symbols_enabled = 1
         :up
         :!javac %
         :!java %:r
+        :silent !rm %:r.class
     endfunction 
     
     function! ExecSelectionInTerminal()
