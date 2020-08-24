@@ -1,3 +1,4 @@
+let g:coc_disable_startup_warning = 1
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 
