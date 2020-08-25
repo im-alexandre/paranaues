@@ -35,6 +35,7 @@ Plug 'junegunn/goyo.vim'
     " Better file browser
     Plug 'scrooloose/nerdtree'
     Plug 'jeetsukumaran/vim-pythonsense'
+    Plug 'mbbill/undotree'
     Plug 'Townk/vim-autoclose'
     Plug 'sheerun/vim-polyglot'
     Plug 'Vimjas/vim-python-pep8-indent'
@@ -200,7 +201,6 @@ let fancy_symbols_enabled = 1
         :up
         :!javac %
         :!java %:r
-        :silent !rm %:r.class
     endfunction 
     
     function! ExecSelectionInTerminal()
@@ -324,8 +324,8 @@ let g:ale_fix_on_save = 1
     colorscheme gruvbox
     let g:gruvbox_contrast_dark='hard'
     set background=dark
-    highlight Normal ctermbg=none
-    highlight NonText ctermbg=none
+    "highlight Normal ctermbg=none
+    "highlight NonText ctermbg=none
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
