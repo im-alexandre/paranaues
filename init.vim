@@ -1,3 +1,4 @@
+let g:python3_host_prog = '/home/alexandre/.anaconda3/bin/python'
 let g:coc_disable_startup_warning = 1
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
@@ -17,9 +18,10 @@ endif
 
 
 call plug#begin("~/.config/nvim/plugged")
-Plug 'tpope/vim-fugitive'
-" Distraction free writing by removing UI elements and centering everything.
-Plug 'junegunn/goyo.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'mileszs/ack.vim'
+    " Distraction free writing by removing UI elements and centering everything.
+    Plug 'junegunn/goyo.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}    
     Plug 'vimwiki/vimwiki'
@@ -365,8 +367,6 @@ let g:jupytext_fmt = 'py'
 let g:snips_author="Alexandre Castro"
 let g:snips_email="im.alexandre07@gmail.com"
 let g:snips_github="https://www.github.com/im-alexandre"
-
-let fancy_symbols_enabled = 1
 
 set completefunc=emoji#complete
 
