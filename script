@@ -51,7 +51,6 @@ wget \
 curl \
 git \
 vim vim-gtk3 \
-mosquitto \
 xclip \
 linux-tools-$(uname -r) \
 sqlite3 \
