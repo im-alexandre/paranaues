@@ -92,11 +92,10 @@ set shell=/bin/bash
     let g:user_emmet_leader_key=' '
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     map <F9> :call ExecSelectionInTerminal() <CR>
-    map <leader>rj :call RunJava()<CR>
+    map <leader>rj :silent Java %<CR>
 
 "settings
     syntax on
-    set clipboard=unnamedplus
     set nu
     set incsearch
     set smartcase
@@ -196,15 +195,10 @@ let fancy_symbols_enabled = 1
 
     function! Captura()
         :silent !captura
+        :sleep 1
         :pu
     endfunction
 
-    function! RunJava()
-        :up
-        :!javac %
-        :!java %:r
-    endfunction 
-    
     function! ExecSelectionInTerminal()
         :wincmd H
         :CocCommand python.execSelectionInTerminal

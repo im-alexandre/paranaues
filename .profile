@@ -9,13 +9,12 @@
 #umask 022
 
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    set -o vi
-    fi
-fi
+#if [ -n "$BASH_VERSION" ]; then
+    ## include .bashrc if it exists
+    #if [ -f "$HOME/.bashrc" ]; then
+	#. "$HOME/.bashrc"
+    #fi
+#fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -41,5 +40,5 @@ export PATH=$BIN:$PATH
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla
 export VIM_APP_DIR=/usr
-
-[ $SHELL = /bin/zsh ] && bindkey -v
+export ECLIM_HOME=/home/alexandre/.eclipse/eclipse/
+export PATH=$PATH:$ECLIM_HOME

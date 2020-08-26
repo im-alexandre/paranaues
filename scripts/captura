@@ -2,31 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import os
-import shutil
-import pyperclip
 import random
+from datetime import datetime
+from time import sleep
 
-os.system('gnome-screenshot -a')
-caminho = '/home/alexandre/Imagens/'
+import pyperclip
 
-capturas = os.listdir(caminho)
-
-if not os.path.isdir('./imagens/'):
+if not os.path.exists('imagens'):
     os.mkdir('imagens')
 
+numero = random.randint(1, 9)
+timestamp = datetime.now().strftime('%d%m%H%M%S')
+arquivo = f'imagens/{numero}{timestamp}.png'
+link = f"![imagem]({arquivo})"
+os.system(f'gnome-screenshot -a -f {arquivo}')
 
-def tempo(nome_arquivo):
-    return os.path.getmtime(caminho + nome_arquivo)
-
-capturas.sort(key=tempo, reverse=True)
-
-numero = random.randint(0, 9)
-for imagem in capturas:
-    if "Captura" in imagem:
-        nome = imagem.split()[-1]
-        destino = f"imagens/{str(numero) + nome}"
-        shutil.move(caminho + imagem, destino)
-        link = f"![imagem]({destino})"
-        pyperclip.copy(link)
-        break
-
+pyperclip.copy(link)
