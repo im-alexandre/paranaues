@@ -2,18 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import os
-import random
 from datetime import datetime
-from time import sleep
 
 import pyperclip
 
 if not os.path.exists('imagens'):
     os.mkdir('imagens')
 
-numero = random.randint(1, 9)
 timestamp = datetime.now().strftime('%d%m%H%M%S')
-arquivo = f'imagens/{numero}{timestamp}.png'
+arquivo = f'imagens/{timestamp}.png'
 link = f"![imagem]({arquivo})"
 os.system(f'gnome-screenshot -a -f {arquivo}')
 

@@ -19,6 +19,7 @@ endif
 
 call plug#begin("~/.config/nvim/plugged")
     Plug 'tpope/vim-fugitive'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
     " Distraction free writing by removing UI elements and centering everything.
     Plug 'junegunn/goyo.vim'
@@ -91,7 +92,7 @@ set shell=/bin/bash
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     let g:user_emmet_leader_key=' '
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
-    map <F9> :call ExecSelectionInTerminal() <CR>
+    map <F9> :CocCommand python.execSelectionInTerminal<CR>
     map <leader>rj :silent Java %<CR>
 
 "settings
@@ -199,11 +200,6 @@ let fancy_symbols_enabled = 1
         :pu
     endfunction
 
-    function! ExecSelectionInTerminal()
-        :wincmd H
-        :CocCommand python.execSelectionInTerminal
-    endfunction
-
 " Tasklist ------------------------------
     " show pending tasks list
     map <F2> :TaskList<CR>
@@ -280,7 +276,7 @@ let fancy_symbols_enabled = 1
 let g:user_emmet_leader_key=' '
 
 if vim_plug_just_installed
-  :CocInstall coc-python
+    :CocInstall coc-python
 endif
 
 function! LinterStatus() abort
