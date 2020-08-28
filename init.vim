@@ -92,8 +92,9 @@ set shell=/bin/bash
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     let g:user_emmet_leader_key=' '
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
-    map <F9> :CocCommand python.execSelectionInTerminal<CR>
-    map <leader>rj :silent Java %<CR>
+    vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
+    nnoremap <leader>cj :CocCommand java.workspace.compile<CR>
+    nnoremap <leader>rj :call RunJava()<CR>
 
 "settings
     syntax on
@@ -198,6 +199,10 @@ let fancy_symbols_enabled = 1
         :silent !captura
         :sleep 1
         :pu
+    endfunction
+
+    function! RunJava()
+        :!java -cp bin %:t:r
     endfunction
 
 " Tasklist ------------------------------
@@ -308,7 +313,7 @@ let g:ale_fixers = {
       \    'python': ['yapf', 'autopep8', 'isort'],
       \}
 
-nmap <F10> :ALEFix<CR>
+nmap <F7> :ALEFix<CR>
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 

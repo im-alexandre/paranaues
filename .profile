@@ -28,6 +28,7 @@ fi
 
 #Variáveis JAVA
 JAVA_HOME=/opt/java
+JDK_HOME=/opt/java
 CLASSPATH=$JAVA_HOME/lib:.
 PATH=$PATH:$JAVA_HOME/bin
 export JAVA_HOME
