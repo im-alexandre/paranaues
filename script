@@ -47,6 +47,7 @@ sudo smbpasswd -a $(whoami)
 
 #instalanção de pacotes
 sudo apt install -y \
+onedrive \
 wget \
 curl \
 git \
