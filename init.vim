@@ -368,3 +368,4 @@ set completefunc=emoji#complete
 let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=3 
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
