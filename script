@@ -48,6 +48,7 @@ sudo smbpasswd -a $(whoami)
 
 #instalanção de pacotes
 sudo apt install -y \
+dconf-editor \
 onedrive \
 wget \
 curl \
@@ -106,6 +107,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 wget https://git.io/vQgMr 
 chmod +x vQgMr
 ./vQgMr
+rm vQgMr
 
 #Personalizar o VIM
 git clone https://github.com/im-alexandre/meu_vim.git && \
