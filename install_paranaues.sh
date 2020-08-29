@@ -5,13 +5,14 @@
 [ ! -d $HOME/.config/nvim/plugged/vim-snippets/snippets/ ] && mkdir -p $HOME/.config/nvim/plugged/vim-snippets/snippets/
 
 ln -f .bashrc $HOME/.bashrc
+ln -f .bash_aliases $HOME/.bash_aliases
 
 ln -f init.vim $HOME/.config/nvim/init.vim
 ln -f .profile $HOME/.profile
-ln -f scripts $HOME/.bin
+ln -sf scripts $HOME/.bin
 
-for snippet in `ls *.snippets` ; do
-    ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
-    echo $snippet
-done
+#for snippet in `ls *.snippets` ; do
+    #ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
+    #echo $snippet
+#done
 
