@@ -11,8 +11,8 @@ ln -f init.vim $HOME/.config/nvim/init.vim
 ln -f .profile $HOME/.profile
 ln -sf scripts $HOME/.bin
 
-#for snippet in `ls *.snippets` ; do
-    #ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
-    #echo $snippet
-#done
+for snippet in `ls *.snippets` ; do
+    ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
+    echo $snippet
+done
 
