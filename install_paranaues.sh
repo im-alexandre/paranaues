@@ -4,6 +4,7 @@
 [ ! -d $HOME/.bin ] && mkdir -p $HOME/.bin
 [ ! -d $HOME/.config/nvim/plugged/vim-snippets/snippets/ ] && mkdir -p $HOME/.config/nvim/plugged/vim-snippets/snippets/
 
+cp ranger/* ~/.config/ranger/
 ln -f .bashrc $HOME/.bashrc
 ln -f .bash_aliases $HOME/.bash_aliases
 

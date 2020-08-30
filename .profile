@@ -43,3 +43,4 @@ export QT_IM_MODULE=cedilla
 export VIM_APP_DIR=/usr
 export ECLIM_HOME=/home/alexandre/.eclipse/eclipse/
 export PATH=$PATH:$ECLIM_HOME
+set -o vi

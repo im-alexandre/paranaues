@@ -1,3 +1,4 @@
+set modifiable
 let g:python3_host_prog = '/home/alexandre/.anaconda3/bin/python'
 let g:coc_disable_startup_warning = 1
 let vim_plug_just_installed = 0

@@ -109,60 +109,8 @@ chmod +x vQgMr
 ./vQgMr
 rm vQgMr
 
-#Personalizar o VIM
-git clone https://github.com/im-alexandre/meu_vim.git && \
-cd meu_vim/ && \
-mv .vimrc ../ && \
 
-# Tema dracula para o terminal
-git clone https://github.com/dracula/gnome-terminal;
-cd gnome-terminal;
-./install.sh;
-
-# Incluir o ramo do git no ps1
-source /usr/lib/git-core/git-sh-prompt
-#incluir $(__git_ps1 "(%s)")\n antes do \$ do ps1
-=================================================================================================================================================
-
-#Instalação dos pacotes locais
-#Copia para o diretório /opt
-sudo cp $(find /mnt/arquivos/utilidades/instala_so/programas/ -iname sqldeveloper*.zip) /opt && \
-sudo cp $(find /mnt/arquivos/utilidades/instala_so/programas/ -iname jdk*.tar.gz) /opt && \
-sudo cp $(find /mnt/arquivos/utilidades/instala_so/programas/ -iname sqldeveloper*.zip) /opt && \
-sudo cp $(find /mnt/arquivos/utilidades/instala_so/programas/ -iname arduino-*-linux64.tar.xz) /opt && \
-sudo cp /mnt/arquivos/utilidades/instala_so/programas/weka-3-8-4-azul-zulu-linux.zip /opt
-#Descompacta
-cd /opt && \
-sudo tar -xf $(find . -iname jdk*.tar.gz) && \
-sudo tar -xf $(find . -iname arduino-*-linux64.tar.xz) && \
-sudo unzip $(find . -iname sqldeveloper*.zip) && \
-sudo unzip $(find . -iname weka*.zip) && \
-
-#arduino
-sudo /opt/arduino/install.sh && \
-sudo usermod -aG tty $(whoami); \
-sudo usermod -aG dialout $(whoami)
-#brmodel
-sudo mkdir /opt/brmodelo; \
-sudo cp /mnt/arquivos/utilidades/instala_so/programas/brModelo.jar /opt/brmodelo/
-# copia os "executáveis" para o /usr/local/bin
-sudo cp /mnt/arquivos/utilidades/instala_so/programas/weka_bin.sh /usr/local/bin/weka; \
-sudo cp /mnt/arquivos/utilidades/instala_so/programas/brmodelo_bin.sh /usr/local/bin/brmodelo; \
-sudo cp /mnt/arquivos/utilidades/instala_so/programas/sqldeveloper /usr/local/bin/sqldeveloper
-# permissão de execução para os "executáveis"
-sudo chmod a+x /usr/local/bin/*; \
-mkdir -p /home/alexandre/.local/share/icons &&
-cp /home/alexandre/Arquivos/utilidades/instala_so/programas/icons/* ~/.local/share/icons/; \
-sudo chmod a+x ~/Arquivos/Desktop/*.desktop; \
-sudo cp /home/alexandre/Arquivos/utilidades/instala_so/programas/desktop/*.desktop /usr/share/applications/
-
-
-#Configurações do java e sqldeveloper
-cat /mnt/arquivos/utilidades/instala_so/programas/env_var_java >> ~/.bashrc; \
-echo "SetJavqld	Home /opt/java" >> $(find ~/.sqldeveloper -iname product.conf)
-
-#Bibliotecas Steam
-sudo /home/$(whoami)/Arquivos/utilidades/instala_so/programas/steam_libs;
+# baixar o jdk 8, copiar para o /opt e descompactar para /opt/java
 
 
 #Compartilhamento SAMBA
@@ -180,16 +128,8 @@ sudo /etc/init.d/samba-ad-dc restart
 ~/Arquivos/utilidades/instala_so/programas/tearing_fix.sh
 
 # instalar os pacotes baixados
-sudo apt install -y ./zoom_amd64.deb \
-./epson-inkjet-printer-escpr_1.6.40-1lsb3.2_amd64.deb \
-./code_1.43.2-1585036376_amd64.deb \
-./google-chrome-stable_current_amd64.deb; \
-./Anaconda3-2020.02-Linux-x86_64.sh -b -f -p ~/.anaconda3; \
-~/.anaconda3/bin/conda init; \
-source ~/.bashrc; \
-conda update --all -y; \
-echo "export LD_LIBRARY_PATH=/opt/instantclient_12_2:$LD_LIBRARY_PATH" >> ~/.bashrc; \
-sudo cp instantclient-basic-linux.x64-12.2.0.1.0.zip /opt; \
+sudo apt install /mnt/arquivos/utilidades/instala_so/programas/epson-inkjet-printer-escpr_1.6.40-1lsb3.2_amd64.deb \
+sudo cp /mnt/arquivos/utilidades/instala_so/instantclient-basic-linux.x64-12.2.0.1.0.zip /opt; \
 cd /opt; \
 sudo unzip instantclient-basic-linux.x64-12.2.0.1.0.zip; \
 cd /opt/instantclient_12_2; \
