@@ -1,0 +1,191 @@
+[apps/update-manager]
+first-run=false
+launch-count=1
+launch-time=int64 1598720359
+
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1598720355
+
+[desktop/ibus/general]
+preload-engines=['xkb:us:intl:eng']
+version='1.5.22'
+
+[org/gnome/baobab/ui]
+window-size=(960, 600)
+window-state=87168
+
+[org/gnome/control-center]
+last-panel='keyboard'
+
+[org/gnome/deja-dup]
+backend='google'
+prompt-check='2020-08-29T17:02:15+00'
+
+[org/gnome/deja-dup/file]
+migrated=true
+
+[org/gnome/desktop/background]
+picture-options='spanned'
+picture-uri='file:///home/alexandre/Imagens/Pap%C3%A9is%20de%20parede/dual-monitor-wallpaper.jpg'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us+intl')]
+xkb-options=@as []
+
+[org/gnome/desktop/interface]
+cursor-theme='Yaru'
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Yaru-dark'
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-nautilus']
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/privacy]
+disable-microphone=false
+report-technical-problems=true
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///home/alexandre/Imagens/Pap%C3%A9is%20de%20parede/dual-monitor-wallpaper.jpg'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
+
+[org/gnome/desktop/wm/keybindings]
+maximize=@as []
+minimize=@as []
+move-to-monitor-left=['<Shift><Super>h']
+move-to-monitor-right=['<Shift><Super>l']
+move-to-workspace-down=['<Shift><Super>j']
+move-to-workspace-up=['<Shift><Super>k']
+switch-to-workspace-down=['<Primary><Alt>j']
+switch-to-workspace-up=['<Primary><Alt>k']
+toggle-maximized=['<Super>k']
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/gedit/plugins]
+active-plugins=['modelines', 'time', 'filebrowser', 'spell', 'docinfo']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/alexandre/paranaues'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=87168
+
+[org/gnome/mutter]
+workspaces-only-on-primary=false
+
+[org/gnome/mutter/keybindings]
+toggle-tiled-left=['<Super>h']
+toggle-tiled-right=['<Super>l']
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='larger'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+maximized=true
+
+[org/gnome/power-manager]
+info-history-type='charge'
+info-last-device='/org/freedesktop/UPower/devices/line_power_AC'
+info-stats-type='discharge-accuracy'
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+screensaver=@as []
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>r'
+command='gnome-terminal -e ranger'
+name='ranger'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>t'
+command='gnome-terminal'
+name='terminal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>c'
+command='google-chrome'
+name='google chrome'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Super>e'
+command='gnome-terminal -e nvim'
+name='neovim'
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-type='nothing'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/terminal/legacy/profiles:]
+list=['0516c0f3-d6b8-44c3-8a83-ce82f83fda2d']
+
+[org/gnome/terminal/legacy/profiles:/:0516c0f3-d6b8-44c3-8a83-ce82f83fda2d]
+allow-bold=true
+background-color='#282828282828'
+bold-color='#ebebdbdbb2b2'
+bold-color-same-as-fg=true
+font='RobotoMono Nerd Font Mono Bold 12'
+foreground-color='#ebebdbdbb2b2'
+highlight-background-color='#'
+highlight-colors-set=true
+highlight-foreground-color='#'
+palette=['#282828282828', '#cccc24241d1d', '#989897971a1a', '#d7d799992121', '#454585858888', '#b1b162628686', '#68689d9d6a6a', '#a8a899998484', '#929283837474', '#fbfb49493434', '#b8b8bbbb2626', '#fafabdbd2f2f', '#8383a5a59898', '#d3d386869b9b', '#8e8ec0c07c7c', '#ebebdbdbb2b2']
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Gruvbox Dark'
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(46,52,54)'
+foreground-color='rgb(211,215,207)'
+use-theme-colors=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=167
+sort-column='name'
+sort-directories-first=true
+sort-order='ascending'
+type-format='category'
+window-position=(345, 83)
+window-size=(1231, 902)

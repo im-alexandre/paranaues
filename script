@@ -48,6 +48,8 @@ sudo smbpasswd -a $(whoami)
 # sudo vim /usr/share/X11/xkb/symbols/br
 # Comentar a linha modifier_map { Scrool_Lock };
 
+dconf load / < dconf.bkp
+
 #instalanção de pacotes
 sudo apt install -y \
 dconf-editor \
