@@ -45,6 +45,8 @@ echo "UUID=$UUID /mnt/arquivos ext4 defaults 0  2" | sudo tee -a /etc/fstab
 sudo apt install -y samba; \
 sudo smbpasswd -a $(whoami)
 
+# sudo vim /usr/share/X11/xkb/symbols/br
+# Comentar a linha modifier_map { Scrool_Lock };
 
 #instalanção de pacotes
 sudo apt install -y \
