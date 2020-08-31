@@ -44,3 +44,5 @@ export VIM_APP_DIR=/usr
 export ECLIM_HOME=/home/alexandre/.eclipse/eclipse/
 export PATH=$PATH:$ECLIM_HOME
 set -o vi
+export VISUAL=nvim
+export EDITOR="$VISUAL"
