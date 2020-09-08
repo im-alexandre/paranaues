@@ -3,12 +3,23 @@ first-run=false
 launch-count=1
 launch-time=int64 1598720359
 
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/shell/extensions/dash-to-dock/'
+saved-view='/org/gnome/shell/extensions/dash-to-dock/'
+show-warning=false
+window-height=500
+window-is-maximized=true
+window-width=540
+
 [com/ubuntu/update-notifier]
 release-check-time=uint32 1598720355
 
 [desktop/ibus/general]
 preload-engines=['xkb:us:intl:eng']
 version='1.5.22'
+
+[org/gnome/Disks]
+image-dir-uri='file:///home/alexandre/Downloads'
 
 [org/gnome/baobab/ui]
 window-size=(960, 600)
@@ -26,7 +37,7 @@ migrated=true
 
 [org/gnome/desktop/background]
 picture-options='spanned'
-picture-uri='file:///home/alexandre/Imagens/Pap%C3%A9is%20de%20parede/dual-monitor-wallpaper.jpg'
+picture-uri='file:///home/alexandre/Imagens/Pap%C3%A9is%20de%20parede/paris_panoramic_view-wallpaper-3840x1080.jpg'
 
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us+intl')]
@@ -34,8 +45,10 @@ xkb-options=@as []
 
 [org/gnome/desktop/interface]
 cursor-theme='Yaru'
+enable-hot-corners=false
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Yaru-dark'
+show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-nautilus']
@@ -118,7 +131,7 @@ info-stats-type='discharge-accuracy'
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
-screensaver=@as []
+screensaver=['<Primary><Alt>l']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>r'
@@ -148,17 +161,48 @@ sleep-inactive-battery-type='nothing'
 [org/gnome/settings-daemon/plugins/xsettings]
 hinting='slight'
 
+[org/gnome/shell]
+enabled-extensions=['dash-to-panel@jderose9.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']
+had-bluetooth-devices-setup=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+dash-max-icon-size=24
+dock-position='BOTTOM'
+extend-height=false
+multi-monitor=true
+preferred-monitor=1
+
+[org/gnome/shell/extensions/dash-to-panel]
+hotkeys-overlay-combo='TEMPORARILY'
+location-clock='TASKBARRIGHT'
+trans-panel-opacity=0.40000000000000002
+trans-use-custom-gradient=false
+trans-use-custom-opacity=true
+trans-use-dynamic-opacity=true
+
+[org/gnome/shell/extensions/window-list]
+display-all-workspaces=false
+grouping-mode='auto'
+show-on-all-monitors=false
+
 [org/gnome/system/location]
 enabled=false
 
+[org/gnome/terminal/legacy]
+menu-accelerator-enabled=false
+
 [org/gnome/terminal/legacy/profiles:]
+default='10e6a0b4-74e0-4f71-8f9f-4bf0d7516553'
 list=['0516c0f3-d6b8-44c3-8a83-ce82f83fda2d']
 
 [org/gnome/terminal/legacy/profiles:/:0516c0f3-d6b8-44c3-8a83-ce82f83fda2d]
 allow-bold=true
 background-color='#282828282828'
+background-transparency-percent=17
 bold-color='#ebebdbdbb2b2'
 bold-color-same-as-fg=true
+cursor-colors-set=false
 font='RobotoMono Nerd Font Mono Bold 12'
 foreground-color='#ebebdbdbb2b2'
 highlight-background-color='#'
@@ -169,12 +213,37 @@ use-system-font=false
 use-theme-background=false
 use-theme-colors=false
 use-theme-transparency=false
+use-transparent-background=true
+visible-name='Gruvbox Dark'
+
+[org/gnome/terminal/legacy/profiles:/:10e6a0b4-74e0-4f71-8f9f-4bf0d7516553]
+allow-bold=true
+background-color='#282828282828'
+background-transparency-percent=17
+bold-color='#ebebdbdbb2b2'
+bold-color-same-as-fg=true
+cursor-colors-set=false
+font='RobotoMono Nerd Font Mono Bold 12'
+foreground-color='#ebebdbdbb2b2'
+highlight-background-color='#'
+highlight-colors-set=true
+highlight-foreground-color='#'
+palette=['#282828282828', '#cccc24241d1d', '#989897971a1a', '#d7d799992121', '#454585858888', '#b1b162628686', '#68689d9d6a6a', '#a8a899998484', '#929283837474', '#fbfb49493434', '#b8b8bbbb2626', '#fafabdbd2f2f', '#8383a5a59898', '#d3d386869b9b', '#8e8ec0c07c7c', '#ebebdbdbb2b2']
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
 visible-name='Gruvbox Dark'
 
 [org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 background-color='rgb(46,52,54)'
 foreground-color='rgb(211,215,207)'
 use-theme-colors=false
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.091911111111111152, 0.12366933333333333, 0.14666666666666667, 1.0), (0.070044444444444465, 0.091285333333333329, 0.10666666666666666, 1.0), (0.070044444444444479, 0.091285333333333329, 0.10666666666666666, 1.0), (0.15686274509803921, 0.15686274509803921, 0.15686274509803921, 1.0)]
+selected-color=(true, 0.091911111111111152, 0.12366933333333333, 0.14666666666666667, 1.0)
 
 [org/gtk/settings/file-chooser]
 date-format='regular'
