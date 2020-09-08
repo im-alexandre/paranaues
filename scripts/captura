@@ -14,4 +14,7 @@ arquivo = f'imagens/{timestamp}.png'
 link = f"![imagem]({arquivo})\n---"
 os.system(f'gnome-screenshot -a -f {arquivo}')
 
-pyperclip.copy(link)
+if os.path.exists(arquivo):
+    pyperclip.copy(link)
+else:
+    pyperclip.copy("")
