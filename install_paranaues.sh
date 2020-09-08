@@ -8,6 +8,7 @@ cp ranger/* ~/.config/ranger/
 ln -f .bashrc $HOME/.bashrc
 ln -f .bash_aliases $HOME/.bash_aliases
 
+
 ln -f init.vim $HOME/.config/nvim/init.vim
 ln -f .profile $HOME/.profile
 ln -sf scripts $HOME/.bin
