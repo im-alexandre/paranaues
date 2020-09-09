@@ -17,4 +17,4 @@ os.system(f'gnome-screenshot -a -f {arquivo}')
 if os.path.exists(arquivo):
     pyperclip.copy(link)
 else:
-    pyperclip.copy("")
+    pyperclip.copy("  ")
