@@ -320,10 +320,10 @@ let g:ale_fix_on_save = 1
 
 "colorscheme
     colorscheme gruvbox
-    "let g:gruvbox_contrast_dark='hard'
-    "set background=dark
-    highlight Normal ctermbg=none
-    highlight NonText ctermbg=none
+    let g:gruvbox_contrast_dark='hard'
+    set background=dark
+    "highlight Normal ctermbg=none
+    "highlight NonText ctermbg=none
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
