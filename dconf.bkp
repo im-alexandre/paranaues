@@ -35,20 +35,9 @@ prompt-check='2020-08-29T17:02:15+00'
 [org/gnome/deja-dup/file]
 migrated=true
 
-[org/gnome/desktop/background]
-picture-options='spanned'
-picture-uri='file:///home/alexandre/Imagens/Pap%C3%A9is%20de%20parede/paris_panoramic_view-wallpaper-3840x1080.jpg'
-
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us+intl')]
 xkb-options=@as []
-
-[org/gnome/desktop/interface]
-cursor-theme='Yaru'
-enable-hot-corners=false
-gtk-im-module='gtk-im-context-simple'
-gtk-theme='Yaru-dark'
-show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-nautilus']
@@ -165,13 +154,6 @@ hinting='slight'
 enabled-extensions=['dash-to-panel@jderose9.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']
 had-bluetooth-devices-setup=true
-
-[org/gnome/shell/extensions/dash-to-dock]
-dash-max-icon-size=24
-dock-position='BOTTOM'
-extend-height=false
-multi-monitor=true
-preferred-monitor=1
 
 [org/gnome/shell/extensions/dash-to-panel]
 hotkeys-overlay-combo='TEMPORARILY'
