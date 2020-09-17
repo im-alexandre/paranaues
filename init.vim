@@ -234,7 +234,7 @@ let fancy_symbols_enabled = 1
 
 " Jedi-vim ------------------------------
     " Disable autocompletion (using deoplete instead)
-    let g:jedi#completions_enabled = 1
+    let g:jedi#completions_enabled = 0
     
     " All these mappings work only for python code:
     " Go to definition
