@@ -17,8 +17,12 @@
 #fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/.bin" ] ; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.fzf/bin" ] ; then
+    PATH="$HOME/.fzf/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -45,8 +49,6 @@ export PATH=$BIN:$PATH
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla
 export VIM_APP_DIR=/usr
-export ECLIM_HOME=/home/alexandre/.eclipse/eclipse/
-export PATH=$PATH:$ECLIM_HOME
 set -o vi
 export VISUAL=nvim
 export EDITOR="$VISUAL"
