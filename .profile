@@ -35,6 +35,10 @@ export JAVA_HOME
 export CLASSPATH
 export PATH
 
+if [[ -f ~/.proxy ]]; then
+    source ~/.proxy
+fi
+
 export LD_LIBRARY_PATH=/opt/instantclient_12_2:
 export BIN=/home/alexandre/.bin
 export PATH=$BIN:$PATH
