@@ -1,3 +1,8 @@
+let g:airline#extensions#clock#format = '%H:%M:%S'
+let g:airline#extensions#clock#updatetime = 1000
+set cursorline
+set background=dark
+let g:gruvbox_contrast_dark='hard'
 set modifiable
 let g:python3_host_prog = '/home/alexandre/.anaconda3/bin/python'
 let g:coc_disable_startup_warning = 1
@@ -19,6 +24,8 @@ endif
 
 
 call plug#begin("~/.config/nvim/plugged")
+
+    Plug 'enricobacis/vim-airline-clock'
     Plug 'tpope/vim-fugitive'
     Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
@@ -98,6 +105,7 @@ set shell=/bin/bash
     nnoremap <leader>rj :call RunJava()<CR>
 
 "settings
+    set hidden
     syntax on
     set nu
     set incsearch
@@ -234,7 +242,7 @@ let fancy_symbols_enabled = 1
 
 " Jedi-vim ------------------------------
     " Disable autocompletion (using deoplete instead)
-    let g:jedi#completions_enabled = 1
+    let g:jedi#completions_enabled = 0
     
     " All these mappings work only for python code:
     " Go to definition
@@ -320,8 +328,6 @@ let g:ale_fix_on_save = 1
 
 "colorscheme
     colorscheme gruvbox
-    let g:gruvbox_contrast_dark='hard'
-    set background=dark
     "highlight Normal ctermbg=none
     "highlight NonText ctermbg=none
 
