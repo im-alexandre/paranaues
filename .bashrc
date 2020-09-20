@@ -132,3 +132,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+neofetch

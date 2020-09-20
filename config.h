@@ -12,7 +12,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#b30b0b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -21,7 +21,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = 255;
 static const unsigned int gappx = 6;
 
 static const Rule rules[] = {
@@ -63,7 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *chrome[]  = { "google-chrome", NULL };
 static const char *spotify[]  = { "spotify", NULL };
-static const char *ranger[]  = { "gnome-terminal -e ranger", NULL };
+static const char *ranger[]  = { "gnome-terminal", "-e", "ranger", NULL };
 /* Add somewhere in your constants definition section */
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "alsa_output.pci-0000_00_1f.3.analog-stereo", "+5%",     NULL };
