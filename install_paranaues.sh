@@ -4,14 +4,14 @@
 [ ! -d $HOME/.bin ] && mkdir -p $HOME/.bin
 [ ! -d $HOME/.config/nvim/plugged/vim-snippets/snippets/ ] && mkdir -p $HOME/.config/nvim/plugged/vim-snippets/snippets/
 
-cp ranger/* ~/.config/ranger/
-ln -f .bashrc $HOME/.bashrc
-ln -f .bash_aliases $HOME/.bash_aliases
+cp -r ranger ~/.config/ranger
+ln -f ~/paranaues/.bashrc $HOME/.bashrc
+ln -f ~/paranaues/.bash_aliases $HOME/.bash_aliases
 
 
-ln -f init.vim $HOME/.config/nvim/init.vim
-ln -f .profile $HOME/.profile
-ln -sf scripts $HOME/.bin
+ln -f ~/paranaues/init.vim $HOME/.config/nvim/init.vim
+ln -f ~/paranaues/.profile $HOME/.profile
+ln -sf ~/paranaues/scripts $HOME/.bin
 
 for snippet in `ls *.snippets` ; do
     ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
