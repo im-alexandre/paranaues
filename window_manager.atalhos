@@ -1,8 +1,0 @@
-[/]
-maximize=['<Super>k']
-minimize=@as []
-move-to-monitor-left=['<Shift><Super>h']
-move-to-monitor-right=['<Shift><Super>l']
-move-to-workspace-down=['<Shift><Super>j']
-move-to-workspace-up=['<Shift><Super>k']
-unmaximize=['<Super>j']

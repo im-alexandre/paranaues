@@ -13,8 +13,8 @@ ln -f ~/paranaues/init.vim $HOME/.config/nvim/init.vim
 ln -f ~/paranaues/.profile $HOME/.profile
 ln -sf ~/paranaues/scripts $HOME/.bin
 
-for snippet in `ls *.snippets` ; do
-    ln -f $snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
+for snippet in `ls snippets/` ; do
+    ln -sf $HOME/paranaues/snippets/$snippet $HOME/.config/nvim/plugged/vim-snippets/snippets/
     echo $snippet
 done
 

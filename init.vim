@@ -32,7 +32,7 @@ call plug#begin("~/.config/nvim/plugged")
     " Distraction free writing by removing UI elements and centering everything.
     Plug 'junegunn/goyo.vim'
     Plug 'plasticboy/vim-markdown'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}    
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    
     Plug 'vimwiki/vimwiki'
     Plug 'goerz/jupytext.vim'
     Plug 'junegunn/vim-emoji'
