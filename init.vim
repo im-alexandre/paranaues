@@ -105,6 +105,7 @@ set shell=/bin/bash
     nnoremap <leader>rj :call RunJava()<CR>
 
 "settings
+    set splitbelow splitright
     set hidden
     syntax on
     set nu
