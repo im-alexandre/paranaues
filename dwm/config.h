@@ -76,7 +76,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *chrome[]  = { "google-chrome", NULL };
 static const char *spotify[]  = { "spotify", NULL };
-static const char *ranger[]  = { "gnome-termijal", "-e", "ranger", NULL };
+static const char *ranger[]  = { "gnome-terminal", "-e", "ranger", NULL };
+static const char *neovim[]  = { "gnome-terminal", "-e", "nvim", NULL };
 /* Add somewhere in your constants definition section */
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "alsa_output.pci-0000_00_1f.3.analog-stereo", "+5%",     NULL };
@@ -97,9 +98,10 @@ static Key keys[] = {
 	{ 0,				XF86XK_AudioPrev,      spawn,          {.v = previoussong   } },
 	{ 0,				XF86XK_AudioNext,      spawn,          {.v = nextsong   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_g,      spawn,          {.v = chrome } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = spotify } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = ranger } },
+	{ Mod4Mask,                     XK_w,      spawn,          {.v = chrome } },
+	{ Mod4Mask,                     XK_s,      spawn,          {.v = spotify } },
+	{ Mod4Mask,                     XK_r,      spawn,          {.v = ranger } },
+	{ Mod4Mask,                     XK_v,      spawn,          {.v = neovim } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
