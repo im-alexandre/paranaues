@@ -1,2 +1,6 @@
 scripts/nohup.out
 scripts/workbench.xmi
+dwm/drw.o
+dwm/dwm
+dwm/dwm.o
+dwm/util.o
