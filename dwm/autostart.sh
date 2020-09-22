@@ -1,0 +1,1 @@
+/home/alexandre/paranaues/scripts/autostart.sh
