@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 [ ! -d $HOME/.config/nvim/ ] && mkdir -p $HOME/.config/nvim/
 [ ! -d $HOME/.config/coc/ ] && mkdir -p $HOME/.config/coc/
-[ ! -d $HOME/.bin ] && mkdir -p $HOME/.bin
 [ ! -d $HOME/.config/nvim/plugged/vim-snippets/snippets/ ] && mkdir -p $HOME/.config/nvim/plugged/vim-snippets/snippets/
 
 cp -r ranger ~/.config/ranger

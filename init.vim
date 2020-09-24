@@ -24,18 +24,15 @@ endif
 
 
 call plug#begin("~/.config/nvim/plugged")
-
     Plug 'enricobacis/vim-airline-clock'
     Plug 'tpope/vim-fugitive'
     Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
     " Distraction free writing by removing UI elements and centering everything.
-    Plug 'junegunn/goyo.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    
     Plug 'vimwiki/vimwiki'
     Plug 'goerz/jupytext.vim'
-    Plug 'junegunn/vim-emoji'
     Plug 'scrooloose/nerdtree'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
@@ -67,10 +64,6 @@ call plug#begin("~/.config/nvim/plugged")
     " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    " Pending tasks list
-    Plug 'fisadev/FixedTaskList.vim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
     " Just to add the python go-to-definition and similar features, autocompletion
     " from this plugin is disabled
     Plug 'davidhalter/jedi-vim'
@@ -329,6 +322,7 @@ let g:ale_fix_on_save = 1
 
 "colorscheme
     colorscheme gruvbox
+    "colorscheme dracula
     highlight Normal ctermbg=none
     highlight NonText ctermbg=none
 

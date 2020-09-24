@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ -z $1 ]]; then
+if [[ -z $@ ]]; then
     /usr/local/bin/nvim -c :Files
 else
     /usr/local/bin/nvim $@
