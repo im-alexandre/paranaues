@@ -78,6 +78,7 @@ static const char *chrome[]  = { "google-chrome", NULL };
 static const char *spotify[]  = { "spotify", NULL };
 static const char *ranger[]  = { "alacritty", "-e", "ranger", NULL };
 static const char *neovim[]  = { "alacritty", "-e", "nvim", NULL };
+static const char *lock[]  = { "lock", NULL };
 /* Add somewhere in your constants definition section */
 
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "alsa_output.pci-0000_00_1f.3.analog-stereo", "+5%",     NULL };
@@ -98,6 +99,7 @@ static Key keys[] = {
 	{ 0,				XF86XK_AudioPrev,      spawn,          {.v = previoussong   } },
 	{ 0,				XF86XK_AudioNext,      spawn,          {.v = nextsong   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ Mod4Mask,                     XK_l,      spawn,          {.v = lock } },
 	{ Mod4Mask,                     XK_w,      spawn,          {.v = chrome } },
 	{ Mod4Mask,                     XK_s,      spawn,          {.v = spotify } },
 	{ Mod4Mask,                     XK_r,      spawn,          {.v = ranger } },
