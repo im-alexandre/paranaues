@@ -26,16 +26,16 @@ rm -rf Modelos/
 
 mkdir Arquivos/Documentos/ Arquivos/Downloads/ Arquivos/Imagens Arquivos/Músicas/ Arquivos/Público/ Arquivos/Desenvolvimento/ Arquivos/cursos Arquivos/Vídeos/ Arquivos/Desktop
 
-ln -sf /mnt/arquivos/ Arquivos
-ln -sf Arquivos/Documentos/
-ln -sf Arquivos/Downloads/
-ln -sf Arquivos/Imagens/ Imagens
-ln -sf Arquivos/Músicas/
-ln -sf Arquivos/Público/
-ln -sf Arquivos/Desenvolvimento/ 
-ln -sf Arquivos/cursos Cursos
-ln -sf Arquivos/Vídeos/
-ln -sf Arquivos/Desktop
+ln -sf /mnt/arquivos/ ~/Arquivos
+ln -sf Arquivos/Documentos/ ~/Documentos
+ln -sf Arquivos/Downloads/ ~/Downloads
+ln -sf Arquivos/Imagens/ ~/Imagens
+ln -sf Arquivos/Músicas/ ~/Músicas
+ln -sf Arquivos/Público/ ~/Publico
+ln -sf Arquivos/Desenvolvimento/ ~/Desenvolvimento
+ln -sf Arquivos/cursos ~/Cursos
+ln -sf Arquivos/Vídeos/ ~/Videos
+ln -sf Arquivos/Desktop ~/desktop
 #Montagem do hdd na fstab
 export UUID="61f9a563-72bb-4b36-b88f-499a92f377b2"
 echo "UUID=$UUID /mnt/arquivos ext4 defaults 0  2" | sudo tee -a /etc/fstab
@@ -45,26 +45,20 @@ sudo apt install -y samba; \
 sudo smbpasswd -a $(whoami)
 
 # sudo vim /usr/share/X11/xkb/symbols/br
-sudo sed "s/modifier_map Mod3   { Scroll_Lock };/# modifier_map Mod3   { Scroll_Lock };/g" /usr/share/X11/xkb/symbols/br
+sudo sed -i "s/modifier_map Mod3   { Scroll_Lock };/# modifier_map Mod3   { Scroll_Lock };/g" /usr/share/X11/xkb/symbols/br
 
 dconf load / < dconf.bkp
 
 #instalanção de pacotes
 sudo apt install -y \
-alacritty \
-dmenu \
-compton \
 neofetch \
-cargo \
 tree \
 cmake \
 clang \
-nitrogen \
 dconf-editor \
 wget \
 curl \
 git \
-vim vim-gtk3 \
 xclip \
 linux-tools-$(uname -r) \
 sqlite3 \
@@ -76,20 +70,18 @@ build-essential \
 libcurl4-openssl-dev \
 libsqlite3-dev \
 libnotify-dev \
-blueman \
 pkg-config \
 software-properties-common \
 vlc \
 libaio1 openvpn network-manager-openvpn \
-sqlite3 sqlitebrowser \
-gimp kdenlive\
+gimp kdenlive \
 libcanberra-gtk-module \
 dconf-cli \
 network-manager-openvpn \
 network-manager-openvpn-gnome \
-libgtk-3-dev python3-pip exuberant-ctags ack-grep neovim i3lock libpq-dev \
-ranger npm \
-fzf libpq-dev libgtk3-dev \
+python3-pip exuberant-ctags ack-grep neovim i3lock libpq-dev \
+npm \
+fzf libpq-dev \
 apt-file \
 libsqlite3-dev libcurl4-openssl-dev \
 libxext-dev;
@@ -106,11 +98,12 @@ sudo apt install libx11-dev
 sudo apt install libxft-dev
 sudo apt install libxinerama-dev
 
+cd ~/paranaues
 git config --global user.email "im.alexandre07@gmail.com"
 git config --global user.name "Alexandre Castro"
 
 sudo snap install --classic heroku
-sudo pip3 install pynvim flake8 pylint isort jedi ueberzug
+sudo pip3 install pynvim flake8 pylint isort jedi ueberzug yapf
 
 
 nvim -c ":CocInstall coc-python" 1>&2 > /dev/null &
@@ -161,12 +154,12 @@ sudo /etc/init.d/samba-ad-dc restart
 
 # instalar os pacotes baixados
 sudo apt install /mnt/arquivos/utilidades/instala_so/programas/epson-inkjet-printer-escpr_1.6.40-1lsb3.2_amd64.deb \
-sudo cp /mnt/arquivos/utilidades/instala_so/instantclient-basic-linux.x64-12.2.0.1.0.zip /opt; \
+sudo cp ~/Downloads/instantclient-basic-linux.x64-12.2.0.1.0.zip /opt; \
 cd /opt; \
 sudo unzip instantclient-basic-linux.x64-12.2.0.1.0.zip; \
 cd /opt/instantclient_12_2; \
 sudo ln -sf libclntsh.so.12.1 libclntsh.so; \
-sudo cp libclntsh.so libclntsh.so.1; \
+sudo cp libclntsh.so libclntsh.so.1
 sudo apt update -y && sudo apt upgrade -y
 
-pip install install pynvim flake8 pylint isort jedi
+pip install install pynvim flake8 pylint isort jedi yapf ranger-fm
