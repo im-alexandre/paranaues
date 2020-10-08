@@ -8,6 +8,8 @@ let g:python3_host_prog = '/home/alexandre/.anaconda3/bin/python'
 let g:coc_disable_startup_warning = 1
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
+let g:vimtex_fold_enabled = 1
+let g:tex_flavor = 'latex'
 
 if !filereadable(vim_plug_path)
     echo "Installing Vim-plug..."
@@ -24,6 +26,7 @@ endif
 
 
 call plug#begin("~/.config/nvim/plugged")
+    Plug 'lervag/vimtex'
     Plug 'enricobacis/vim-airline-clock'
     Plug 'tpope/vim-fugitive'
     Plug 'ryanoasis/vim-devicons'
@@ -95,7 +98,7 @@ set shell=/bin/bash
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
     nnoremap <leader>cj :CocCommand java.workspace.compile<CR>
-    nnoremap <leader>rj :call RunJava()<CR>
+    nnoremap <leader>cx :call CompilaLatex()<CR>
 
 "settings
     set splitbelow splitright
@@ -204,9 +207,11 @@ let fancy_symbols_enabled = 1
         :pu
     endfunction
 
-    function! RunJava()
-        :!java -cp bin %:t:r
+    function! CompilaLatex()
+        :silent :w
+        :!latexmk -pdf %
     endfunction
+
 
 " Tasklist ------------------------------
     " show pending tasks list

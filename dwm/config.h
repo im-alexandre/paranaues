@@ -73,11 +73,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *chrome[]  = { "google-chrome", NULL };
 static const char *spotify[]  = { "spotify", NULL };
-static const char *ranger[]  = { "alacritty", "-e", "ranger", NULL };
-static const char *neovim[]  = { "alacritty", "-e", "nvim", NULL };
+static const char *ranger[]  = { "gnome-terminal", "-e", "ranger", NULL };
+static const char *neovim[]  = { "gnome-terminal", "-e", "nvim", NULL };
 static const char *lock[]  = { "lock", NULL };
 /* Add somewhere in your constants definition section */
 
