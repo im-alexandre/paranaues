@@ -23,4 +23,4 @@ if [[ $1 = "performance" ]]; then
     sudo prime-select nvidia;
 fi
 
-sudo service lightdm restart
+sudo reboot
