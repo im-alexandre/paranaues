@@ -2,7 +2,7 @@
 
 cd $HOME
 # Verificar o UUID do disco com blkid
-
+UUID="23d6976e-6d0d-4c97-babc-c14bad030f37"
 sudo umount -L arquivos
 sudo mkdir /mnt/arquivos
 sudo mount -L arquivos /mnt/arquivos
@@ -37,8 +37,8 @@ ln -sf Arquivos/cursos ~/Cursos
 ln -sf Arquivos/Vídeos/ ~/Videos
 ln -sf Arquivos/Desktop ~/desktop
 #Montagem do hdd na fstab
-export UUID="61f9a563-72bb-4b36-b88f-499a92f377b2"
-echo "UUID=$UUID /mnt/arquivos ext4 defaults 0  2" | sudo tee -a /etc/fstab
+export UUID="60B24209B241E45E"
+echo "UUID=$UUID /mnt/arquivos ntfs defaults 0  2" | sudo tee -a /etc/fstab
 
 #instalações que exigem interação
 sudo apt install -y samba; \
@@ -106,17 +106,7 @@ sudo snap install --classic heroku
 sudo pip3 install pynvim flake8 pylint isort jedi ueberzug yapf
 
 
-nvim -c ":CocInstall coc-python" 1>&2 > /dev/null &
-
-#Pacotes que exigem repositório
-#Driver nvidia
-sudo apt-add-repository ppa:graphics-drivers/ppa -y && \
-sudo apt update -y && sudo apt upgrade -y
-#Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - && \
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list && \
-sudo apt update -y && sudo apt upgrade -y && \
-sudo apt install -y spotify-client
+nvim -c ":CocInstall coc-python | :q" 1>&2 > /dev/null &
 
 #Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \

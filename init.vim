@@ -328,8 +328,8 @@ let g:ale_lint_on_save = 1
 "colorscheme
     colorscheme gruvbox
     "colorscheme dracula
-    highlight Normal ctermbg=none
-    highlight NonText ctermbg=none
+    "highlight Normal ctermbg=none
+    "highlight NonText ctermbg=none
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
