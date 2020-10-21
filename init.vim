@@ -33,7 +33,7 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'mileszs/ack.vim'
     " Distraction free writing by removing UI elements and centering everything.
     Plug 'plasticboy/vim-markdown'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }    
     Plug 'vimwiki/vimwiki'
     Plug 'goerz/jupytext.vim'
     Plug 'scrooloose/nerdtree'
