@@ -1,0 +1,54 @@
+Por precaução, é recomendado ter algum tipo de arquivo de reparação do Windows, e conhecimentos relevantes em informática!
+
+
+Antes de tudo baixe um dos dois arquivos (são dois links, mas o conteúdo é o mesmo):
+OPÇÃO 1 -http://www.mediafire.com/file/h9m9oo4vx0a3wgy/WindowsBoot.tar.gz/file
+OPÇÃO 2 -https://drive.google.com/file/d/1LB8XaP1Y4yfNmcczPnp8ukI9S3hNgvhz/view?usp=sharing
+
+E certifique-se que ele está no seu Downloads do usuário comum
+
+
+
+1 Passo) No Linux, abra o terminal como usuário comum, execute esses comandos, linha por linha, e digitando Enter entre cada um
+(digite a senha caso o terminal solicite): 
+
+sudo echo "$HOME" > /tmp/home.txt
+
+(Digite a senha)
+
+sudo -s
+(Normalmente ele salva pro próximo comando, mas caso ainda pergunte, digite a senha)
+
+export HOMEOLD=$(cat /tmp/home.txt)
+
+cp $HOMEOLD/Downloads/WindowsBoot.tar.gz /boot/efi/EFI
+
+cd /boot/efi/EFI
+
+tar -xzf WindowsBoot.tar.gz
+
+rm WindowsBoot.tar.gz
+
+
+
+(Espero que dê certo, provavelmente vai! Lembre-se de executar um comando atrás do outro, não copie tudo de uma vez)
+
+
+Desligue a máquina
+
+
+
+
+Caso queira manualmente:
+Dê um "sudo nemo ~" pra linux mint cinnamon, ou "sudo thunar ~" pra Xfce, ou "sudo caja ~" pra mate ou pro Gnome "sudo nautilus ~", ai você pode pegar o arquivo que eu deixei, e extraia lá no /boot/efi/EFI/
+Depois desligue a maquina
+
+
+
+
+(Caso seu Windows não inicie de primeira, e abra a tela de Recovery, siga os próximos passos)
+2 Passo) Ao iniciar o seu Windows, A tela de recovery aparecerá, entre no recovery(pelas teclas de atalho que a tela mostrará)
+3 Passo) Vai navegando entre as opções até achar o Prompt de comando
+4 Passo e ultimo passo) Digite "bootrec /rebuildbcd", tecle enter, e vai respondendo as questões, pode só sair apertando y caso não tenha hds externos conectados
+
+Depois é só fechar o prompt de comando e reiniciar
