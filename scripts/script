@@ -23,7 +23,7 @@ XDG_VIDEOS_DIR=\"$HOME/Vídeos\"
 
 #Cria link das pastas de usuário para o HD
 rm -rf ~/Downloads/ ~/Modelos/ ~/Imagens/ ~/Público/ ~/Vídeos/ ~/Documentos/ ~/Música/
-rm -rf Modelos/
+rm -rf Modelos/ 
 
 mkdir Arquivos/Documentos/ Arquivos/Downloads/ Arquivos/Imagens Arquivos/Músicas/ Arquivos/Público/ Arquivos/Desenvolvimento/ Arquivos/cursos Arquivos/Vídeos/ Arquivos/Desktop
 
@@ -36,7 +36,7 @@ ln -sf Arquivos/Público/ ~/Publico
 ln -sf Arquivos/Desenvolvimento/ ~/Desenvolvimento
 ln -sf Arquivos/cursos ~/Cursos
 ln -sf Arquivos/Vídeos/ ~/Videos
-ln -sf Arquivos/Desktop ~/desktop
+ln -sf Arquivos/Desktop ~/Desktop
 #Montagem do hdd na fstab
 export UUID="C04AE47C4AE47098"
 echo "UUID=$UUID /mnt/arquivos ntfs defaults 0  2" | sudo tee -a /etc/fstab
@@ -85,7 +85,8 @@ npm \
 fzf libpq-dev \
 apt-file \
 libsqlite3-dev libcurl4-openssl-dev \
-libxext-dev;
+libxext-dev \
+gnome-shell-extensions gnome-shell-extension-dash-to-panel;
 
 sudo snap install dmd --classic;
 
