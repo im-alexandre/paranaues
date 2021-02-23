@@ -4,7 +4,7 @@ set cursorline
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 set modifiable
-let g:python3_host_prog = '/home/alexandre/.anaconda3/bin/python'
+let g:python3_host_prog = '~/.anaconda3/bin/python'
 let g:coc_disable_startup_warning = 1
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
@@ -36,7 +36,6 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }    
     Plug 'vimwiki/vimwiki'
     Plug 'goerz/jupytext.vim'
-    Plug 'scrooloose/nerdtree'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
@@ -47,7 +46,6 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'scrooloose/nerdtree'
     Plug 'jeetsukumaran/vim-pythonsense'
     Plug 'mbbill/undotree'
-    Plug 'Townk/vim-autoclose'
     Plug 'sheerun/vim-polyglot'
     Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'dense-analysis/ale'
@@ -81,7 +79,6 @@ set shell=/bin/bash
 
 "mappings
     nnoremap <silent> // :noh<CR>
-    nnoremap <space> za
     nnoremap <C-J> <C-W><C-J>
     nnoremap <C-K> <C-W><C-K>
     nnoremap <C-L> <C-W><C-L>
@@ -313,7 +310,7 @@ endfunction
 
 
 let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
+      \   'python': ['flake8',],
       \   'javascript': ['eslint'],
       \}
 
