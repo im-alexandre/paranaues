@@ -52,3 +52,11 @@ Depois desligue a maquina
 4 Passo e ultimo passo) Digite "bootrec /rebuildbcd", tecle enter, e vai respondendo as questões, pode só sair apertando y caso não tenha hds externos conectados
 
 Depois é só fechar o prompt de comando e reiniciar
+
+diskpart
+list vol
+select vol (o volume que tiver 100M)
+Assign letter M
+M:
+cd EFI/Microsoft
+bcdboot D:\Windows /l en-us /s M: /f ALL

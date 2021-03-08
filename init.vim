@@ -26,6 +26,7 @@ endif
 
 
 call plug#begin("~/.config/nvim/plugged")
+    Plug 'stevearc/vim-arduino'
     Plug 'lervag/vimtex'
     Plug 'enricobacis/vim-airline-clock'
     Plug 'tpope/vim-fugitive'
@@ -94,23 +95,25 @@ set shell=/bin/bash
     let g:user_emmet_leader_key=' '
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
-    nnoremap <leader>cj :CocCommand java.workspace.compile<CR>
     nnoremap <leader>cx :call CompilaLatex()<CR>
 
 "settings
     set splitbelow splitright
     set hidden
     syntax on
+    set nohlsearch
+    set scrolloff=8
     set nu
     set incsearch
     set smartcase
-    set hlsearch
     set foldmethod=indent
     set foldlevel=99
     set encoding=utf-8
     set nobackup
     set undodir=/home/alexandre/.config/nvim/tmp/undodir
     set undofile
+    set signcolumn=yes
+    set termguicolors
     set noswapfile
     set nowrap
     set noerrorbells
@@ -373,4 +376,4 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=3 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-set mouse=a
+"set mouse=a

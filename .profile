@@ -43,7 +43,7 @@ if [[ -f ~/.proxy ]]; then
     source ~/.proxy
 fi
 
-export LD_LIBRARY_PATH=/opt/instantclient_12_2:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/instantclient_12_2:
 export BIN=/home/alexandre/.bin
 export PATH=$BIN:$PATH
 export GTK_IM_MODULE=cedilla
