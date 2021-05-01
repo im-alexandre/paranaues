@@ -133,3 +133,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 #neofetch
+#export PS1="~ \[\033[01;32m\]\W -> "
