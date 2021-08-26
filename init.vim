@@ -61,7 +61,7 @@ call plug#end()
     let g:snipMate = { 'snippet_version' : 1 }
     let mapleader=" "
     let g:user_emmet_leader_key=' '
-    let fancy_symbols_enabled=1
+    let fancy_symbols_enabled=0
     let g:vimwiki_key_mappings =
     \ {
     \   'all_maps': 1,

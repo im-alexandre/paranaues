@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-cd /opt/prom/;
-nohup /opt/prom/ProM610.sh &

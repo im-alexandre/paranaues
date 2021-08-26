@@ -1,1 +1,0 @@
-df -vhT | grep /dev/sdb6 | awk -F" " '{print $6}'

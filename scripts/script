@@ -48,7 +48,7 @@ sudo smbpasswd -a $(whoami)
 # sudo vim /usr/share/X11/xkb/symbols/br
 sudo sed -i "s/modifier_map Mod3   { Scroll_Lock };/# modifier_map Mod3   { Scroll_Lock };/g" /usr/share/X11/xkb/symbols/br
 
-dconf load / < dconf.bkp
+# dconf load / < dconf.bkp
 
 #instalanção de pacotes
 sudo apt install -y \
@@ -78,37 +78,38 @@ libaio1 openvpn network-manager-openvpn \
 gimp kdenlive \
 libcanberra-gtk-module \
 dconf-cli \
-network-manager-openvpn \
 network-manager-openvpn-gnome \
 python3-pip exuberant-ctags ack-grep neovim i3lock libpq-dev \
-npm \
-fzf libpq-dev \
+libpq-dev \
 apt-file \
 libsqlite3-dev libcurl4-openssl-dev \
 libxext-dev \
-gnome-shell-extensions gnome-shell-extension-dash-to-panel;
-
-sudo snap install dmd --classic;
-
-git clone https://github.com/abraunegg/onedrive && \
-cd onedrive && \
-./configure && \
-sudo make clean install;
+gnome-shell-extensions gnome-shell-extension-dash-to-panel\
+terminator;
 
 
-sudo apt install libx11-dev
-sudo apt install libxft-dev
-sudo apt install libxinerama-dev
+# para instalar o onedrive
+#sudo snap install dmd --classic;
+#cd ~;
+#git clone https://github.com/abraunegg/onedrive && \
+#cd onedrive && \
+#./configure && \
+#sudo make clean install;
+
+## Para instalar o dwm
+# sudo apt install libx11-dev
+#sudo apt install libxft-dev
+#sudo apt install libxinerama-dev
 
 cd ~/paranaues;
 git config --global user.email "im.alexandre07@gmail.com";
 git config --global user.name "Alexandre Castro";
 
-sudo snap install --classic heroku
+# sudo snap install --classic heroku
 sudo pip3 install pynvim flake8 pylint isort jedi ueberzug yapf
 
 
-nvim -c ":CocInstall coc-python | :q" 1>&2 > /dev/null &
+# nvim -c ":CocInstall coc-python | :q" 1>&2 > /dev/null &
 
 #Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
