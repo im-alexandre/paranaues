@@ -8,13 +8,13 @@ if !filereadable(vim_plug_path)
     let vim_plug_just_installed = 1
 endif
 
+
 " manually load vim-plug the first time
 if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
 call plug#begin("~/.config/nvim/plugged")
-    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-fugitive'
@@ -52,6 +52,7 @@ call plug#begin("~/.config/nvim/plugged")
 
     "colorscheme
     Plug 'gruvbox-community/gruvbox'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 
@@ -263,14 +264,16 @@ endfunction
     let g:ale_lint_on_save = 1
     let g:ale_fix_on_save = 1
 
+
+
 "colorscheme
     let g:gruvbox_contrast_dark='hard'
     colorscheme gruvbox
     "colorscheme dracula
     highlight Normal ctermbg=none
-    highlight NonText ctermbg=none
+    "highlight NonText ctermbg=none
 
-"indent-guide-lines
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
