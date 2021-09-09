@@ -14,6 +14,7 @@ if vim_plug_just_installed
 endif
 
 call plug#begin("~/.config/nvim/plugged")
+    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-fugitive'
@@ -52,6 +53,7 @@ call plug#begin("~/.config/nvim/plugged")
     "colorscheme
     Plug 'gruvbox-community/gruvbox'
 call plug#end()
+
 
 "lets
     let g:python3_host_prog = '~/.anaconda3/bin/python'
@@ -268,6 +270,7 @@ endfunction
     highlight Normal ctermbg=none
     highlight NonText ctermbg=none
 
+"indent-guide-lines
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
