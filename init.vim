@@ -64,7 +64,7 @@ call plug#end()
     let g:snipMate = { 'snippet_version' : 1 }
     let mapleader=" "
     let g:user_emmet_leader_key=' '
-    let fancy_symbols_enabled=0
+    let fancy_symbols_enabled=1
     let g:vimwiki_key_mappings =
     \ {
     \   'all_maps': 1,
@@ -273,6 +273,9 @@ endfunction
     highlight Normal ctermbg=none
     "highlight NonText ctermbg=none
 
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gs :G<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
