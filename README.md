@@ -5,3 +5,4 @@
 ```sh
 ranger fzf libpq-dev libgtk3-dev;
 ```
+ 
