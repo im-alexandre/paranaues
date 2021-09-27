@@ -1,5 +1,6 @@
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
+
 if !filereadable(vim_plug_path)
     echo "Installing Vim-plug..."
     echo ""
