@@ -91,7 +91,8 @@ call plug#end()
     nnoremap <Leader>- :resize -5<CR>
     map <silent> <leader>md :MarkdownPreview<CR>
     map <silent> <leader>cp :call Captura()<CR>
-    nmap <silent> gd :vsp<CR><Plug>(coc-definition)
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> GD :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
@@ -285,8 +286,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-nmap <silent> gr <Plug>(coc-references)
 
 let g:snips_author="Alexandre Castro"
 let g:snips_email="im.alexandre07@gmail.com"
