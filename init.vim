@@ -17,7 +17,10 @@ endif
 call plug#begin("~/.config/nvim/plugged")
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
+
     Plug 'tpope/vim-fugitive'
+    Plug 'stsewd/fzf-checkout.vim'
+
     Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
 
@@ -257,8 +260,9 @@ endfunction
           \}
 
     let g:ale_fixers = {
-          \    'python': ['yapf', 'autopep8', 'isort'],
-          \}
+                \    'python': ['yapf', 'autopep8', 'isort'],
+                \    'javascript': ['eslint']
+                \}
 
     nmap <F7> :ALEFix<CR>
     let g:ale_lint_on_save = 1
@@ -273,9 +277,12 @@ endfunction
     highlight Normal ctermbg=none
     "highlight NonText ctermbg=none
 
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
-nmap <leader>gs :G<CR>
+"Git - vim-fugitive + fzf-checkout
+    nmap <leader>gh :diffget //3<CR>
+    nmap <leader>gu :diffget //2<CR>
+    nmap <leader>gs :G<CR>
+    let $FZF_DEFAULT_OPTS='--reverse'
+    nnoremap <leader>gc :GCheckout<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
