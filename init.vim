@@ -1,5 +1,6 @@
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
+
 if !filereadable(vim_plug_path)
     echo "Installing Vim-plug..."
     echo ""
@@ -94,6 +95,7 @@ call plug#end()
     map <silent> <leader>md :MarkdownPreview<CR>
     map <silent> <leader>cp :call Captura()<CR>
     nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> GD :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
