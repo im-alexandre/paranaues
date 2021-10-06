@@ -95,7 +95,9 @@ call plug#end()
     map <silent> <leader>md :MarkdownPreview<CR>
     map <silent> <leader>cp :call Captura()<CR>
     nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> GD :vsp<CR><Plug>(coc-definition)
+    nmap <silent> gD :vsp<CR><Plug>(coc-definition)
+    nmap <silent> gr <Plug>(coc-references)
+
     nmap <leader>rn <Plug>(coc-rename)
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
