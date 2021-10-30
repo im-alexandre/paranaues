@@ -211,8 +211,9 @@ endfunction
 
 " Encontrar arquivos usando o Telescope
     nnoremap <leader>e <cmd>Telescope find_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>b <cmd>Telescope buffers<cr>
+    nnoremap <leader>fb <cmd>Telescope git_branches<cr>
+    nnoremap <leader>fg <cmd>Telescope git_commits<cr>
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
