@@ -66,6 +66,14 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
+let g:coc_global_extensions = ['coc-tsserver',
+                               'coc-python',
+                               'coc-phpls',
+                               'coc-lua',
+                               'coc-json',
+                               'coc-html',
+                               'coc-css']
+
 
 "lets
     let g:python3_host_prog = '~/.anaconda3/bin/python'
