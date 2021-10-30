@@ -108,8 +108,10 @@ call plug#end()
     nmap <silent> <leader>gD <Plug>(coc-definition)
     nmap <silent> <leader>gd :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
-    nmap <leader>gh :diffget //3<CR>
-    nmap <leader>gu :diffget //2<CR>
+
+    nmap <leader>gj :diffget //3<CR>
+    nmap <leader>gf :diffget //2<CR>
+
     nmap <leader>gs :G<CR>
     nmap <leader>gc :Git commit<CR>
 
@@ -311,4 +313,6 @@ let g:snips_github="https://www.github.com/im-alexandre"
 let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=3
+let g:mkdp_page_title = '${name}'
 set mouse=a
+
