@@ -1,3 +1,5 @@
+
+" instalação automática do Plug
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
 
@@ -24,6 +26,7 @@ call plug#begin("~/.config/nvim/plugged")
 
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }
     Plug 'vimwiki/vimwiki'
+
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
@@ -34,12 +37,15 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'scrooloose/nerdtree'
     Plug 'mbbill/undotree'
     Plug 'sheerun/vim-polyglot'
+
     "Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'dense-analysis/ale'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'vim-utils/vim-man'
+
     " Class/module browser
     Plug 'majutsushi/tagbar'
+
     "dockerfile
     Plug 'ekalinin/Dockerfile.vim'
     "Snippets
@@ -64,7 +70,6 @@ call plug#end()
     let g:tex_flavor = 'latex'
     let g:snipMate = { 'snippet_version' : 1 }
     let mapleader=" "
-    let g:user_emmet_leader_key=' '
     let fancy_symbols_enabled=1
     let g:vimwiki_key_mappings =
     \ {
@@ -85,24 +90,32 @@ call plug#end()
     nnoremap <C-K> <C-W><C-K>
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
+
     nnoremap <Leader>v+ :vertical resize +15<CR>
     nnoremap <Leader>v- :vertical resize -15<CR>
     nnoremap <Leader>+ :resize +5<CR>
     nnoremap <Leader>- :resize -5<CR>
+
     map <silent> <leader>md :MarkdownPreview<CR>
+
     map <silent> <leader>cp :call Captura()<CR>
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> GD :vsp<CR><Plug>(coc-definition)
+
+    nmap <silent> <leader>gD <Plug>(coc-definition)
+    nmap <silent> <leader>gd :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
+    nmap <leader>gh :diffget //3<CR>
+    nmap <leader>gu :diffget //2<CR>
+    nmap <leader>gs :G<CR>
+
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
     nnoremap <leader>cx :call CompilaLatex()<CR>
 
 "settings
+    set secure exrc
     set shell=/bin/bash
     set cursorline
-    set background=dark
     set modifiable
     set splitbelow splitright
     set hidden
@@ -115,10 +128,10 @@ call plug#end()
     set foldlevel=99
     set encoding=utf-8
     set nobackup
-    set undodir=/home/alexandre/.config/nvim/tmp/undodir
-    set undofile
-    set signcolumn=yes
     set noswapfile
+    set undofile
+    set undodir=~/.config/nvim/tmp/undodir
+    set signcolumn=yes
     set nowrap
     set noerrorbells
     set clipboard=unnamedplus
@@ -245,9 +258,6 @@ endfunction
         let g:airline_left_alt_sep = ''
         let g:airline_right_sep = ''
         let g:airline_right_alt_sep = ''
-        let g:airline_symbols.branch = '⭠'
-        let g:airline_symbols.readonly = '⭤'
-        let g:airline_symbols.linenr = '⭡'
     else
         let g:webdevicons_enable = 0
     endif
@@ -260,6 +270,7 @@ endfunction
 
     let g:ale_fixers = {
           \    'python': ['yapf', 'autopep8', 'isort'],
+          \    'php': ['phpcbf']
           \}
 
     nmap <F7> :ALEFix<CR>
@@ -271,13 +282,7 @@ endfunction
 "colorscheme
     let g:gruvbox_contrast_dark='hard'
     colorscheme gruvbox
-    "colorscheme dracula
     highlight Normal ctermbg=none
-    "highlight NonText ctermbg=none
-
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
-nmap <leader>gs :G<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

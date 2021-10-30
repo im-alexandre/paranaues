@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ -z $@ ]]; then
-    /usr/local/bin/nvim -c :Files
-else
-    /usr/local/bin/nvim $@
-fi
