@@ -20,16 +20,12 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'lervag/vimtex'
 
     Plug 'tpope/vim-fugitive'
-    Plug 'stsewd/fzf-checkout.vim'
 
     Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
 
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }
     Plug 'vimwiki/vimwiki'
-
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
 
     " Code commenter
     Plug 'scrooloose/nerdcommenter'
@@ -304,5 +300,4 @@ let g:snips_github="https://www.github.com/im-alexandre"
 let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let vim_markdown_preview_toggle=3
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 set mouse=a
