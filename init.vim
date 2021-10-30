@@ -16,13 +16,20 @@ if vim_plug_just_installed
 endif
 
 call plug#begin("~/.config/nvim/plugged")
+    Plug 'mileszs/ack.vim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    Plug 'burntsushi/ripgrep'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'sharkdp/fd'
+
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
 
     Plug 'tpope/vim-fugitive'
 
     Plug 'ryanoasis/vim-devicons'
-    Plug 'mileszs/ack.vim'
 
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }
     Plug 'vimwiki/vimwiki'
@@ -97,7 +104,7 @@ call plug#end()
 
     map <silent> <leader>cp :call Captura()<CR>
 
-"Git - vim-fugitive + fzf-checkout
+"Git - vim-fugitive 
     nmap <silent> <leader>gD <Plug>(coc-definition)
     nmap <silent> <leader>gd :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
@@ -112,7 +119,7 @@ call plug#end()
     nnoremap <leader>cx :call CompilaLatex()<CR>
 
 "settings
-    set secure exrc
+    "set secure exrc
     set shell=/bin/bash
     set cursorline
     set modifiable
@@ -202,15 +209,18 @@ function! CompilaLatex()
     :!latexmk -pdf %
 endfunction
 
+" Encontrar arquivos usando o Telescope
+    nnoremap <leader>e <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Fzf ------------------------------
-    " file finder mapping
-    nmap <leader>e :Files<CR>
+
 
 " Ack.vim ------------------------------
-    " mappings
-    nmap <leader>r :Ack
-    nmap <leader>wr :execute ":Ack " . expand('<cword>')<CR>
+" mappings
+nmap <leader>r :Ack
+nmap <leader>wr :execute ":Ack " . expand('<cword>')<CR>
 
 " Yankring -------------------------------
     let g:yankring_history_dir = '~/.config/nvim/tmp'
