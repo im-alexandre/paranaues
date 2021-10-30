@@ -1,4 +1,3 @@
-
 " instalação automática do Plug
 let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
@@ -11,7 +10,6 @@ if !filereadable(vim_plug_path)
     let vim_plug_just_installed = 1
 endif
 
-
 " manually load vim-plug the first time
 if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
@@ -20,7 +18,10 @@ endif
 call plug#begin("~/.config/nvim/plugged")
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
+
     Plug 'tpope/vim-fugitive'
+    Plug 'stsewd/fzf-checkout.vim'
+
     Plug 'ryanoasis/vim-devicons'
     Plug 'mileszs/ack.vim'
 
@@ -100,12 +101,14 @@ call plug#end()
 
     map <silent> <leader>cp :call Captura()<CR>
 
+"Git - vim-fugitive + fzf-checkout
     nmap <silent> <leader>gD <Plug>(coc-definition)
     nmap <silent> <leader>gd :vsp<CR><Plug>(coc-definition)
     nmap <leader>rn <Plug>(coc-rename)
     nmap <leader>gh :diffget //3<CR>
     nmap <leader>gu :diffget //2<CR>
     nmap <leader>gs :G<CR>
+    nmap <leader>gc :Git commit<CR>
 
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
@@ -270,7 +273,8 @@ endfunction
 
     let g:ale_fixers = {
           \    'python': ['yapf', 'autopep8', 'isort'],
-          \    'php': ['phpcbf']
+          \    'php': ['phpcbf'],
+          \    'javascript': ['eslint']
           \}
 
     nmap <F7> :ALEFix<CR>
@@ -283,6 +287,7 @@ endfunction
     let g:gruvbox_contrast_dark='hard'
     colorscheme gruvbox
     highlight Normal ctermbg=none
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
