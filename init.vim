@@ -316,3 +316,12 @@ let vim_markdown_preview_toggle=3
 let g:mkdp_page_title = '${name}'
 set mouse=a
 
+
+"Configurações do Telescope
+lua << EOF
+require('telescope').setup{
+defaults = {
+    prompt_prefix = "$ "
+    }
+}
+EOF
