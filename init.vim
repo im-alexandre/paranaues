@@ -16,9 +16,7 @@ if vim_plug_just_installed
 endif
 
 call plug#begin("~/.config/nvim/plugged")
-
     Plug 'mileszs/ack.vim'
-
 
     " Telescope e Harpoon
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
