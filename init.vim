@@ -67,12 +67,12 @@ call plug#begin("~/.config/nvim/plugged")
 call plug#end()
 
 let g:coc_global_extensions = ['coc-tsserver',
-                               'coc-python',
-                               'coc-phpls',
-                               'coc-lua',
-                               'coc-json',
-                               'coc-html',
-                               'coc-css']
+            \'coc-python',
+            \'coc-phpls',
+            \'coc-lua',
+            \'coc-json',
+            \'coc-html',
+            \'coc-css']
 
 
 "lets
