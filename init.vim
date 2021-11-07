@@ -17,12 +17,17 @@ endif
 
 call plug#begin("~/.config/nvim/plugged")
     Plug 'mileszs/ack.vim'
+
+    " Telescope e Harpoon
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'burntsushi/ripgrep'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
     Plug 'sharkdp/fd'
+    Plug 'fannheyward/telescope-coc.nvim'
+
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'ThePrimeagen/harpoon'
 
     Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
@@ -127,6 +132,14 @@ let g:coc_global_extensions = ['coc-tsserver',
     nnoremap <F8> :CocCommand python.execInTerminal<CR>
     vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
     nnoremap <leader>cx :call CompilaLatex()<CR>
+
+" Harpoon
+    nnoremap <leader>gt :lua require("harpoon.term").gotoTerminal(1)<CR>
+    nnoremap <leader>hp :lua require("harpoon.ui").toggle_quick_menu()<CR>
+    nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
+
+
+
 
 "settings
     "set secure exrc
@@ -333,4 +346,5 @@ defaults = {
     prompt_prefix = "$ "
     }
 }
+require('telescope').load_extension('coc')
 EOF
