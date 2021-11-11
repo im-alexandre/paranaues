@@ -195,6 +195,7 @@ let g:coc_global_extensions = ['coc-tsserver',
     let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
     let NERDTreeShowLineNumbers=1
     autocmd FileType nerdtree setlocal relativenumber
+    let g:NERDTreeWinSize=40
 
 " Enable folder icons
     let g:WebDevIconsUnicodeDecorateFolderNodes = 1
