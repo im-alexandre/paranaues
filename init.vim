@@ -16,7 +16,7 @@ if vim_plug_just_installed
 endif
 
 call plug#begin("~/.config/nvim/plugged")
-    Plug 'mileszs/ack.vim'
+    Plug 'lewis6991/gitsigns.nvim'
 
     " Telescope e Harpoon
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -348,4 +348,6 @@ defaults = {
     }
 }
 require('telescope').load_extension('coc')
+
+require('gitsigns').setup()
 EOF
