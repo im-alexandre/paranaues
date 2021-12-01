@@ -348,6 +348,4 @@ defaults = {
     }
 }
 require('telescope').load_extension('coc')
-
-require('gitsigns').setup()
 EOF
