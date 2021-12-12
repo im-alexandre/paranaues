@@ -30,6 +30,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
 #Variáveis JAVA
 JAVA_HOME=/opt/java
 JDK_HOME=/opt/java
@@ -39,9 +40,7 @@ export JAVA_HOME
 export CLASSPATH
 export PATH
 
-if [[ -f ~/.proxy ]]; then
-    source ~/.proxy
-fi
+[[ -f ~/.credenciais.sh ]] && source ~/.credenciais.sh
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/instantclient_12_2:
 export BIN=/home/alexandre/.bin

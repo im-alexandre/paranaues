@@ -16,7 +16,7 @@ if vim_plug_just_installed
 endif
 
 call plug#begin("~/.config/nvim/plugged")
-    Plug 'mileszs/ack.vim'
+    Plug 'lewis6991/gitsigns.nvim'
 
     " Telescope e Harpoon
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -195,6 +195,7 @@ let g:coc_global_extensions = ['coc-tsserver',
     let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
     let NERDTreeShowLineNumbers=1
     autocmd FileType nerdtree setlocal relativenumber
+    let g:NERDTreeWinSize=40
 
 " Enable folder icons
     let g:WebDevIconsUnicodeDecorateFolderNodes = 1
