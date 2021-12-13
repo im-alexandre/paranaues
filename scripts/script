@@ -84,8 +84,13 @@ libpq-dev \
 apt-file \
 libsqlite3-dev libcurl4-openssl-dev \
 libxext-dev \
-gnome-shell-extensions gnome-shell-extension-dash-to-panel\
+gnome-shell-extensions gnome-shell-extension-dash-to-panel \
 terminator;
+
+sudo apt-get install -y ninja-build \
+gettext libtool libtool-bin \
+autoconf automake cmake g++ \
+pkg-config unzip curl doxygen
 
 
 # para instalar o onedrive
