@@ -8,6 +8,7 @@ sudo umount -L arquivos
 sudo mkdir /mnt/arquivos
 sudo mount -L arquivos /mnt/arquivos
 
+
 mkdir $HOME/.Templates
 echo "
 XDG_DESKTOP_DIR=\"$HOME/Desktop\"
