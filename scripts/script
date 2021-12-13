@@ -23,24 +23,24 @@ XDG_VIDEOS_DIR=\"$HOME/Vídeos\"
 
 
 #Cria link das pastas de usuário para o HD
+
 rm -rf ~/Downloads/ ~/Modelos/ ~/Imagens/ ~/Público/ ~/Vídeos/ ~/Documentos/ ~/Música/
-rm -rf Modelos/ 
-
-mkdir Arquivos/Documentos/ Arquivos/Downloads/ Arquivos/Imagens Arquivos/Músicas/ Arquivos/Público/ Arquivos/Desenvolvimento/ Arquivos/cursos Arquivos/Vídeos/ Arquivos/Desktop
-
+rm -rf ~/Modelos/ 
 ln -sf /mnt/arquivos/ ~/Arquivos
+mkdir ~/Arquivos/Documentos/ ~/Arquivos/Downloads/ ~/Arquivos/Imagens ~/Arquivos/Músicas/ ~/Arquivos/Público/ ~/Arquivos/Desenvolvimento/ ~/Arquivos/cursos ~/Arquivos/Vídeos/ ~/Arquivos/Desktop
+
 ln -sf Arquivos/Documentos/ ~/Documentos
 ln -sf Arquivos/Downloads/ ~/Downloads
 ln -sf Arquivos/Imagens/ ~/Imagens
 ln -sf Arquivos/Músicas/ ~/Músicas
 ln -sf Arquivos/Público/ ~/Publico
 ln -sf Arquivos/Desenvolvimento/ ~/Desenvolvimento
-ln -sf Arquivos/cursos ~/Cursos
+ln -sf Arquivos/Cursos ~/Cursos
 ln -sf Arquivos/Vídeos/ ~/Videos
-ln -sf Arquivos/Desktop ~/Desktop
+#
 #Montagem do hdd na fstab
 export UUID="C04AE47C4AE47098"
-echo "UUID=$UUID /mnt/arquivos ntfs defaults 0  2" | sudo tee -a /etc/fstab
+echo "LABEL=arquivos /mnt/arquivos ntfs defaults 0  2" | sudo tee -a /etc/fstab
 
 #instalações que exigem interação
 sudo apt install -y samba; \
@@ -149,7 +149,7 @@ echo "
 sudo /etc/init.d/smbd restart;
 sudo /etc/init.d/samba-ad-dc restart
 
-~/Arquivos/utilidades/instala_so/programas/tearing_fix.sh
+#~/Arquivos/utilidades/instala_so/programas/tearing_fix.sh
 
 # instalar os pacotes baixados
 sudo apt install /mnt/arquivos/utilidades/instala_so/programas/epson-inkjet-printer-escpr_1.6.40-1lsb3.2_amd64.deb \
