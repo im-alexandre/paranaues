@@ -349,3 +349,5 @@ defaults = {
 }
 require('telescope').load_extension('coc')
 EOF
+
+:command! -nargs=1 GoTerm lua require('harpoon.term').gotoTerminal(<args>)
