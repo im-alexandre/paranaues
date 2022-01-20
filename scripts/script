@@ -33,7 +33,7 @@ ln -sf Arquivos/Documentos/ ~/Documentos
 ln -sf Arquivos/Downloads/ ~/Downloads
 ln -sf Arquivos/Imagens/ ~/Imagens
 ln -sf Arquivos/Músicas/ ~/Músicas
-ln -sf Arquivos/Público/ ~/Publico
+ln -sf Arquivos/Publico/ ~/Publico
 ln -sf Arquivos/Desenvolvimento/ ~/Desenvolvimento
 ln -sf Arquivos/Cursos ~/Cursos
 ln -sf Arquivos/Vídeos/ ~/Videos
