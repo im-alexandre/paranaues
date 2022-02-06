@@ -36,7 +36,7 @@ call plug#begin("~/.config/nvim/plugged")
 
     Plug 'ryanoasis/vim-devicons'
 
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh'  }
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh && yarn install'  }
     Plug 'vimwiki/vimwiki'
 
     " Code commenter
