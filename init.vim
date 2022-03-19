@@ -78,7 +78,7 @@ call plug#end()
 
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-luafile init.lua
+luafile vim_config.lua
 
 
 
