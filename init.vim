@@ -78,9 +78,7 @@ call plug#end()
 
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-luafile vim_config.lua
-
-
+luafile $HOME/.config/nvim/vim_config.lua
 
 "settings
     "set secure exrc
