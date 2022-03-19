@@ -71,73 +71,14 @@ call plug#begin("~/.config/nvim/plugged")
     Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver',
-            \'coc-python',
-            \'coc-phpls',
-            \'coc-lua',
-            \'coc-json',
-            \'coc-html',
-            \'coc-css']
-
-
 "lets
-    let g:python3_host_prog = '~/.anaconda3/bin/python'
-    let g:coc_disable_startup_warning = 1
-    let g:vimtex_fold_enabled = 1
-    let g:tex_flavor = 'latex'
-    let g:snipMate = { 'snippet_version' : 1 }
-    let mapleader=" "
-    let fancy_symbols_enabled=1
-    let g:vimwiki_key_mappings =
-    \ {
-    \   'all_maps': 1,
-    \   'global': 1,
-    \   'headers': 1,
-    \   'text_objs': 1,
-    \   'table_format': 1,
-    \   'table_mappings': 0,
-    \   'lists': 0,
-    \   'links': 0,
-    \   'html': 1,
-    \   'mouse': 0,
-    \ }
 
-"mappings
-    nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
-    nnoremap <C-L> <C-W><C-L>
-    nnoremap <C-H> <C-W><C-H>
-
-    nnoremap <Leader>v+ :vertical resize +15<CR>
-    nnoremap <Leader>v- :vertical resize -15<CR>
-    nnoremap <Leader>+ :resize +5<CR>
-    nnoremap <Leader>- :resize -5<CR>
-
-    map <silent> <leader>md :MarkdownPreview<CR>
-
-    map <silent> <leader>cp :call Captura()<CR>
 
 "Git - vim-fugitive 
-    nmap <silent> <leader>gD <Plug>(coc-definition)
-    nmap <silent> <leader>gd :vsp<CR><Plug>(coc-definition)
-    nmap <leader>rn <Plug>(coc-rename)
-
-    nmap <leader>gj :diffget //3<CR>
-    nmap <leader>gf :diffget //2<CR>
-
-    nmap <leader>gs :G<CR>
-    nmap <leader>gc :Git commit<CR>
 
     nnoremap <silent> K :call <SID>show_documentation()<CR>
-    nnoremap <F8> :CocCommand python.execInTerminal<CR>
-    vnoremap <F9> :CocCommand python.execSelectionInTerminal<CR>
-    nnoremap <leader>cx :call CompilaLatex()<CR>
 
-" Harpoon
-    nnoremap <leader>gt :lua require("harpoon.term").gotoTerminal(1)<CR>
-    nnoremap <leader>hp :lua require("harpoon.ui").toggle_quick_menu()<CR>
-    nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
-
+luafile init.lua
 
 
 

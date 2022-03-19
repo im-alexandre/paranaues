@@ -95,10 +95,10 @@ function vmap(shortcut, command)
   map('v', shortcut, command)
 end
 
-nmap("n", "<C-J>", "<C-W><C-J>")
-nmap("n", "<C-K>", "<C-W><C-K>")
-nmap("n", "<C-L>", "<C-W><C-L>")
-nmap("n", "<C-H>", "<C-W><C-H>")
+nmap("<C-J>", "<C-W><C-J>")
+nmap("<C-K>", "<C-W><C-K>")
+nmap("<C-L>", "<C-W><C-L>")
+nmap("<C-H>", "<C-W><C-H>")
 
 nmap("<Leader>v+", ":vertical resize +15<CR>")
 nmap("<Leader>v-", ":vertical resize -15<CR>")
