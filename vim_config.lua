@@ -1,8 +1,8 @@
-local local_vim = vim.fn.expand('~/nvim_teste/autoload/plug.vim')
+local local_vim = vim.fn.expand('~/.config/nvim/autoload/plug.vim')
 local just_installed = 0
 
 local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/nvim_teste/plugged')
+vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'lewis6991/gitsigns.nvim'
 
@@ -122,6 +122,8 @@ nmap("K", ":call <SID>show_documentation()<CR>")
 nmap("<F8>", ":CocCommand python.execInTerminal<CR>")
 vmap("<F9>", ":CocCommand python.execSelectionInTerminal<CR>")
 nmap("<leader>cx", ":call CompilaLatex()<CR>")
+
+nmap("<leader>md", ":MarkdownPreview<CR>")
 
 -- Harpoon
 --nmap('nnoremap <leader>gt', require("harpoon.term").gotoTerminal(1))
