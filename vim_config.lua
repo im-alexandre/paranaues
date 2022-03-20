@@ -1,10 +1,9 @@
-local local_vim = vim.fn.expand('~/.config/nvim/autoload/plug.vim')
-local just_installed = 0
-
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'lewis6991/gitsigns.nvim'
+    Plug 'jiangmiao/auto-pairs'
+
 
     -- Telescope e Harpoon
     Plug ('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})  -- We recommend updating the parsers on update
@@ -12,12 +11,10 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'sharkdp/fd'
-    Plug 'fannheyward/telescope-coc.nvim'
 
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'ThePrimeagen/harpoon'
 
-    Plug 'jiangmiao/auto-pairs'
     Plug 'lervag/vimtex'
 
     Plug 'tpope/vim-fugitive'
@@ -61,7 +58,6 @@ vim.call('plug#end')
 
 vim.g['python3_host_prog'] = '~/.anaconda3/bin/python'
 
-vim.g['coc_disable_startup_warning'] = 1
 vim.g['vimtex_fold_enabled'] = 1
 vim.g['tex_flavor'] = 'latex'
 vim.g['snipMate'] = { ['snippet_version'] = 1 }
@@ -118,14 +114,17 @@ nmap("<leader>gf", ":diffget //2<CR>")
 nmap("<leader>gs", ":G<CR>")
 nmap("<leader>gc", ":Git commit<CR>")
 
-nmap("K", ":call <SID>show_documentation()<CR>")
-nmap("<F8>", ":CocCommand python.execInTerminal<CR>")
-vmap("<F9>", ":CocCommand python.execSelectionInTerminal<CR>")
 nmap("<leader>cx", ":call CompilaLatex()<CR>")
 
 nmap("<leader>md", ":MarkdownPreview<CR>")
 
+require('telescope').setup{
+defaults = {
+    prompt_prefix = "$ "
+    }
+}
+
 -- Harpoon
---nmap('nnoremap <leader>gt', require("harpoon.term").gotoTerminal(1))
---nnoremap <leader>hp :lua require("harpoon.ui").toggle_quick_menu()<CR>
---nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
+nmap('<leader>gt', 'require("harpoon.term").gotoTerminal(1)')
+nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+nmap('<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')

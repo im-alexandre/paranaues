@@ -1,5 +1,5 @@
 " instalação automática do Plug
-let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
+let g:vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
 
 if !filereadable(vim_plug_path)
@@ -15,70 +15,7 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
-call plug#begin("~/.config/nvim/plugged")
-    Plug 'lewis6991/gitsigns.nvim'
-
-    " Telescope e Harpoon
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-    Plug 'burntsushi/ripgrep'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'sharkdp/fd'
-    Plug 'fannheyward/telescope-coc.nvim'
-
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'ThePrimeagen/harpoon'
-
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'lervag/vimtex'
-
-    Plug 'tpope/vim-fugitive'
-
-    Plug 'ryanoasis/vim-devicons'
-
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh && yarn install'  }
-    Plug 'vimwiki/vimwiki'
-
-    " Code commenter
-    Plug 'scrooloose/nerdcommenter'
-
-    " Better file browser
-    Plug 'scrooloose/nerdtree'
-    Plug 'mbbill/undotree'
-    Plug 'sheerun/vim-polyglot'
-
-    "Plug 'Vimjas/vim-python-pep8-indent'
-    Plug 'dense-analysis/ale'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'vim-utils/vim-man'
-
-    " Class/module browser
-    Plug 'majutsushi/tagbar'
-
-    "dockerfile
-    Plug 'ekalinin/Dockerfile.vim'
-    "Snippets
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'honza/vim-snippets'
-    Plug 'garbas/vim-snipmate'
-    " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-    "colorscheme
-    Plug 'gruvbox-community/gruvbox'
-    Plug 'lukas-reineke/indent-blankline.nvim'
-call plug#end()
-
-"lets
-
-
-"Git - vim-fugitive 
-
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-luafile $HOME/.config/nvim/vim_config.lua
+source vim_config.lua
 
 "settings
     "set secure exrc
@@ -104,9 +41,7 @@ luafile $HOME/.config/nvim/vim_config.lua
     set noerrorbells
     set clipboard=unnamedplus
     set relativenumber
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
+    set tabstop=4 softtabstop=4 shiftwidth=4
     set expandtab
     set autoindent
     set fileformat=unix
@@ -182,11 +117,6 @@ endfunction
 
 
 
-" Ack.vim ------------------------------
-" mappings
-nmap <leader>r :Ack
-nmap <leader>wr :execute ":Ack " . expand('<cword>')<CR>
-
 " Yankring -------------------------------
     let g:yankring_history_dir = '~/.config/nvim/tmp'
     let g:yankring_clipboard_monitor = 0
@@ -260,14 +190,6 @@ nmap <leader>wr :execute ":Ack " . expand('<cword>')<CR>
     highlight Normal ctermbg=none
 
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 let g:snips_author="Alexandre Castro"
 let g:snips_email="im.alexandre07@gmail.com"
 let g:snips_github="https://www.github.com/im-alexandre"
@@ -281,12 +203,6 @@ set mouse=a
 
 "Configurações do Telescope
 lua << EOF
-require('telescope').setup{
-defaults = {
-    prompt_prefix = "$ "
-    }
-}
-require('telescope').load_extension('coc')
 EOF
 
 :command! -nargs=1 GoTerm lua require('harpoon.term').gotoTerminal(<args>)
