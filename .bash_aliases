@@ -7,3 +7,4 @@ alias "cx=clear"
 
 # Alias para o neovim
 alias "v=nvim"
+alias "python=python3"
