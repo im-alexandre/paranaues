@@ -1,7 +1,7 @@
 local Plug = vim.fn['plug#']
 local plug_install = vim.g['vim_plugin_install']
 vim.call('plug#begin', plug_install)
-    Plug 'tpope/vim-sensible'
+    --Plug 'tpope/vim-sensible'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'jiangmiao/auto-pairs'
 
@@ -16,7 +16,13 @@ vim.call('plug#begin', plug_install)
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'ThePrimeagen/harpoon'
 
-    Plug 'lervag/vimtex'
+    --Plug 'lervag/vimtex'
+    
+    --LSP autocomplete
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
 
     Plug 'tpope/vim-fugitive'
 
@@ -41,12 +47,16 @@ vim.call('plug#begin', plug_install)
     Plug 'majutsushi/tagbar'
 
     --"dockerfile
-    Plug 'ekalinin/Dockerfile.vim'
+    --Plug 'ekalinin/Dockerfile.vim'
+    --
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    
     --"Snippets
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'honza/vim-snippets'
-    Plug 'garbas/vim-snipmate'
+    --Plug 'MarcWeber/vim-addon-mw-utils'
+    --Plug 'tomtom/tlib_vim'
+    --Plug 'honza/vim-snippets'
+    --Plug 'garbas/vim-snipmate'
     --" Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -57,6 +67,7 @@ vim.call('plug#begin', plug_install)
 
     -- LSP
     Plug 'neovim/nvim-lspconfig'
+
 vim.call('plug#end')
 
 
@@ -126,12 +137,4 @@ defaults = {
 nmap('<leader>gt', ':lua require("harpoon.term").gotoTerminal(1)<CR>')
 nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 nmap('<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
-
-require'lspconfig'.gopls.setup{
-    on_attach = function() 
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0})
-    end,
-}
-require'bashlsp_config'
-require'lsp_mappings'
-
+--vim.keymap.set("n", "<leader>gt", require("harpoon.term").gotoTerminal)

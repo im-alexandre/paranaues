@@ -1,4 +1,5 @@
 " instalação automática do Plug
+let g:vim_home = expand('$HOME/.config/nvim')
 let g:vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
 let g:vim_plugin_install = expand('$HOME/.config/nvim/plugged')
@@ -17,7 +18,9 @@ if vim_plug_just_installed
 endif
 
 lua require'plugins'
+lua require'completition'
 lua require'bashlsp_config'
+lua require'golsp_config'
 lua require'lsp_mappings'
 lua require'settings'
 
@@ -175,4 +178,9 @@ set mouse=a
 lua << EOF
 EOF
 
-:command! -nargs=1 GoTerm lua require('harpoon.term').gotoTerminal(<args>)
+:command! -nargs=1 GoTerm lua require'harpoon.term'.gotoTerminal(<args>)
+set completeopt=menu,menuone,noselect
+
+lua <<EOF
+  -- Setup nvim-cmp.
+EOF

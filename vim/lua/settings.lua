@@ -25,7 +25,7 @@ local settings = {
     { "swapfile", false },
     { "incsearch", true },
     { "undofile", true },
-    { "undodir", "~/.config/nvim/tmp/undodir" },
+    { "undodir", vim.g['vim_home'] .. '/tmp'},
     { "signcolumn", "yes" },
     { "wrap", false },
     { "errorbells", false },
@@ -37,6 +37,7 @@ local settings = {
     { "autoindent", true },
     { "fileformat", "unix" },
     { "colorcolumn", "80" },
+    { "completeopt", {'menu','menuone','noselect' }}
 }
 
 for _,value in ipairs(settings) do
