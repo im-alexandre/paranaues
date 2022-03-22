@@ -1,6 +1,7 @@
 " instalação automática do Plug
 let g:vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
+let g:vim_plugin_install = expand('$HOME/.config/nvim/plugged')
 
 if !filereadable(vim_plug_path)
     echo "Installing Vim-plug..."

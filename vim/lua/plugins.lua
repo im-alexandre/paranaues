@@ -1,5 +1,6 @@
 local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.config/nvim/plugged')
+local plug_install = vim.g['vim_plugin_install']
+vim.call('plug#begin', plug_install)
     Plug 'tpope/vim-sensible'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'jiangmiao/auto-pairs'
@@ -58,7 +59,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'neovim/nvim-lspconfig'
 vim.call('plug#end')
 
-vim.g['python3_host_prog'] = '~/.anaconda3/bin/python'
 
 vim.g['vimtex_fold_enabled'] = 1
 vim.g['tex_flavor'] = 'latex'
