@@ -17,12 +17,13 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
+
+lua require'settings'
 lua require'plugins'
-lua require'completition'
 lua require'bashlsp_config'
 lua require'golsp_config'
-lua require'lsp_mappings'
-lua require'settings'
+"lua require'lsp_mappings'
+lua require'completition'
 
 " ============================================================================
 " Plugins settings and mappings

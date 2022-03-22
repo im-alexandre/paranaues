@@ -23,6 +23,9 @@ vim.call('plug#begin', plug_install)
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    
 
     Plug 'tpope/vim-fugitive'
 
@@ -49,9 +52,6 @@ vim.call('plug#begin', plug_install)
     --"dockerfile
     --Plug 'ekalinin/Dockerfile.vim'
     --
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'saadparwaiz1/cmp_luasnip'
-    
     --"Snippets
     --Plug 'MarcWeber/vim-addon-mw-utils'
     --Plug 'tomtom/tlib_vim'

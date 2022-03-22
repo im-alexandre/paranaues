@@ -7,7 +7,8 @@ for DEP in $DEPS ; do
     fi
 done
 
-rm -rf ~/.config/nvim/lua
+[[ ! -d ~/.config/nvim ]] && mkdir ~/.config/nvim
+[[ ! -d ~/.config/nvim/lua ]] && ln -sf $PARANAUES_DIR/vim/lua ~/.config/nvim/lua
 
 PARANAUES_DIR=`pwd`
 
@@ -16,8 +17,6 @@ ln -sf $PARANAUES_DIR/.bash_aliases $HOME/.bash_aliases
 
 
 ln -sf $PARANAUES_DIR/vim/init.vim $HOME/.config/nvim/init.vim
-
-ln -sf $PARANAUES_DIR/vim/lua $HOME/.config/nvim/lua
 
 ln -sf $PARANAUES_DIR/.profile $HOME/.profile
 ln -sf $PARANAUES_DIR/scripts $HOME/.bin
