@@ -34,7 +34,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
     -- Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'dense-analysis/ale'
-    Plug('neoclide/coc.nvim', {['branch'] = 'release'})
     Plug 'vim-utils/vim-man'
 
     --" Class/module browser
@@ -133,3 +132,6 @@ require'lspconfig'.gopls.setup{
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0})
     end,
 }
+require'bashlsp_config'
+require'lsp_mappings'
+

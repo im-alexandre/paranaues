@@ -15,43 +15,10 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
-lua require'vim_config'
-lua require'lsp_config'
+lua require'plugins'
+lua require'bashlsp_config'
 lua require'lsp_mappings'
-
-"settings
-    "set secure exrc
-    set shell=/bin/bash
-    set cursorline
-    set modifiable
-    set splitbelow splitright
-    set hidden
-    syntax on
-    set nohlsearch
-    set scrolloff=8
-    set nu
-    set incsearch
-    set foldmethod=indent
-    set foldlevel=99
-    set encoding=utf-8
-    set nobackup
-    set noswapfile
-    set undofile
-    set undodir=~/.config/nvim/tmp/undodir
-    set signcolumn=yes
-    set nowrap
-    set noerrorbells
-    set clipboard=unnamedplus
-    set relativenumber
-    set tabstop=4 softtabstop=4 shiftwidth=4
-    set expandtab
-    set autoindent
-    set fileformat=unix
-    set cmdheight=2
-
-    set colorcolumn=80
-    highlight ColorColumn guibg=lightgrey
-
+lua require'settings'
 
 " ============================================================================
 " Plugins settings and mappings
