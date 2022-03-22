@@ -32,6 +32,8 @@ fi
 
 
 #Variáveis JAVA
+export PATH=$PATH:~/go/bin/
+export PATH=$PATH:/opt/node/bin
 JAVA_HOME=/opt/java
 JDK_HOME=/opt/java
 CLASSPATH=$JAVA_HOME/lib:.

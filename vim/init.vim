@@ -16,6 +16,8 @@ if vim_plug_just_installed
 endif
 
 lua require'vim_config'
+lua require'lsp_config'
+lua require'lsp_mappings'
 
 "settings
     "set secure exrc

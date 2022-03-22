@@ -15,7 +15,9 @@ ln -sf $PARANAUES_DIR/.bashrc $HOME/.bashrc
 ln -sf $PARANAUES_DIR/.bash_aliases $HOME/.bash_aliases
 
 
-ln -sf $PARANAUES_DIR/init.vim $HOME/.config/nvim/init.vim
-ln -sf $PARANAUES_DIR/vim_config.lua $HOME/.config/nvim/lua/vim_config.lua
+ln -sf $PARANAUES_DIR/vim/init.vim $HOME/.config/nvim/init.vim
+
+ln -sf $PARANAUES_DIR/vim/lua/* $HOME/.config/nvim/lua
+
 ln -sf $PARANAUES_DIR/.profile $HOME/.profile
 ln -sf $PARANAUES_DIR/scripts $HOME/.bin

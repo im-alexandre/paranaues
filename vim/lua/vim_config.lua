@@ -54,6 +54,9 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     --"colorscheme
     Plug 'gruvbox-community/gruvbox'
     Plug 'lukas-reineke/indent-blankline.nvim'
+
+    -- LSP
+    Plug 'neovim/nvim-lspconfig'
 vim.call('plug#end')
 
 vim.g['python3_host_prog'] = '~/.anaconda3/bin/python'
@@ -104,10 +107,6 @@ nmap("<Leader>mx", ":MarkdownPreview<CR>")
 nmap("<Leader>cr", ":call Captura()<CR>")
 
 -- Git - Vim-fugitive
-nmap("<leader>gD", ":<Plug>(coc-definition)")
-nmap("<leader>gd", ":vsp<CR><Plug>(coc-definition")
-nmap("<leader>rn", "<Plug>(coc-rename)")
-
 nmap("<leader>gj", ":diffget //3<CR>")
 nmap("<leader>gf", ":diffget //2<CR>")
 
@@ -125,6 +124,12 @@ defaults = {
 }
 
 -- Harpoon
-nmap('<leader>gt', 'require("harpoon.term").gotoTerminal(1)')
+nmap('<leader>gt', ':lua require("harpoon.term").gotoTerminal(1)<CR>')
 nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 nmap('<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
+
+require'lspconfig'.gopls.setup{
+    on_attach = function() 
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0})
+    end,
+}
