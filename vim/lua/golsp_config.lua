@@ -12,6 +12,6 @@ require'lspconfig'.gopls.setup{
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { buffer=0 })
     vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer=0 })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer=0 })
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.rename, { buffer=0 })
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer=0 })
 end,
 }
