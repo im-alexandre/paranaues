@@ -163,6 +163,8 @@ endfunction
     let g:gruvbox_contrast_dark='hard'
     colorscheme gruvbox
     highlight Normal ctermbg=none
+    highlight GruvboxYellowBold ctermbg=Black
+    highlight GruvboxOrangeBold ctermbg=Black
 
 
 "let g:snips_author="Alexandre Castro"

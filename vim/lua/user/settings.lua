@@ -34,14 +34,12 @@ local settings = {
     fileformat = "unix",
     colorcolumn = "80",
     completeopt = {'menu','menuone','noselect' },
-    updatetime = 500
+    updatetime = 50
 }
 
 for key, value in pairs(settings) do
     vim.opt[key] = value
 end
-
-vim.highlight.create('ColorColumn', {ctermbg=0, guibg='lightgrey'}, false)
 
 vim.g.mapleader = " "
 vim.g['fancy_symbols_enabled'] = 1
