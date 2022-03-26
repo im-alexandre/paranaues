@@ -55,3 +55,4 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude venv'
 export PATH=/usr/local/go/bin:$PATH
+export PATH=/opt/node/bin:$PATH
