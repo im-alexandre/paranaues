@@ -18,12 +18,8 @@ if vim_plug_just_installed
 endif
 
 
-lua require'settings'
-lua require'plugins'
-lua require'bashlsp_config'
-lua require'golsp_config'
-"lua require'lsp_mappings'
-lua require'completition'
+lua require'user.plugins'
+lua require'user.settings'
 
 " ============================================================================
 " Plugins settings and mappings
