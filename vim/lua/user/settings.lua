@@ -1,6 +1,3 @@
-local set = vim.opt
-local cmd = vim.cmd
-
 local tabsize = 4
 
 local settings = {
