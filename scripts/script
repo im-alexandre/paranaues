@@ -1,10 +1,10 @@
 
 #!/bin/bash
 
+sudo apt update && sudo apt upgrade -y
+
 cd $HOME
 # Verificar o UUID do disco com blkid
-UUID="C04AE47C4AE47098"
-sudo umount -L arquivos
 sudo mkdir /mnt/arquivos
 sudo mount -L arquivos /mnt/arquivos
 
@@ -24,7 +24,7 @@ XDG_VIDEOS_DIR=\"$HOME/Vídeos\"
 
 #Cria link das pastas de usuário para o HD
 
-rm -rf ~/Downloads/ ~/Modelos/ ~/Imagens/ ~/Público/ ~/Vídeos/ ~/Documentos/ ~/Música/
+rm -rf ~/Downloads/ ~/Modelos/ ~/Imagens/ ~/Público/ ~/Vídeos/ ~/Documentos/ ~/Música/ "~/Área de Trabalho"
 rm -rf ~/Modelos/ 
 ln -sf /mnt/arquivos/ ~/Arquivos
 mkdir ~/Arquivos/Documentos/ ~/Arquivos/Downloads/ ~/Arquivos/Imagens ~/Arquivos/Músicas/ ~/Arquivos/Público/ ~/Arquivos/Desenvolvimento/ ~/Arquivos/cursos ~/Arquivos/Vídeos/ ~/Arquivos/Desktop
@@ -35,11 +35,11 @@ ln -sf Arquivos/Imagens/ ~/Imagens
 ln -sf Arquivos/Músicas/ ~/Músicas
 ln -sf Arquivos/Publico/ ~/Publico
 ln -sf Arquivos/Desenvolvimento/ ~/Desenvolvimento
-ln -sf Arquivos/Cursos ~/Cursos
+ln -sf Arquivos/cursos ~/Cursos
 ln -sf Arquivos/Vídeos/ ~/Videos
 #
 #Montagem do hdd na fstab
-export UUID="C04AE47C4AE47098"
+export UUID="04CC9B07CC9AF262"
 echo "LABEL=arquivos /mnt/arquivos ntfs defaults 0  2" | sudo tee -a /etc/fstab
 
 #instalações que exigem interação
@@ -48,6 +48,8 @@ sudo smbpasswd -a $(whoami)
 
 # sudo vim /usr/share/X11/xkb/symbols/br
 sudo sed -i "s/modifier_map Mod3   { Scroll_Lock };/# modifier_map Mod3   { Scroll_Lock };/g" /usr/share/X11/xkb/symbols/br
+
+sudo apt install lightdm
 
 # dconf load / < dconf.bkp
 
@@ -94,19 +96,6 @@ autoconf automake cmake g++ \
 pkg-config unzip curl doxygen
 
 
-# para instalar o onedrive
-#sudo snap install dmd --classic;
-#cd ~;
-#git clone https://github.com/abraunegg/onedrive && \
-#cd onedrive && \
-#./configure && \
-#sudo make clean install;
-
-## Para instalar o dwm
-# sudo apt install libx11-dev
-#sudo apt install libxft-dev
-#sudo apt install libxinerama-dev
-
 cd ~/paranaues;
 git config --global user.email "im.alexandre07@gmail.com";
 git config --global user.name "Alexandre Castro";
@@ -114,15 +103,13 @@ git config --global user.name "Alexandre Castro";
 # sudo snap install --classic heroku
 sudo pip3 install pynvim flake8 pylint isort jedi ueberzug yapf
 
-
-# nvim -c ":CocInstall coc-python | :q" 1>&2 > /dev/null &
-
 #Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y && \
 sudo apt update -y && sudo apt upgrade -y && \
 sudo apt install -y docker-ce docker-ce-cli containerd.io && \
 sudo usermod -aG docker $(whoami)
+
 #Docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
 sudo chmod +x /usr/local/bin/docker-compose
@@ -134,8 +121,7 @@ chmod +x vQgMr
 rm vQgMr
 
 
-# baixar o jdk 8, copiar para o /opt e descompactar para /opt/java
-
+sudo apt install openjdk-11-jdk -y
 
 #Compartilhamento SAMBA
 echo "
