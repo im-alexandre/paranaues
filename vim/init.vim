@@ -1,4 +1,7 @@
 " instalação automática do Plug
+"
+
+
 let g:vim_home = expand('$HOME/.config/nvim')
 let g:vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
 let vim_plug_just_installed = 0
@@ -17,9 +20,11 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
-
 lua require'user.plugins'
 lua require'user.settings'
+lua require'user.keymappings'
+lua require'user.cmp'
+lua require'user.lsp'
 
 " ============================================================================
 " Plugins settings and mappings
@@ -137,20 +142,20 @@ endfunction
     endif
 
 " ALE for fixing
-    let g:ale_linters = {
-          \   'python': ['flake8',],
-          \   'javascript': ['eslint'],
-          \}
+    "let g:ale_linters = {
+          "\   'python': ['flake8',],
+          "\   'javascript': ['eslint'],
+          "\}
 
-    let g:ale_fixers = {
-          \    'python': ['yapf', 'autopep8', 'isort'],
-          \    'php': ['phpcbf'],
-          \    'javascript': ['eslint']
-          \}
+    "let g:ale_fixers = {
+          "\    'python': ['yapf', 'autopep8', 'isort'],
+          "\    'php': ['phpcbf'],
+          "\    'javascript': ['eslint']
+          "\}
 
-    nmap <F7> :ALEFix<CR>
-    let g:ale_lint_on_save = 1
-    let g:ale_fix_on_save = 0
+    "nmap <F7> :ALEFix<CR>
+    "let g:ale_lint_on_save = 1
+    "let g:ale_fix_on_save = 0
 
 
 
@@ -160,9 +165,9 @@ endfunction
     highlight Normal ctermbg=none
 
 
-let g:snips_author="Alexandre Castro"
-let g:snips_email="im.alexandre07@gmail.com"
-let g:snips_github="https://www.github.com/im-alexandre"
+"let g:snips_author="Alexandre Castro"
+"let g:snips_email="im.alexandre07@gmail.com"
+"let g:snips_github="https://www.github.com/im-alexandre"
 
 let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
@@ -171,13 +176,5 @@ let g:mkdp_page_title = '${name}'
 set mouse=a
 
 
-"Configurações do Telescope
-lua << EOF
-EOF
-
 :command! -nargs=1 GoTerm lua require'harpoon.term'.gotoTerminal(<args>)
 set completeopt=menu,menuone,noselect
-
-lua <<EOF
-  -- Setup nvim-cmp.
-EOF
