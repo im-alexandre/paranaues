@@ -39,7 +39,7 @@ vim.call('plug#begin', plug_install)
     Plug 'ryanoasis/vim-devicons'
 
     -- Markdown & docs
-    Plug ('iamcco/markdown-preview.nvim', {['do'] = vim.fn['cd app && ./install.sh && yarn install']})
+    Plug ('iamcco/markdown-preview.nvim', {['do'] = vim.fn['cd app && ./install.sh && npm install']})
     Plug 'vimwiki/vimwiki'
 
     -- Code commenter

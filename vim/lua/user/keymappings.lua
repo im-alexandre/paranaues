@@ -23,7 +23,7 @@ nmap("<A-+>", ":vertical resize +15<CR>")
 nmap("<A-->", ":vertical resize -15<CR>")
 nmap("<leader>v+", ":resize +15<CR>")
 nmap("<leader>v-", ":resize -15<CR>")
-nmap("<Leader>mx", ":MarkdownPreview<CR>")
+nmap("<Leader>md", ":MarkdownPreview<CR>")
 nmap("<Leader>cr", ":call Captura()<CR>")
 
 -- Git - Vim-fugitive
