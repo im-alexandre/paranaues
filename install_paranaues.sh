@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 export DEPS="curl git wget"
+PARANAUES_DIR=`dirname $0`
+
 
 for DEP in $DEPS ; do
     if  (! command -v $DEP &> /dev/null); then 
             sudo apt install $DEP -y
     fi
 done
-
-PARANAUES_FILE=$0
-PARANAUES_DIR=`dirname $PARANAUES_FILE`
-echo $PARANAUES_DIR
 
 [[ ! -d ~/.config/nvim ]] && mkdir ~/.config/nvim
 [[ ! -d ~/.config/nvim/lua ]] && ln -sf $PARANAUES_DIR/vim/lua ~/.config/nvim/lua
