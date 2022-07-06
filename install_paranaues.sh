@@ -2,7 +2,7 @@
 export DEPS="curl git wget"
 
 for DEP in $DEPS ; do
-    if  ( command -v $DEP &> /dev/null); then 
+    if  (! command -v $DEP &> /dev/null); then 
             sudo apt install $DEP -y
     fi
 done
