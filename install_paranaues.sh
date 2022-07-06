@@ -7,7 +7,9 @@ for DEP in $DEPS ; do
     fi
 done
 
-PARANAUES_DIR=`pwd`
+PARANAUES_FILE=$0
+PARANAUES_DIR=`dirname $PARANAUES_FILE`
+echo $PARANAUES_DIR
 
 [[ ! -d ~/.config/nvim ]] && mkdir ~/.config/nvim
 [[ ! -d ~/.config/nvim/lua ]] && ln -sf $PARANAUES_DIR/vim/lua ~/.config/nvim/lua
