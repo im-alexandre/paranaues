@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 export DEPS="curl git wget"
-PARANAUES_DIR=`dirname $0`
+export PARANAUES_DIR=`dirname $0`
 
 
 for DEP in $DEPS ; do
