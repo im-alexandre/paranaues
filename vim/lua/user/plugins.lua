@@ -5,6 +5,11 @@ vim.call('plug#begin', plug_install)
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'jiangmiao/auto-pairs'
 
+    --Dart/Flutter
+    Plug 'dart-lang/dart-vim-plugin'
+    Plug 'thosakwe/vim-flutter'
+    Plug 'natebosch/vim-lsc'
+    Plug 'natebosch/vim-lsc-dart'
 
     -- Telescope e Harpoon
     Plug ('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})  -- We recommend updating the parsers on update
