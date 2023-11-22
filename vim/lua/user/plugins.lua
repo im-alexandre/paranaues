@@ -31,6 +31,7 @@ vim.call('plug#begin', plug_install)
     Plug 'hrsh7th/cmp-nvim-lua'
 
     -- LSP
+    --Plug 'williamboman/mason.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/nvim-lsp-installer'
 
