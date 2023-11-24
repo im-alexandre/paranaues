@@ -1,4 +1,5 @@
 local tabsize = 4
+vim.g.vim_home = vim.fn.expand('$HOME/.config/nvim')
 
 local settings = {
     cmdheight = 2,
@@ -21,7 +22,7 @@ local settings = {
     swapfile = false,
     incsearch = true,
     undofile = true,
-    -- undodir = vim.g['vim_home'] .. '/tmp',
+    undodir = vim.g['vim_home'] .. '/tmp',
     signcolumn = "yes",
     wrap = false,
     errorbells = false,
@@ -42,16 +43,5 @@ for key, value in pairs(settings) do
 end
 
 vim.g.mapleader = " "
-vim.g['fancy_symbols_enabled'] = 1
-vim.g['vimwiki_key_mappings'] = { ['all_maps'] = 1,
-       ['global']= 1,
-       ['headers']= 1,
-       ['text_objs']= 1,
-       ['table_format']= 1,
-       ['table_mappings']= 0,
-       ['lists']= 0,
-       ['links']= 0,
-       ['html']= 1,
-       ['mouse']= 0,
-}
 
+vim.cmd('colorscheme rose-pine')
