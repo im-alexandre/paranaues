@@ -5,3 +5,6 @@ dwm/dwm
 dwm/dwm.o
 dwm/util.o
 /scripts/abas.sh
+/vim/plugged
+/vim/autoload
+/vim/tmp
