@@ -149,6 +149,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 
 bindsym $mod+Shift+b exec "i3lock --color=999999"
+bindsym $mod+Shift+f exec "firefox"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,4 +194,4 @@ bar {
 exec --no-startup-id compton
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 exec xrandr --output DP-1 --primary --mode 1600x900 --pos 0x0 --rotate left --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 900x260 --rotate normal --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off
-exec feh --bg-fill ~/Imagens/wallpapers/1224636.jpg
+# exec feh --bg-fill ~/Downloads/wallpaperflare.com_wallpaper.jpg

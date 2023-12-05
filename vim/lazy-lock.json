@@ -31,11 +31,15 @@
   "plenary.nvim": { "branch": "master", "commit": "366b0837486f60ae0e7550c15de8ff66d057c4cd" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "bc25c56083939f274edcfe395c6ff7de23b67c50" },
   "telescope.nvim": { "branch": "master", "commit": "54930e1abfc94409e1bb9266e752ef8379008592" },
+  "tlib_vim": { "branch": "master", "commit": "d3bdad7b5e4253dc7ce6793342d7b8755c67ff0c" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
+  "vim-addon-mw-utils": { "branch": "master", "commit": "6aaf4fee472db7cbec6d2c8eea69fdf3a8f8a75d" },
   "vim-fugitive": { "branch": "master", "commit": "46eaf8918b347906789df296143117774e827616" },
   "vim-highlightedyank": { "branch": "master", "commit": "fa3f57b097e9521ce41a66b6c7cf5d9adea70ea3" },
   "vim-illuminate": { "branch": "master", "commit": "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" },
+  "vim-snipmate": { "branch": "master", "commit": "074fe09bca0dbe49aea9c5202edba0d1c7ead10c" },
+  "vim-snippets": { "branch": "master", "commit": "ec4ff7e9c9b274e93295924e59c82b4f51e2ae42" },
   "vim-tmux-navigator": { "branch": "master", "commit": "7db70e08ea03b3e4d91f63713d76134512e28d7e" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
