@@ -47,8 +47,6 @@ vim.keymap.set("n", "<leader>gf", ":diffget //2<CR>")
 vim.keymap.set("n", "<leader>gs", ":G<CR>")
 vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
 
-vim.keymap.set("n", "<leader>cx", ":call CompilaLatex()<CR>")
-
 vim.keymap.set("n", "<leader>md", ":MarkdownPreview<CR>")
 vim.keymap.set("n", "<S-l>", ":tabnex<CR>")
 vim.keymap.set("n", "<S-h>", ":tabprev<CR>")

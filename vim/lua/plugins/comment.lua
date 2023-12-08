@@ -2,8 +2,8 @@ return {
 	"numToStr/Comment.nvim",
 	opts = {
 		toggler = {
-			line = "gtc",
-			block = "gtb",
+			line = "<C-_>",
+			block = "<C-_>",
 		},
 		opleader = {
 			line = "goc",
