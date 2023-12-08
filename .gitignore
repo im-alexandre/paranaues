@@ -5,10 +5,6 @@ dwm/dwm
 dwm/dwm.o
 dwm/util.o
 /scripts/abas.sh
-<<<<<<< HEAD
 /vim/plugged
 /vim/autoload
 /vim/tmp
-=======
-vim/tmp
->>>>>>> dev
