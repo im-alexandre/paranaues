@@ -191,6 +191,9 @@ bar {
         status_command i3status
 }
 
+default_border pixel 1
+default_floating_border pixel 0
+
 exec --no-startup-id compton
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 # exec xrandr --output DP-1 --primary --mode 1600x900 --pos 0x0 --rotate left --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 900x260 --rotate normal --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off
