@@ -17,9 +17,6 @@ blueman
 
 export PARANAUES_DIR=`dirname $(readlink -f $0)`
 
-echo $PARANAUES_DIR
-
-
 for DEP in $DEPS ; do
     if  (! command -v $DEP &> /dev/null); then 
             sudo apt install $DEP -y
