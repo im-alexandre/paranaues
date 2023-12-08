@@ -5,4 +5,9 @@
 ```sh
 ranger fzf libpq-dev libgtk3-dev;
 ```
- 
+
+***requisitos para o neovim***
+* neovim-latest
+* golang
+* npm
+* efmls `go install github.com/mattn/efm-langserver@latest`
