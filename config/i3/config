@@ -176,11 +176,11 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-workspace 0 output "DP-1"
-workspace 1 output "DP-1"
-
-workspace 2 output "DP-2"
-workspace 3 output "DP-2"
+# workspace 0 output "DP-1"
+# workspace 1 output "DP-1"
+#
+# workspace 2 output "DP-2"
+# workspace 3 output "DP-2"
 
 
 bindsym $mod+r mode "resize"
@@ -193,5 +193,5 @@ bar {
 
 exec --no-startup-id compton
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
-exec xrandr --output DP-1 --primary --mode 1600x900 --pos 0x0 --rotate left --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 900x260 --rotate normal --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off
+# exec xrandr --output DP-1 --primary --mode 1600x900 --pos 0x0 --rotate left --output HDMI-1 --off --output DP-2 --mode 1920x1080 --pos 900x260 --rotate normal --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off
 # exec feh --bg-fill ~/Downloads/wallpaperflare.com_wallpaper.jpg

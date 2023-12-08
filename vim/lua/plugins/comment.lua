@@ -3,7 +3,7 @@ return {
 	opts = {
 		toggler = {
 			line = "<C-_>",
-			block = "<C-_>",
+			--[[ block = "<C-_>", ]]
 		},
 		opleader = {
 			line = "goc",
