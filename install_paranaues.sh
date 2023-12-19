@@ -13,6 +13,7 @@ i3status
 suckless-tools
 arandr
 blueman
+luarocks
 "
 
 export PARANAUES_DIR=`dirname $(readlink -f $0)`
