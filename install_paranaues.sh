@@ -30,6 +30,7 @@ ln -sf $PARANAUES_DIR/.bash_aliases $HOME/.bash_aliases
 
 [[ ! -d $HOME/.config/i3 ]] && ln -sf ./config/i3 $HOME/.config/i3
 ln -sf $PARANAUES_DIR/config/compton.conf $HOME/.config/compton.conf
+ln -sf $PARANAUES_DIR/config/i3status.conf $HOME/.config/i3status/config
 
 
 [[ ! -d $HOME/.config/nvim ]] && ln -sf $PARANAUES_DIR/vim $HOME/.config/nvim
