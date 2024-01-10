@@ -14,6 +14,7 @@ suckless-tools
 arandr
 blueman
 luarocks
+xautolock
 "
 
 export PARANAUES_DIR=`dirname $(readlink -f $0)`
@@ -28,7 +29,7 @@ done
 ln -sf $PARANAUES_DIR/.bashrc $HOME/.bashrc
 ln -sf $PARANAUES_DIR/.bash_aliases $HOME/.bash_aliases
 
-[[ ! -d $HOME/.config/i3 ]] && ln -sf ./config/i3 $HOME/.config/i3
+[[ ! -d $HOME/.config/i3 ]] && ln -sf $PARANAUES_DIR/config/i3 $HOME/.config/i3
 ln -sf $PARANAUES_DIR/config/compton.conf $HOME/.config/compton.conf
 ln -sf $PARANAUES_DIR/config/i3status.conf $HOME/.config/i3status/config
 
