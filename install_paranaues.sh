@@ -15,6 +15,7 @@ arandr
 blueman
 luarocks
 xautolock
+maim
 "
 
 export PARANAUES_DIR=`dirname $(readlink -f $0)`
