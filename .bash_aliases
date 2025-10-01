@@ -10,4 +10,4 @@ alias "v=nvim"
 alias "python=python3"
 alias sd="cd \$(fdfind --type d --hidden --follow --exclude .git --exclude venv -d 6 | fzf)"
 
-
+alias kubectl="minikube kubectl --"
