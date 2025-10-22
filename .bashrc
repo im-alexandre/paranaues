@@ -132,4 +132,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 #neofetch
 #export PS1="~ \[\033[01;32m\]\W -> "
-source ~/venv/bin/activate
+if [ -f ~/venv/bin/activate ]; then
+  source ~/venv/bin/activate
+fi
