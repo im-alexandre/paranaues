@@ -1,52 +1,25 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-# if running bash
-#if [ -n "$BASH_VERSION" ]; then
-    ## include .bashrc if it exists
-    #if [ -f "$HOME/.bashrc" ]; then
-	#. "$HOME/.bashrc"
-    #fi
-#fi
-
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.bin" ] ; then
-    PATH="$HOME/.bin:$PATH"
+if [ -d "$HOME/.bin" ]; then
+  PATH="$HOME/.bin:$PATH"
 fi
 
-if [ -d "$HOME/.fzf/bin" ] ; then
-    PATH="$HOME/.fzf/bin:$PATH"
+if [ -d "$HOME/.fzf/bin" ]; then
+  PATH="$HOME/.fzf/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
+export GOPATH=$HOME/.go
+export GOBIN=$GOPATH/bin
 
-#Variáveis JAVA
-export PATH=$PATH:~/go/bin/
-export PATH=$PATH:/opt/node/bin
-JAVA_HOME=/opt/java
-JDK_HOME=/opt/java
-CLASSPATH=$JAVA_HOME/lib:.
-PATH=$PATH:$JAVA_HOME/bin
-export JAVA_HOME
-export CLASSPATH
-export PATH
+export PATH=$PATH:$GOBIN
+# export PATH=$PATH:/opt/node/bin
 
 [[ -f ~/.credenciais.sh ]] && source ~/.credenciais.sh
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/instantclient_12_2:
-export BIN=/home/alexandre/.bin
-export PATH=$BIN:$PATH
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla
 export VIM_APP_DIR=/usr
@@ -54,5 +27,3 @@ set -o vi
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude venv'
-export PATH=/usr/local/go/bin:$PATH
-export PATH=/opt/node/bin:$PATH

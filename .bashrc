@@ -1,4 +1,4 @@
-source /usr/lib/git-core/git-sh-prompt
+source $HOME/.bin/git-sh-prompt
 
 # If not running interactively, don't do anything
 case $- in

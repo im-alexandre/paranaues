@@ -1,41 +1,32 @@
 #!/usr/bin/env bash
-export DEPS="
-curl 
-git 
-wget
-fd-find
-fzf
-compton
-i3
-i3-wm
-i3lock
-i3status
-suckless-tools
-arandr
-blueman
-luarocks
-xautolock
-maim
+
+export PARANAUES_DIR=$(dirname $(readlink -f $0))
+export DEPS='
+curl git wget fd-find 
+fzf 
+luarocks 
+lua5.1 
+ripgrep
+npm'
+
+export GOPATH=$HOME/.go
+export SNAP_DEPS="
+go \
+nvim \
 "
 
-export PARANAUES_DIR=`dirname $(readlink -f $0)`
+mkdir -p $HOME/.config
+git clone https://github.com/im-alexandre/lazyvim_config $HOME/.config/nvim
 
-for DEP in $DEPS ; do
-    if  (! command -v $DEP &> /dev/null); then 
-            sudo apt install $DEP -y
-    fi
-done
+mkdir -p $HOME/.bin
+sudo curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o $HOME/.bin/git-sh-prompt
 
+sudo apt install $DEPS -y
+sudo snap install $SNAP_DEPS --classic
 
+go install github.com/jesseduffield/lazygit@latest
+
+echo $PARANAUES_DIR/.bashrc
 ln -sf $PARANAUES_DIR/.bashrc $HOME/.bashrc
 ln -sf $PARANAUES_DIR/.bash_aliases $HOME/.bash_aliases
-
-[[ ! -d $HOME/.config/i3 ]] && ln -sf $PARANAUES_DIR/config/i3 $HOME/.config/i3
-ln -sf $PARANAUES_DIR/config/compton.conf $HOME/.config/compton.conf
-ln -sf $PARANAUES_DIR/config/i3status.conf $HOME/.config/i3status/config
-
-
-[[ ! -d $HOME/.config/nvim ]] && ln -sf $PARANAUES_DIR/vim $HOME/.config/nvim
-
 ln -sf $PARANAUES_DIR/.profile $HOME/.profile
-[[ ! -d $HOME/.bin ]] && ln -sf $PARANAUES_DIR/scripts $HOME/.bin
