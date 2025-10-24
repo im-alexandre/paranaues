@@ -12,6 +12,12 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Só faz o source do .bashrc se ainda não tiver sido feito
+if [ -f "$HOME/.bashrc" ] && [ -z "$BASHRC_SOURCED" ]; then
+  export BASHRC_SOURCED=1
+  . "$HOME/.bashrc"
+fi
+
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
 
