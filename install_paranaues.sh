@@ -5,6 +5,7 @@ export DEPS='
 curl git wget fd-find 
 fzf 
 luarocks 
+xclip
 lua5.1 
 ripgrep
 npm
@@ -24,9 +25,11 @@ if [[ "$distro_id" == "ubuntu" ]]; then
   nvim
   '
   echo "Executando bloco específico para Ubuntu..."
-  sudo apt update && sudo apt uprade -y
+  sudo apt update && sudo apt upgrade -y
   sudo apt install $DEPS -y
-  sudo snap install $SNAP_DEPS --classic
+  for $DEP in $SNAP_DEPS; do
+    sudo snap install $DEP --classic
+  done
   go install github.com/jesseduffield/lazygit@latest
 else
   echo "Este sistema não é Ubuntu. Pulando bloco..."
