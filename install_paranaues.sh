@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 export PARANAUES_DIR=$(dirname $(readlink -f $0))
 export DEPS='
 curl git wget fd-find 
@@ -34,6 +33,22 @@ if [[ "$distro_id" == "ubuntu" ]]; then
 else
   echo "Este sistema não é Ubuntu. Pulando bloco..."
 fi
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
+sudo sh rustup.sh -y
+rm rustup.sh -rf
+
+# 3) Atualize pro estável mais novo e defina como padrão
+rustup update stable
+rustup default stable
+
+# 4) confira as versões (rustc >= 1.85.x)
+rustc -V
+cargo -V
+
+# 5) instale o jinja-lsp (use --locked pra usar o lock do crate)
+cargo install jinja-lsp --locked
+
 
 mkdir -p $HOME/.config
 git clone https://github.com/im-alexandre/lazyvim_config $HOME/.config/nvim

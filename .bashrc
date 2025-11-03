@@ -135,3 +135,4 @@ unset __conda_setup
 if [ -f ~/venv/bin/activate ]; then
   source ~/venv/bin/activate
 fi
+. "$HOME/.cargo/env"
