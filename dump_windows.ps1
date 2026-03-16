@@ -28,7 +28,7 @@ Write-Host "Repo: $ROOT" -ForegroundColor DarkGray
 # --------------------------------------------------
 # 1) winget export (sem dependências exóticas e sem --include-versions)
 # --------------------------------------------------
-Write-Host "`n[1/4] winget export..." -ForegroundColor Yellow
+Write-Host "`n[1/5] winget export..." -ForegroundColor Yellow
 if (Get-Command winget -ErrorAction SilentlyContinue) {
   # O export original suja muito o output se não lidar com erro, vamos usar Try/Catch básico
   try {
@@ -44,7 +44,7 @@ if (Get-Command winget -ErrorAction SilentlyContinue) {
 # --------------------------------------------------
 # 2) choco export
 # --------------------------------------------------
-Write-Host "`n[2/4] choco export..." -ForegroundColor Yellow
+Write-Host "`n[2/5] choco export..." -ForegroundColor Yellow
 if (Get-Command choco -ErrorAction SilentlyContinue) {
   try {
     # Choco export nativamente gera o packages.config com as versoes
@@ -60,7 +60,7 @@ if (Get-Command choco -ErrorAction SilentlyContinue) {
 # --------------------------------------------------
 # 3) Windows Defender Exclusions
 # --------------------------------------------------
-Write-Host "`n[3/4] Exportando exclusões do Windows Defender..." -ForegroundColor Yellow
+Write-Host "`n[3/5] Exportando exclusões do Windows Defender..." -ForegroundColor Yellow
 try {
   $mp = Get-MpPreference
   $exclusions = @{
@@ -78,7 +78,7 @@ try {
 # --------------------------------------------------
 # 4) User PATH Extractor
 # --------------------------------------------------
-Write-Host "`n[4/4] Exportando variáveis de PATH customizadas..." -ForegroundColor Yellow
+Write-Host "`n[4/5] Exportando variáveis de PATH customizadas..." -ForegroundColor Yellow
 
 # Lendo o PATH local do usuário do Registro
 $userPathRaw = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::User)
@@ -104,6 +104,28 @@ if ($customUserPaths.Count -gt 0) {
 } else {
     Out-File -FilePath $USER_PATH_FILE -Encoding UTF8 -InputObject ""
     Write-Host "Nenhum caminho de usuário exclusivo encontrado. Arquivo resetado." -ForegroundColor DarkGray
+}
+
+# --------------------------------------------------
+# 5) Git Sincronização
+# --------------------------------------------------
+Write-Host "`n[5/5] Sincronizando com o Git (master)..." -ForegroundColor Yellow
+try {
+  Push-Location $ROOT
+  git add $WINGET_FILE $CHOCO_FILE $DEFENDER_FILE $USER_PATH_FILE
+  
+  $status = git status --porcelain $WINGET_FILE $CHOCO_FILE $DEFENDER_FILE $USER_PATH_FILE
+  if ($status) {
+    git commit -m "chore(windows): auto-sync dev environment dump" | Out-Null
+    git push origin master | Out-Null
+    Write-Host "Alterações commitadas e enviadas para origin/master com sucesso." -ForegroundColor Green
+  } else {
+    Write-Host "Nenhuma alteração nos arquivos gerados. Nada a commitar." -ForegroundColor DarkGray
+  }
+} catch {
+  Write-Host "Falha durante as operações do Git: $_" -ForegroundColor Red
+} finally {
+  Pop-Location
 }
 
 Write-Host "`n=== DUMP CONCLUÍDO 🧪 ===" -ForegroundColor Cyan
