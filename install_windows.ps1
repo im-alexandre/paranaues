@@ -7,9 +7,11 @@ $ErrorActionPreference = "Stop"
 
 $ROOT          = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-$WINGET_FILE   = Join-Path $ROOT "windows\winget-packages.json"
-$CHOCO_FILE    = Join-Path $ROOT "windows\packages.config"
-$TERMINAL_REPO = Join-Path $ROOT "windows\terminal_settings.json"
+$WINGET_FILE      = Join-Path $ROOT "windows\winget-packages.json"
+$CHOCO_FILE       = Join-Path $ROOT "windows\packages.config"
+$TERMINAL_REPO    = Join-Path $ROOT "windows\terminal_settings.json"
+$DEFENDER_FILE    = Join-Path $ROOT "windows\defender_exclusions.json"
+$USER_PATH_FILE   = Join-Path $ROOT "windows\user_path.txt"
 
 $LAZYVIM_REPO  = "https://github.com/im-alexandre/lazyvim_config"
 $LAZYVIM_DIR   = Join-Path $env:USERPROFILE "nvim"
@@ -166,6 +168,69 @@ if ($targets.Count -eq 0) {
     Force-Symlink -LinkPath $dst -TargetPath $TERMINAL_REPO
     Write-Host "Linked: $dst -> $TERMINAL_REPO" -ForegroundColor Green
   }
+}
+
+# --------------------------------------------------
+# 5) Windows Defender Restore Exclusions
+# --------------------------------------------------
+Write-Host "`n[5/6] Windows Defender (Restore Exclusions)..." -ForegroundColor Yellow
+if (Test-Path $DEFENDER_FILE) {
+  try {
+    $defData = Get-Content -Raw -Encoding UTF8 $DEFENDER_FILE | ConvertFrom-Json
+    
+    if ($defData.ExclusionPath -and $defData.ExclusionPath.Count -gt 0) {
+      Write-Host "Restaurando ExclusionPaths: $($defData.ExclusionPath -join ', ')" -ForegroundColor DarkGray
+      foreach ($ep in $defData.ExclusionPath) { Add-MpPreference -ExclusionPath $ep -ErrorAction SilentlyContinue }
+    }
+    
+    if ($defData.ExclusionProcess -and $defData.ExclusionProcess.Count -gt 0) {
+      Write-Host "Restaurando ExclusionProcess: $($defData.ExclusionProcess -join ', ')" -ForegroundColor DarkGray
+      foreach ($eproc in $defData.ExclusionProcess) { Add-MpPreference -ExclusionProcess $eproc -ErrorAction SilentlyContinue }
+    }
+    
+    if ($defData.ExclusionExtension -and $defData.ExclusionExtension.Count -gt 0) {
+      Write-Host "Restaurando ExclusionExtension: $($defData.ExclusionExtension -join ', ')" -ForegroundColor DarkGray
+      foreach ($eext in $defData.ExclusionExtension) { Add-MpPreference -ExclusionExtension $eext -ErrorAction SilentlyContinue }
+    }
+    Write-Host "Exclusões do Defender aplicadas com sucesso." -ForegroundColor Green
+  } catch {
+    Write-Host "Erro ao aplicar regras do Defender. Pulei." -ForegroundColor DarkYellow
+  }
+} else {
+  Write-Host "Arquivo defender_exclusions.json não encontrado. Pulando." -ForegroundColor DarkYellow
+}
+
+# --------------------------------------------------
+# 6) User Environment PATH Restore
+# --------------------------------------------------
+Write-Host "`n[6/6] User PATH variables (Restore)..." -ForegroundColor Yellow
+if (Test-Path $USER_PATH_FILE) {
+  $customPaths = Get-Content -Encoding UTF8 $USER_PATH_FILE | Where-Object { $_.Trim() -ne "" }
+  if ($customPaths -and $customPaths.Count -gt 0) {
+    $currentUserPathRaw = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::User)
+    $currentUserPaths = ($currentUserPathRaw -split ';') | Where-Object { $_.Trim() -ne "" } | ForEach-Object { $_.ToLowerInvariant().TrimEnd('\') }
+    
+    $pathsToAdd = @()
+    foreach ($cp in $customPaths) {
+      $normalizedCp = $cp.ToLowerInvariant().TrimEnd('\')
+      if (-not ($currentUserPaths -contains $normalizedCp)) {
+        $pathsToAdd += $cp
+      }
+    }
+    
+    if ($pathsToAdd.Count -gt 0) {
+      # Apenda apenas os caminhos que realmente faltam no usuário
+      $newTotalPath = $currentUserPathRaw.TrimEnd(';') + ";" + ($pathsToAdd -join ";")
+      [Environment]::SetEnvironmentVariable("Path", $newTotalPath, [EnvironmentVariableTarget]::User)
+      Write-Host "Adicionados ao PATH do Usuário: $($pathsToAdd -join ', ')" -ForegroundColor Green
+    } else {
+      Write-Host "Todos os caminhos personalizados de usuário já existem no PATH atual." -ForegroundColor DarkGray
+    }
+  } else {
+      Write-Host "O arquivo de PATHs existe mas está vazio. Pulando." -ForegroundColor DarkGray
+  }
+} else {
+  Write-Host "Arquivo user_path.txt não encontrado. Pulando." -ForegroundColor DarkYellow
 }
 
 # --------------------------------------------------

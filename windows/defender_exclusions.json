@@ -1,0 +1,28 @@
+﻿{
+    "ExclusionPath":  [
+                          "\\\\wsl.localhost\\Ubuntu-24.04\\home\\imale",
+                          "C:\\Program Files\\DBeaver",
+                          "C:\\tools\\miniforge3",
+                          "C:\\tools\\neovim",
+                          "C:\\Users\\imale\\.cache",
+                          "C:\\Users\\imale\\.cargo",
+                          "C:\\Users\\imale\\.codex",
+                          "C:\\Users\\imale\\.conda",
+                          "C:\\Users\\imale\\.docker",
+                          "C:\\Users\\imale\\.jupyter",
+                          "C:\\Users\\imale\\.rustup",
+                          "C:\\Users\\imale\\.sonar",
+                          "C:\\Users\\imale\\AppData\\Local\\nvim",
+                          "C:\\Users\\imale\\AppData\\Local\\Packages\\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\\LocalState\\ext4.vhdx",
+                          "C:\\Users\\imale\\AppData\\Local\\Packages\\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\\LocalState\\ext4.vhdx",
+                          "C:\\Users\\imale\\Downloads",
+                          "C:\\Users\\imale\\miniforge3",
+                          "D:\\"
+                      ],
+    "ExclusionExtension":  {
+
+                           },
+    "ExclusionProcess":  {
+
+                         }
+}

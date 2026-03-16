@@ -38,18 +38,30 @@ $sw.Stop()
 Write-Host ("⏱️  Arquivos prontos em {0:N0} ms" -f $sw.ElapsedMilliseconds)
 
 # ⛽️ Adiciona para diretórios (versão rápida via .NET)
-Write-Host "🧱 Adiciona para diretórios"
+Write-Host "🧱 Adiciona para diretórios e background de diretórios"
 $sw2 = [System.Diagnostics.Stopwatch]::StartNew()
 $cu = [Microsoft.Win32.Registry]::CurrentUser
+
+# Para quando clica no ícone da pasta
 $keyPathDir = 'Software\Classes\Directory\shell\Abrir_pasta_no_Neovim'
-$k  = $cu.CreateSubKey($keyPathDir)          # cria/abre a chave do menu
+$k  = $cu.CreateSubKey($keyPathDir)          
 $k.SetValue('Icon',  $nvimPath, [Microsoft.Win32.RegistryValueKind]::String)
-$k.SetValue('MUIVerb','Abrir pasta no Neovim', [Microsoft.Win32.RegistryValueKind]::String)
-$kc = $k.CreateSubKey('command')              # subchave "command"
-$kc.SetValue('', $cmdDir, [Microsoft.Win32.RegistryValueKind]::String)  # valor padrão
+$k.SetValue('MUIVerb','Abrir com Neovim', [Microsoft.Win32.RegistryValueKind]::String)
+$kc = $k.CreateSubKey('command')              
+$kc.SetValue('', $cmdDir, [Microsoft.Win32.RegistryValueKind]::String)  
 $kc.Close(); $k.Close()
+
+# Para quando clica no fundo (background) da pasta aberta
+$keyPathDirBg = 'Software\Classes\Directory\Background\shell\Abrir_pasta_no_Neovim'
+$kBg  = $cu.CreateSubKey($keyPathDirBg)          
+$kBg.SetValue('Icon',  $nvimPath, [Microsoft.Win32.RegistryValueKind]::String)
+$kBg.SetValue('MUIVerb','Abrir com Neovim', [Microsoft.Win32.RegistryValueKind]::String)
+$kcBg = $kBg.CreateSubKey('command')              
+$kcBg.SetValue('', $cmdDir, [Microsoft.Win32.RegistryValueKind]::String)  
+$kcBg.Close(); $kBg.Close()
+
 $sw2.Stop()
-Write-Host ("⏱️  Diretórios prontos em {0:N0} ms" -f $sw2.ElapsedMilliseconds)
+Write-Host ("⏱️  Diretórios e Background prontos em {0:N0} ms" -f $sw2.ElapsedMilliseconds)
 
 Write-Host "✅ Menu de contexto atualizado com sucesso!"
 Write-Host "   • 'Abrir com Neovim' → arquivos"

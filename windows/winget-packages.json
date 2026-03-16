@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-03-02T14:27:48.989-00:00",
+	"CreationDate" : "2026-03-16T15:50:55.928-00:00",
 	"Sources" : 
 	[
 		{
@@ -43,6 +43,9 @@
 					"PackageIdentifier" : "GoLang.Go"
 				},
 				{
+					"PackageIdentifier" : "Nvidia.PhysX"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
@@ -67,16 +70,22 @@
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.DotNet.Framework.DeveloperPack.4.6"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.10"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Framework.DeveloperPack.4.6"
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.9"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
@@ -85,7 +94,16 @@
 					"PackageIdentifier" : "Rustlang.Rustup"
 				},
 				{
+					"PackageIdentifier" : "Comfy.ComfyUI-Desktop"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+				},
+				{
+					"PackageIdentifier" : "Google.Antigravity"
+				},
+				{
+					"PackageIdentifier" : "Canonical.Ubuntu.2404"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
