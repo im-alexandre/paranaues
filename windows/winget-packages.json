@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-03-16T15:50:55.928-00:00",
+	"CreationDate" : "2026-03-16T16:45:15.658-00:00",
 	"Sources" : 
 	[
 		{
@@ -29,6 +29,9 @@
 				},
 				{
 					"PackageIdentifier" : "RProject.Rtools"
+				},
+				{
+					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.AzureCLI"
@@ -130,6 +133,21 @@
 				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
 				"Name" : "winget",
 				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		},
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "9NKSQGP7F2NH"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier" : "StoreEdgeFD",
+				"Name" : "msstore",
+				"Type" : "Microsoft.Rest"
 			}
 		}
 	],
