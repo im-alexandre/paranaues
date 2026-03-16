@@ -1,0 +1,10 @@
+scripts/nohup.out
+scripts/workbench.xmi
+dwm/drw.o
+dwm/dwm
+dwm/dwm.o
+dwm/util.o
+/scripts/abas.sh
+/vim/plugged
+/vim/autoload
+/vim/tmp
