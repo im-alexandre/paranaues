@@ -40,6 +40,11 @@ cdf() {
       -d 6
   ) | fzf)
 
+
+nc() {
+  cd ~/.config/nvim && nvim
+}
+
   if [ -n "$target_dir" ]; then
     builtin cd "$target_dir"
   fi
