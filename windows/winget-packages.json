@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-03-16T16:45:15.658-00:00",
+	"CreationDate" : "2026-03-29T20:07:28.127-00:00",
 	"Sources" : 
 	[
 		{
@@ -19,6 +19,9 @@
 					"PackageIdentifier" : "REALiX.HWiNFO"
 				},
 				{
+					"PackageIdentifier" : "MiKTeX.MiKTeX"
+				},
+				{
 					"PackageIdentifier" : "CondaForge.Miniforge3"
 				},
 				{
@@ -34,6 +37,9 @@
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.AzureCLI"
 				},
 				{
@@ -43,13 +49,13 @@
 					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
+					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
+				},
+				{
 					"PackageIdentifier" : "GoLang.Go"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.PhysX"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
 					"PackageIdentifier" : "GitHub.cli"
@@ -70,7 +76,13 @@
 					"PackageIdentifier" : "Posit.RStudio"
 				},
 				{
+					"PackageIdentifier" : "Valve.Steam"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Framework.DeveloperPack.4.6"
@@ -79,7 +91,7 @@
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.10"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier" : "Omnissa.HorizonClient"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
@@ -92,6 +104,9 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
+				},
+				{
+					"PackageIdentifier" : "Anthropic.Claude"
 				},
 				{
 					"PackageIdentifier" : "Rustlang.Rustup"
@@ -151,5 +166,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.12.470"
+	"WinGetVersion" : "1.28.220"
 }

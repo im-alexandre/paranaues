@@ -7,3 +7,5 @@ C:\Users\imale\AppData\Roaming\npm
 C:\Users\imale\.dotnet\tools
 C:\Program Files\Tesseract-OCR
 C:\Users\imale\AppData\Local\Programs\Antigravity\bin
+C:\Users\imale\AppData\Local\Pandoc\
+C:\Users\imale\.local\bin
