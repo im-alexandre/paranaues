@@ -9,3 +9,4 @@ C:\Program Files\Tesseract-OCR
 C:\Users\imale\AppData\Local\Programs\Antigravity\bin
 C:\Users\imale\AppData\Local\Pandoc\
 C:\Users\imale\.local\bin
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe

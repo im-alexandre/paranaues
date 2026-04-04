@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-03-29T20:07:28.127-00:00",
+	"CreationDate" : "2026-04-04T12:41:02.247-00:00",
 	"Sources" : 
 	[
 		{
@@ -106,7 +106,7 @@
 					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
 				},
 				{
-					"PackageIdentifier" : "Anthropic.Claude"
+					"PackageIdentifier" : "Anthropic.ClaudeCode"
 				},
 				{
 					"PackageIdentifier" : "Rustlang.Rustup"
@@ -122,6 +122,9 @@
 				},
 				{
 					"PackageIdentifier" : "Canonical.Ubuntu.2404"
+				},
+				{
+					"PackageIdentifier" : "Anthropic.Claude"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
