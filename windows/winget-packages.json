@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-04-04T12:41:02.247-00:00",
+	"CreationDate" : "2026-04-30T01:16:44.969-00:00",
 	"Sources" : 
 	[
 		{
@@ -37,10 +37,22 @@
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier" : "DigitalScholar.Zotero"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.AzureCLI"
+					"PackageIdentifier" : "Obsidian.Obsidian"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "GoLang.Go"
+				},
+				{
+					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
 					"PackageIdentifier" : "Amazon.AWSCLI"
@@ -49,16 +61,16 @@
 					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
-					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
-				},
-				{
-					"PackageIdentifier" : "GoLang.Go"
-				},
-				{
 					"PackageIdentifier" : "Nvidia.PhysX"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier" : "Microsoft.AzureCLI"
+				},
+				{
+					"PackageIdentifier" : "Neovide.Neovide"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Community"
 				},
 				{
 					"PackageIdentifier" : "Google.Chrome.EXE"
@@ -82,13 +94,13 @@
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.10"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Framework.DeveloperPack.4.6"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.10"
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
 				},
 				{
 					"PackageIdentifier" : "Omnissa.HorizonClient"
@@ -97,22 +109,43 @@
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
+					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.9"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
+					"PackageIdentifier" : "MarkText.MarkText"
 				},
 				{
 					"PackageIdentifier" : "Anthropic.ClaudeCode"
 				},
 				{
+					"PackageIdentifier" : "Gyan.FFmpeg"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Sysinternals.Handle"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Sysinternals.Suite"
+				},
+				{
 					"PackageIdentifier" : "Rustlang.Rustup"
 				},
 				{
+					"PackageIdentifier" : "SQLite.SQLite"
+				},
+				{
+					"PackageIdentifier" : "Elsevier.MendeleyReferenceManager"
+				},
+				{
 					"PackageIdentifier" : "Comfy.ComfyUI-Desktop"
+				},
+				{
+					"PackageIdentifier" : "Ollama.Ollama"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
@@ -121,7 +154,7 @@
 					"PackageIdentifier" : "Google.Antigravity"
 				},
 				{
-					"PackageIdentifier" : "Canonical.Ubuntu.2404"
+					"PackageIdentifier" : "Canonical.Ubuntu"
 				},
 				{
 					"PackageIdentifier" : "Anthropic.Claude"
@@ -137,6 +170,24 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCLibs.14"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.2"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.5"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.7"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.8"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsTerminal"
@@ -169,5 +220,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.28.220"
+	"WinGetVersion" : "1.28.240"
 }

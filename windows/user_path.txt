@@ -1,6 +1,5 @@
 ﻿C:\Users\imale\.cargo\bin
 C:\Users\imale\AppData\Local\Microsoft\WindowsApps
-C:\Users\imale\go\bin
 C:\Users\imale\AppData\Local\Programs\Microsoft VS Code\bin
 C:\tools\neovim\nvim-win64\bin
 C:\Users\imale\AppData\Roaming\npm
@@ -9,4 +8,11 @@ C:\Program Files\Tesseract-OCR
 C:\Users\imale\AppData\Local\Programs\Antigravity\bin
 C:\Users\imale\AppData\Local\Pandoc\
 C:\Users\imale\.local\bin
-C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\imale\go\bin
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Links
+C:\Users\imale\AppData\Local\Programs\Ollama
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1-full_build\bin
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\SQLite.SQLite_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Microsoft.Sysinternals.Handle_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Microsoft.Sysinternals.Suite_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\imale\.lmstudio\bin
