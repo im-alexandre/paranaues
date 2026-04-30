@@ -8,6 +8,7 @@ $ROOT = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $WINGET_FILE    = Join-Path $ROOT "windows\winget-packages.json"
 $CHOCO_FILE     = Join-Path $ROOT "windows\packages.config"
+$NPM_GLOBAL_FILE = Join-Path $ROOT "windows\npm-global-packages.json"
 $DEFENDER_FILE  = Join-Path $ROOT "windows\defender_exclusions.json"
 $USER_PATH_FILE = Join-Path $ROOT "windows\user_path.txt"
 
@@ -28,7 +29,7 @@ Write-Host "Repo: $ROOT" -ForegroundColor DarkGray
 # --------------------------------------------------
 # 1) winget export (sem dependências exóticas e sem --include-versions)
 # --------------------------------------------------
-Write-Host "`n[1/5] winget export..." -ForegroundColor Yellow
+Write-Host "`n[1/6] winget export..." -ForegroundColor Yellow
 if (Get-Command winget -ErrorAction SilentlyContinue) {
   # O export original suja muito o output se não lidar com erro, vamos usar Try/Catch básico
   try {
@@ -44,7 +45,7 @@ if (Get-Command winget -ErrorAction SilentlyContinue) {
 # --------------------------------------------------
 # 2) choco export
 # --------------------------------------------------
-Write-Host "`n[2/5] choco export..." -ForegroundColor Yellow
+Write-Host "`n[2/6] choco export..." -ForegroundColor Yellow
 if (Get-Command choco -ErrorAction SilentlyContinue) {
   try {
     # Choco export nativamente gera o packages.config com as versoes
@@ -58,9 +59,43 @@ if (Get-Command choco -ErrorAction SilentlyContinue) {
 }
 
 # --------------------------------------------------
-# 3) Windows Defender Exclusions
+# 3) npm global packages
 # --------------------------------------------------
-Write-Host "`n[3/5] Exportando exclusões do Windows Defender..." -ForegroundColor Yellow
+Write-Host "`n[3/6] npm global packages..." -ForegroundColor Yellow
+if (Get-Command npm -ErrorAction SilentlyContinue) {
+  try {
+    $npmJsonRaw = & npm ls -g --depth=0 --json 2>$null
+    $npmState = $npmJsonRaw | ConvertFrom-Json
+
+    $packages = @()
+    if ($npmState.dependencies) {
+      $packages = $npmState.dependencies.PSObject.Properties |
+        Sort-Object Name |
+        ForEach-Object {
+          [ordered]@{
+            name = $_.Name
+            version = $_.Value.version
+          }
+        }
+    }
+
+    [ordered]@{
+      source = "npm ls -g --depth=0 --json"
+      packages = @($packages)
+    } | ConvertTo-Json -Depth 4 | Set-Content $NPM_GLOBAL_FILE -Encoding UTF8
+
+    Write-Host "$($packages.Count) pacotes globais do npm exportados para $NPM_GLOBAL_FILE" -ForegroundColor Green
+  } catch {
+    Write-Host "Erro ao exportar pacotes globais do npm." -ForegroundColor Red
+  }
+} else {
+  Write-Host "Comando 'npm' não encontrado." -ForegroundColor DarkYellow
+}
+
+# --------------------------------------------------
+# 4) Windows Defender Exclusions
+# --------------------------------------------------
+Write-Host "`n[4/6] Exportando exclusões do Windows Defender..." -ForegroundColor Yellow
 try {
   $mp = Get-MpPreference
   $exclusions = @{
@@ -76,9 +111,9 @@ try {
 }
 
 # --------------------------------------------------
-# 4) User PATH Extractor
+# 5) User PATH Extractor
 # --------------------------------------------------
-Write-Host "`n[4/5] Exportando variáveis de PATH customizadas..." -ForegroundColor Yellow
+Write-Host "`n[5/6] Exportando variáveis de PATH customizadas..." -ForegroundColor Yellow
 
 # Lendo o PATH local do usuário do Registro
 $userPathRaw = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::User)
@@ -107,14 +142,17 @@ if ($customUserPaths.Count -gt 0) {
 }
 
 # --------------------------------------------------
-# 5) Git Sincronização
+# 6) Git Sincronização
 # --------------------------------------------------
-Write-Host "`n[5/5] Sincronizando com o Git (master)..." -ForegroundColor Yellow
+Write-Host "`n[6/6] Sincronizando com o Git (master)..." -ForegroundColor Yellow
 try {
   Push-Location $ROOT
-  git add $WINGET_FILE $CHOCO_FILE $DEFENDER_FILE $USER_PATH_FILE
+  $gitFiles = @($WINGET_FILE, $CHOCO_FILE, $NPM_GLOBAL_FILE, $DEFENDER_FILE, $USER_PATH_FILE) |
+    Where-Object { Test-Path $_ }
+
+  git add $gitFiles
   
-  $status = git status --porcelain $WINGET_FILE $CHOCO_FILE $DEFENDER_FILE $USER_PATH_FILE
+  $status = git status --porcelain $gitFiles
   if ($status) {
     git commit -m "chore(windows): auto-sync dev environment dump" | Out-Null
     git push origin master | Out-Null

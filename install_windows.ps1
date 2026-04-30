@@ -9,6 +9,7 @@ $ROOT          = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $WINGET_FILE      = Join-Path $ROOT "windows\winget-packages.json"
 $CHOCO_FILE       = Join-Path $ROOT "windows\packages.config"
+$NPM_GLOBAL_FILE  = Join-Path $ROOT "windows\npm-global-packages.json"
 $TERMINAL_REPO    = Join-Path $ROOT "windows\terminal_settings.json"
 $DEFENDER_FILE    = Join-Path $ROOT "windows\defender_exclusions.json"
 $USER_PATH_FILE   = Join-Path $ROOT "windows\user_path.txt"
@@ -30,6 +31,12 @@ if (-not (Test-IsAdmin)) {
 function Ensure-Command([string]$Name, [string]$Hint) {
   if (Get-Command $Name -ErrorAction SilentlyContinue) { return }
   throw "Comando '$Name' não encontrado. $Hint"
+}
+
+function Update-ProcessPath {
+  $machinePath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
+  $userPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::User)
+  $env:Path = @($machinePath, $userPath) -join ";"
 }
 
 function Try-WingetInstall([string]$Id) {
@@ -91,7 +98,7 @@ Write-Host "Repo: $ROOT" -ForegroundColor DarkGray
 # --------------------------------------------------
 # 1) winget import (faz o grosso)
 # --------------------------------------------------
-Write-Host "`n[1/4] winget import..." -ForegroundColor Yellow
+Write-Host "`n[1/7] winget import..." -ForegroundColor Yellow
 Ensure-Command winget "Instala o App Installer (winget) primeiro."
 
 & winget source update | Out-Null
@@ -109,7 +116,7 @@ if (Test-Path $WINGET_FILE) {
 # --------------------------------------------------
 # 2) choco install packages.config
 # --------------------------------------------------
-Write-Host "`n[2/4] choco install..." -ForegroundColor Yellow
+Write-Host "`n[2/7] choco install..." -ForegroundColor Yellow
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
   Write-Host "Chocolatey não encontrado. Tentando winget install Chocolatey.Chocolatey..." -ForegroundColor DarkYellow
   Try-WingetInstall "Chocolatey.Chocolatey"
@@ -125,9 +132,57 @@ if (Test-Path $CHOCO_FILE) {
 }
 
 # --------------------------------------------------
-# 3) lazyvim_config (clone/pull) -> $HOME\nvim
+# 3) npm global packages
 # --------------------------------------------------
-Write-Host "`n[3/4] lazyvim_config..." -ForegroundColor Yellow
+Write-Host "`n[3/7] npm global packages..." -ForegroundColor Yellow
+if (Test-Path $NPM_GLOBAL_FILE) {
+  Update-ProcessPath
+
+  if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
+    Write-Host "npm não encontrado. Tentando winget install OpenJS.NodeJS.LTS..." -ForegroundColor DarkYellow
+    Try-WingetInstall "OpenJS.NodeJS.LTS"
+    Update-ProcessPath
+  }
+
+  Ensure-Command npm "Inclui Node.js no winget-packages.json/packages.config ou instala manualmente."
+
+  try {
+    $npmData = Get-Content -Raw -Encoding UTF8 $NPM_GLOBAL_FILE | ConvertFrom-Json
+    $packages = @($npmData.packages)
+
+    if ($packages.Count -gt 0) {
+      foreach ($pkg in $packages) {
+        $nameProp = $pkg.PSObject.Properties["name"]
+        if (-not $nameProp -or [string]::IsNullOrWhiteSpace($nameProp.Value)) { continue }
+
+        $name = [string]$nameProp.Value
+        $versionProp = $pkg.PSObject.Properties["version"]
+        $version = if ($versionProp) { [string]$versionProp.Value } else { "" }
+        $spec = if ([string]::IsNullOrWhiteSpace($version)) { $name } else { "$name@$version" }
+
+        try {
+          & npm install -g $spec | Out-Host
+          if ($LASTEXITCODE -ne 0) { throw "npm install -g $spec saiu com código $LASTEXITCODE" }
+        } catch {
+          Write-Host "Falha ao instalar pacote global npm '$spec': $_" -ForegroundColor DarkYellow
+        }
+      }
+
+      Write-Host "$($packages.Count) pacotes globais do npm processados." -ForegroundColor Green
+    } else {
+      Write-Host "npm-global-packages.json não tem pacotes. Pulando." -ForegroundColor DarkGray
+    }
+  } catch {
+    Write-Host "Erro ao ler ou instalar npm-global-packages.json. Pulei." -ForegroundColor DarkYellow
+  }
+} else {
+  Write-Host "npm-global-packages.json não encontrado. Pulando." -ForegroundColor DarkYellow
+}
+
+# --------------------------------------------------
+# 4) lazyvim_config (clone/pull) -> $HOME\nvim
+# --------------------------------------------------
+Write-Host "`n[4/7] lazyvim_config..." -ForegroundColor Yellow
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
   Write-Host "git não encontrado. Tentando winget install Git.Git..." -ForegroundColor DarkYellow
   Try-WingetInstall "Git.Git"
@@ -144,11 +199,11 @@ if (Test-Path (Join-Path $LAZYVIM_DIR ".git")) {
 }
 
 # --------------------------------------------------
-# 4) Windows Terminal settings via mklink pro arquivo do repo
+# 5) Windows Terminal settings via mklink pro arquivo do repo
 #     - Terminal edita e já reflete no repo ✅
 #     - Patch só nos paths de pwsh/winps (que quebram)
 # --------------------------------------------------
-Write-Host "`n[4/4] Windows Terminal settings (mklink + patch paths)..." -ForegroundColor Yellow
+Write-Host "`n[5/7] Windows Terminal settings (mklink + patch paths)..." -ForegroundColor Yellow
 
 $targets = Get-TerminalTargets
 if ($targets.Count -eq 0) {
@@ -171,9 +226,9 @@ if ($targets.Count -eq 0) {
 }
 
 # --------------------------------------------------
-# 5) Windows Defender Restore Exclusions
+# 6) Windows Defender Restore Exclusions
 # --------------------------------------------------
-Write-Host "`n[5/6] Windows Defender (Restore Exclusions)..." -ForegroundColor Yellow
+Write-Host "`n[6/7] Windows Defender (Restore Exclusions)..." -ForegroundColor Yellow
 if (Test-Path $DEFENDER_FILE) {
   try {
     $defData = Get-Content -Raw -Encoding UTF8 $DEFENDER_FILE | ConvertFrom-Json
@@ -201,9 +256,9 @@ if (Test-Path $DEFENDER_FILE) {
 }
 
 # --------------------------------------------------
-# 6) User Environment PATH Restore
+# 7) User Environment PATH Restore
 # --------------------------------------------------
-Write-Host "`n[6/6] User PATH variables (Restore)..." -ForegroundColor Yellow
+Write-Host "`n[7/7] User PATH variables (Restore)..." -ForegroundColor Yellow
 if (Test-Path $USER_PATH_FILE) {
   $customPaths = Get-Content -Encoding UTF8 $USER_PATH_FILE | Where-Object { $_.Trim() -ne "" }
   if ($customPaths -and $customPaths.Count -gt 0) {
