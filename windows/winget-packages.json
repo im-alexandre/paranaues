@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-05-13T14:43:53.870-00:00",
+	"CreationDate" : "2026-05-17T01:43:27.705-00:00",
 	"Sources" : 
 	[
 		{
@@ -110,6 +110,9 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Tailscale.Tailscale"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
