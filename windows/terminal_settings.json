@@ -29,6 +29,7 @@
             "type": "remainingProfiles"
         }
     ],
+    "newTabPosition": "afterCurrentTab",
     "profiles": 
     {
         "defaults": 
@@ -37,7 +38,7 @@
             "font": 
             {
                 "face": "RobotoMono Nerd Font Mono",
-                "size": 12
+                "size": 10
             },
             "opacity": 100,
             "padding": "0,0,0,0"
@@ -75,19 +76,22 @@
                 "elevate": true,
                 "guid": "{e4b440d3-672f-43d3-8163-697d6517a79e}",
                 "hidden": false,
-                "icon": "D:/windows_paranaues/admin.png",
+                "icon": "D:\\paranaues\\windows\\admin.png",
                 "name": "PowerShell (Admin)",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Ubuntu 24.04.1 LTS",
-                "padding": "0, 0, 0, 0",
-                "scrollbarState": "hidden",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc",
-                "tabTitle": "Ubuntu"
+                "icon": "D:\\paranaues\\windows\\shortcut.ico",
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",
+                "hidden": false,
+                "name": "QMK MSYS",
+                "source": "QMK"
             }
         ]
     },
