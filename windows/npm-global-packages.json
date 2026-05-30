@@ -15,7 +15,11 @@
                      },
                      {
                          "name":  "@openai/codex",
-                         "version":  "0.130.0"
+                         "version":  "0.135.0"
+                     },
+                     {
+                         "name":  "@playwright/cli",
+                         "version":  "0.1.13"
                      },
                      {
                          "name":  "@zed-industries/codex-acp",
@@ -24,6 +28,10 @@
                      {
                          "name":  "neovim",
                          "version":  "5.4.0"
+                     },
+                     {
+                         "name":  "skills",
+                         "version":  "1.5.7"
                      }
                  ]
 }

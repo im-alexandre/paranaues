@@ -22,3 +22,7 @@ C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\jstarks.npiperelay_Micros
 C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1.1-full_build\bin
 C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\BtbN.FFmpeg.GPL_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-N-124278-gcc3ca17127-win64-gpl\bin
 C:\Users\imale\AppData\Local\Microsoft\WindowsApps
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\arndawg.tmux-windows_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\imale\AppData\Local\Programs\AgentHub
+C:\tools\miniforge3
+C:\Users\imale\AppData\Local\Microsoft\WinGet\Packages\FiloSottile.mkcert_Microsoft.Winget.Source_8wekyb3d8bbwe
