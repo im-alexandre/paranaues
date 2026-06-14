@@ -7,7 +7,6 @@ $ErrorActionPreference = "Stop"
 $ROOT = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $WINGET_FILE    = Join-Path $ROOT "windows\winget-packages.json"
-$CHOCO_FILE     = Join-Path $ROOT "windows\packages.config"
 $NPM_GLOBAL_FILE = Join-Path $ROOT "windows\npm-global-packages.json"
 $DEFENDER_FILE  = Join-Path $ROOT "windows\defender_exclusions.json"
 $USER_PATH_FILE = Join-Path $ROOT "windows\user_path.txt"

@@ -1,37 +1,9 @@
 ﻿{
-    "source":  "npm ls -g --depth=0 --json",
-    "packages":  [
-                     {
-                         "name":  "@autodev/codebase",
-                         "version":  "1.0.1"
-                     },
-                     {
-                         "name":  "@beaconbay/ck-search",
-                         "version":  "0.7.0"
-                     },
-                     {
-                         "name":  "@letuscode/spec-kit",
-                         "version":  "0.1.3"
-                     },
-                     {
-                         "name":  "@openai/codex",
-                         "version":  "0.135.0"
-                     },
-                     {
-                         "name":  "@playwright/cli",
-                         "version":  "0.1.13"
-                     },
-                     {
-                         "name":  "@zed-industries/codex-acp",
-                         "version":  "0.11.1"
-                     },
-                     {
-                         "name":  "neovim",
-                         "version":  "5.4.0"
-                     },
-                     {
-                         "name":  "skills",
-                         "version":  "1.5.7"
-                     }
-                 ]
+    "source": "npm ls -g --depth=0 --json",
+    "packages": [
+        {
+            "name": "skills",
+            "version": "latest"
+        }
+    ]
 }

@@ -11,6 +11,18 @@
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "shift+insert"
+        },
+        {
+            "id": "Terminal.Unbound",
+            "keys": "ctrl+v"
         }
     ],
     "newTabMenu": 
@@ -38,7 +50,7 @@
             "font": 
             {
                 "face": "RobotoMono Nerd Font Mono",
-                "size": 10
+                "size": 14
             },
             "opacity": 100,
             "padding": "0,0,0,0"
@@ -92,9 +104,23 @@
                 "hidden": false,
                 "name": "QMK MSYS",
                 "source": "QMK"
+            },
+            {
+                "guid": "{77e9c436-5ea5-5387-9e2a-c56bc3bba1fc}",
+                "hidden": false,
+                "name": "Ubuntu-26.04",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{9e409c0a-969a-500e-adf0-84640ed7a3e6}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
             }
         ]
     },
+    "rendering.graphicsAPI": "direct2d",
+    "rendering.software": false,
     "schemes": 
     [
         {
@@ -168,5 +194,6 @@
         }
     ],
     "showTabsInTitlebar": false,
-    "themes": []
+    "themes": [],
+    "warning.multiLinePaste": "always"
 }

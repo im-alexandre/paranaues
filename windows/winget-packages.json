@@ -1,269 +1,164 @@
 {
-	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-05-30T02:30:50.033-00:00",
-	"Sources" : 
-	[
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2026-06-14T17:39:42.362-00:00",
+	"Sources": [
 		{
-			"Packages" : 
-			[
+			"Packages": [
 				{
-					"PackageIdentifier" : "7zip.7zip"
+					"PackageIdentifier": "Microsoft.AppInstaller"
 				},
 				{
-					"PackageIdentifier" : "DBeaver.DBeaver.Community"
+					"PackageIdentifier": "Microsoft.WindowsTerminal"
 				},
 				{
-					"PackageIdentifier" : "Docker.DockerDesktop"
+					"PackageIdentifier": "Microsoft.WSL"
 				},
 				{
-					"PackageIdentifier" : "REALiX.HWiNFO"
+					"PackageIdentifier": "Canonical.Ubuntu"
 				},
 				{
-					"PackageIdentifier" : "MiKTeX.MiKTeX"
+					"PackageIdentifier": "Git.Git"
 				},
 				{
-					"PackageIdentifier" : "CondaForge.Miniforge3"
+					"PackageIdentifier": "GitHub.cli"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
+					"PackageIdentifier": "OpenJS.NodeJS.LTS"
 				},
 				{
-					"PackageIdentifier" : "RProject.R"
+					"PackageIdentifier": "Microsoft.PowerShell"
 				},
 				{
-					"PackageIdentifier" : "RProject.Rtools"
+					"PackageIdentifier": "Microsoft.DotNet.SDK.10"
 				},
 				{
-					"PackageIdentifier" : "VideoLAN.VLC"
+					"PackageIdentifier": "Microsoft.DotNet.SDK.8"
 				},
 				{
-					"PackageIdentifier" : "DigitalScholar.Zotero"
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.10"
 				},
 				{
-					"PackageIdentifier" : "Obsidian.Obsidian"
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
-					"PackageIdentifier" : "Foxit.FoxitReader"
+					"PackageIdentifier": "Microsoft.WindowsSDK.10.0.26100"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier": "Microsoft.VisualStudio.2022.BuildTools",
+					"Scope": "machine",
+					"InitialOverrideArguments": "--wait --quiet --norestart --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
 				},
 				{
-					"PackageIdentifier" : "GoLang.Go"
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "QMK.QMKToolbox"
+					"PackageIdentifier": "LLVM.LLVM"
 				},
 				{
-					"PackageIdentifier" : "Amazon.AWSCLI"
+					"PackageIdentifier": "BrechtSanders.WinLibs.POSIX.UCRT"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+					"PackageIdentifier": "Kitware.CMake"
 				},
 				{
-					"PackageIdentifier" : "Nvidia.PhysX"
+					"PackageIdentifier": "Ninja-build.Ninja"
 				},
 				{
-					"PackageIdentifier" : "wez.wezterm"
+					"PackageIdentifier": "GnuWin32.Make"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.AzureCLI"
+					"PackageIdentifier": "Microsoft.OpenJDK.21"
 				},
 				{
-					"PackageIdentifier" : "Neovide.Neovide"
+					"PackageIdentifier": "GoLang.Go"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier": "Rustlang.Rustup"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Community"
+					"PackageIdentifier": "DEVCOM.Lua"
 				},
 				{
-					"PackageIdentifier" : "Google.Chrome.EXE"
+					"PackageIdentifier": "tree-sitter.tree-sitter-cli"
 				},
 				{
-					"PackageIdentifier" : "LLVM.LLVM"
+					"PackageIdentifier": "Anaconda.Miniconda3"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Edge"
+					"PackageIdentifier": "BurntSushi.ripgrep.MSVC"
 				},
 				{
-					"PackageIdentifier" : "OBSProject.OBSStudio"
+					"PackageIdentifier": "sharkdp.fd"
 				},
 				{
-					"PackageIdentifier" : "Posit.RStudio"
+					"PackageIdentifier": "junegunn.fzf"
 				},
 				{
-					"PackageIdentifier" : "Valve.Steam"
+					"PackageIdentifier": "jqlang.jq"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+					"PackageIdentifier": "MikeFarah.yq"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier": "JesseDuffield.lazygit"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.10"
+					"PackageIdentifier": "Hashicorp.Terraform"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Framework.DeveloperPack.4.6"
+					"PackageIdentifier": "Amazon.AWSCLI"
 				},
 				{
-					"PackageIdentifier" : "Omnissa.HorizonClient"
+					"PackageIdentifier": "Microsoft.AzureCLI"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier": "7zip.7zip"
 				},
 				{
-					"PackageIdentifier" : "Tailscale.Tailscale"
+					"PackageIdentifier": "GnuWin32.Gzip"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
+					"PackageIdentifier": "DBeaver.DBeaver.Community"
 				},
 				{
-					"PackageIdentifier" : "Cloudflare.cloudflared"
+					"PackageIdentifier": "MiKTeX.MiKTeX"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.9"
+					"PackageIdentifier": "JohnMacFarlane.Pandoc"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK.10.0.26100"
+					"PackageIdentifier": "RProject.R"
 				},
 				{
-					"PackageIdentifier" : "MarkText.MarkText"
+					"PackageIdentifier": "RProject.Rtools"
 				},
 				{
-					"PackageIdentifier" : "Anthropic.ClaudeCode"
-				},
-				{
-					"PackageIdentifier" : "AutoHotkey.AutoHotkey"
-				},
-				{
-					"PackageIdentifier" : "BtbN.FFmpeg.GPL"
-				},
-				{
-					"PackageIdentifier" : "FiloSottile.mkcert"
-				},
-				{
-					"PackageIdentifier" : "Gyan.FFmpeg"
-				},
-				{
-					"PackageIdentifier" : "KDE.Kdenlive"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Sysinternals.Handle"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Sysinternals.Suite"
-				},
-				{
-					"PackageIdentifier" : "Rustlang.Rustup"
-				},
-				{
-					"PackageIdentifier" : "SQLite.SQLite"
-				},
-				{
-					"PackageIdentifier" : "arndawg.tmux-windows"
-				},
-				{
-					"PackageIdentifier" : "Elsevier.MendeleyReferenceManager"
-				},
-				{
-					"PackageIdentifier" : "charmbracelet.glow"
-				},
-				{
-					"PackageIdentifier" : "Comfy.ComfyUI-Desktop"
-				},
-				{
-					"PackageIdentifier" : "jstarks.npiperelay"
-				},
-				{
-					"PackageIdentifier" : "Ollama.Ollama"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
-				},
-				{
-					"PackageIdentifier" : "Google.AntigravityIDE"
-				},
-				{
-					"PackageIdentifier" : "Canonical.Ubuntu"
-				},
-				{
-					"PackageIdentifier" : "Anthropic.Claude"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.AppInstaller"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.Native.Runtime"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCLibs.14"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.2"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.5"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.7"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.8"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WSL"
+					"PackageIdentifier": "Posit.RStudio"
 				}
 			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://cdn.winget.microsoft.com/cache",
-				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name" : "winget",
-				"Type" : "Microsoft.PreIndexed.Package"
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
 			}
 		},
 		{
-			"Packages" : 
-			[
+			"Packages": [
 				{
-					"PackageIdentifier" : "XP99DVCPGKTXNJ"
-				},
-				{
-					"PackageIdentifier" : "XPDC2RH70K22MN"
-				},
-				{
-					"PackageIdentifier" : "9NKSQGP7F2NH"
+					"PackageIdentifier": "9PLM9XGG6VKS"
 				}
 			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
-				"Identifier" : "StoreEdgeFD",
-				"Name" : "msstore",
-				"Type" : "Microsoft.Rest"
+			"SourceDetails": {
+				"Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier": "StoreEdgeFD",
+				"Name": "msstore",
+				"Type": "Microsoft.Rest"
 			}
 		}
 	],
-	"WinGetVersion" : "1.28.240"
+	"WinGetVersion": "1.28.240"
 }
