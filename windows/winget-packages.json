@@ -11,12 +11,6 @@
 					"PackageIdentifier": "Microsoft.WindowsTerminal"
 				},
 				{
-					"PackageIdentifier": "Microsoft.WSL"
-				},
-				{
-					"PackageIdentifier": "Canonical.Ubuntu"
-				},
-				{
 					"PackageIdentifier": "Git.Git"
 				},
 				{
@@ -47,12 +41,6 @@
 					"PackageIdentifier": "Microsoft.VisualStudio.2022.BuildTools",
 					"Scope": "machine",
 					"InitialOverrideArguments": "--wait --quiet --norestart --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
 				},
 				{
 					"PackageIdentifier": "LLVM.LLVM"
@@ -107,12 +95,6 @@
 				},
 				{
 					"PackageIdentifier": "Hashicorp.Terraform"
-				},
-				{
-					"PackageIdentifier": "Amazon.AWSCLI"
-				},
-				{
-					"PackageIdentifier": "Microsoft.AzureCLI"
 				},
 				{
 					"PackageIdentifier": "7zip.7zip"
