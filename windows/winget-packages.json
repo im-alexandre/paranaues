@@ -17,6 +17,9 @@
 					"PackageIdentifier": "GitHub.cli"
 				},
 				{
+					"PackageIdentifier": "Neovim.Neovim"
+				},
+				{
 					"PackageIdentifier": "OpenJS.NodeJS.LTS"
 				},
 				{
@@ -110,15 +113,6 @@
 				},
 				{
 					"PackageIdentifier": "JohnMacFarlane.Pandoc"
-				},
-				{
-					"PackageIdentifier": "RProject.R"
-				},
-				{
-					"PackageIdentifier": "RProject.Rtools"
-				},
-				{
-					"PackageIdentifier": "Posit.RStudio"
 				}
 			],
 			"SourceDetails": {
