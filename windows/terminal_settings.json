@@ -46,14 +46,16 @@
     {
         "defaults": 
         {
-            "colorScheme": "Gruvbox Dark",
+            "colorScheme": "Gruvbox Material",
             "font": 
             {
-                "face": "RobotoMono Nerd Font Mono",
-                "size": 14
+                "face": "JetBrainsMono Nerd Font Mono",
+                "size": 11,
+                "weight": "bold"
             },
             "opacity": 100,
-            "padding": "0,0,0,0"
+            "padding": "0,0,0,0",
+            "useAcrylic": true
         },
         "list": 
         [
@@ -93,34 +95,54 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe --distribution-id {7fdf11af-f857-4c33-b53d-0d8b9b5ae3c3} --cd \"~\"",
+                "guid": "{a14db961-dbc8-5d5d-bfb3-975f4a6c0a56}",
                 "hidden": false,
-                "icon": "D:\\paranaues\\windows\\shortcut.ico",
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",
-                "hidden": false,
-                "name": "QMK MSYS",
-                "source": "QMK"
-            },
-            {
-                "guid": "{77e9c436-5ea5-5387-9e2a-c56bc3bba1fc}",
-                "hidden": false,
-                "name": "Ubuntu-26.04",
+                "name": "Ubuntu-24.04",
                 "source": "Microsoft.WSL"
             },
             {
-                "guid": "{9e409c0a-969a-500e-adf0-84640ed7a3e6}",
+                "guid": "{b2b9dac5-eaee-5b40-983b-ab96dcfa27fd}",
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{0ca619c4-be93-5dfe-b15b-e6ba309c0109}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{5db0b150-5092-517a-a512-4e3a96e01e28}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{e153ebca-afeb-5bea-bb1f-2cbde34b8a58}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\imale\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\imale\\miniconda3' ",
+                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
+                "icon": "C:\\Users\\imale\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "name": "Anaconda PowerShell Prompt (miniconda3)",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\imale\\miniconda3\\Scripts\\activate.bat C:\\Users\\imale\\miniconda3",
+                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
+                "icon": "C:\\Users\\imale\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "name": "Anaconda Prompt (miniconda3)",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
     "rendering.graphicsAPI": "direct2d",
-    "rendering.software": false,
+    "rendering.software": true,
     "schemes": 
     [
         {

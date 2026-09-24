@@ -9,7 +9,6 @@ $ErrorActionPreference = "Stop"
 $ROOT          = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $WINGET_FILE      = Join-Path $ROOT "windows\winget-packages.json"
-$NPM_GLOBAL_FILE  = Join-Path $ROOT "windows\npm-global-packages.json"
 $TERMINAL_REPO    = Join-Path $ROOT "windows\terminal_settings.json"
 $DEFENDER_FILE    = Join-Path $ROOT "windows\defender_exclusions.json"
 
@@ -181,7 +180,8 @@ function Patch-TerminalRepoJsonInPlace([string]$PwshPath, [string]$WinPsPath) {
 
 Write-Host "=== Xandão Labs :: Install Paranauês 🧪 ===" -ForegroundColor Cyan
 Write-Host "Repo: $ROOT" -ForegroundColor DarkGray
-
+<#
+ # {
 # --------------------------------------------------
 # 1) winget import (faz o grosso)
 # --------------------------------------------------
@@ -199,67 +199,8 @@ if (Test-Path $WINGET_FILE) {
 } else {
   Write-Host "winget-packages.json não encontrado. Pulando." -ForegroundColor DarkYellow
 }
-
-# --------------------------------------------------
-# 2) npm global packages
-# --------------------------------------------------
-Write-Host "`n[2/7] npm global packages..." -ForegroundColor Yellow
-if (Test-Path $NPM_GLOBAL_FILE) {
-  Update-ProcessPath
-
-  if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
-    Write-Host "npm não encontrado. Tentando winget install OpenJS.NodeJS.LTS..." -ForegroundColor DarkYellow
-    Try-WingetInstall "OpenJS.NodeJS.LTS"
-    Update-ProcessPath
-  }
-
-  Ensure-Command npm "Inclui Node.js no winget-packages.json ou instala manualmente."
-
-  try {
-    $npmData = Get-Content -Raw -Encoding UTF8 $NPM_GLOBAL_FILE | ConvertFrom-Json
-    $packages = @($npmData.packages)
-
-    if ($packages.Count -gt 0) {
-      foreach ($pkg in $packages) {
-        $nameProp = $pkg.PSObject.Properties["name"]
-        if (-not $nameProp -or [string]::IsNullOrWhiteSpace($nameProp.Value)) {
-          continue
-        }
-
-        $name = [string]$nameProp.Value
-        $versionProp = $pkg.PSObject.Properties["version"]
-        $version = if ($versionProp) {
-          [string]$versionProp.Value
-        } else {
-          ""
-        }
-        $spec = if ([string]::IsNullOrWhiteSpace($version)) {
-          $name
-        } else {
-          "$name@$version"
-        }
-
-        try {
-          & npm install -g $spec | Out-Host
-          if ($LASTEXITCODE -ne 0) {
-            throw "npm install -g $spec saiu com código $LASTEXITCODE"
-          }
-        } catch {
-          Write-Host "Falha ao instalar pacote global npm '$spec': $_" -ForegroundColor DarkYellow
-        }
-      }
-
-      Write-Host "$($packages.Count) pacotes globais do npm processados." -ForegroundColor Green
-    } else {
-      Write-Host "npm-global-packages.json não tem pacotes. Pulando." -ForegroundColor DarkGray
-    }
-  } catch {
-    Write-Host "Erro ao ler ou instalar npm-global-packages.json. Pulei." -ForegroundColor DarkYellow
-  }
-} else {
-  Write-Host "npm-global-packages.json não encontrado. Pulando." -ForegroundColor DarkYellow
-}
-
+:Enter a comment or description}
+#>
 # --------------------------------------------------
 # 3) lazyvim_config (clone/pull) -> $HOME\nvim
 # --------------------------------------------------
@@ -287,7 +228,7 @@ if (Test-Path (Join-Path $LAZYVIM_DIR ".git")) {
 Write-Host "`n[4/7] Windows Terminal settings (mklink + patch paths)..." -ForegroundColor Yellow
 
 $targets = Get-TerminalTargets
-if ($targets.Count -eq 0) {
+if ($targets -ne $null -gt 0) {
   Write-Host "Windows Terminal (stable/preview) não encontrado. Pulando mklink." -ForegroundColor DarkYellow
   Write-Host "Dica: inclui Microsoft.WindowsTerminal no winget-packages.json" -ForegroundColor DarkGray
 } else {
