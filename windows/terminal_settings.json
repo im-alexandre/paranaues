@@ -6,7 +6,8 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "keybindings": [
+    "keybindings": 
+    [
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
@@ -24,7 +25,8 @@
             "keys": "ctrl+v"
         }
     ],
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "icon": null,
             "profile": "{e4b440d3-672f-43d3-8163-697d6517a79e}",
@@ -40,10 +42,13 @@
         }
     ],
     "newTabPosition": "afterCurrentTab",
-    "profiles": {
-        "defaults": {
+    "profiles": 
+    {
+        "defaults": 
+        {
             "colorScheme": "Gruvbox Material",
-            "font": {
+            "font": 
+            {
                 "face": "JetBrainsMono Nerd Font Mono",
                 "size": 11,
                 "weight": "bold"
@@ -52,11 +57,12 @@
             "padding": "0,0,0,0",
             "useAcrylic": true
         },
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": true,
+                "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
@@ -121,21 +127,44 @@
             },
             {
                 "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\alexandre\\AppData\\Local\\miniconda3' ",
-                "name": "Anaconda PowerShell Prompt (miniconda3)",
+                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
                 "icon": "C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "name": "Anaconda PowerShell Prompt (miniconda3)",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
                 "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Scripts\\activate.bat C:\\Users\\alexandre\\AppData\\Local\\miniconda3",
-                "name": "Anaconda Prompt (miniconda3)",
+                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
                 "icon": "C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "name": "Anaconda Prompt (miniconda3)",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{e3d31804-cd51-5fd8-93e2-4399116cb5e7}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\alexandre\\AppData\\Local\\anaconda3' ",
+                "guid": "{eed49005-877d-5de2-94d5-5ce5e370f8c3}",
+                "icon": "C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "name": "Anaconda PowerShell Prompt (anaconda3)",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Scripts\\activate.bat C:\\Users\\alexandre\\AppData\\Local\\anaconda3",
+                "guid": "{e78b37b4-0017-568b-9279-1abde5e14cde}",
+                "icon": "C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Menu\\anaconda_prompt.ico",
+                "name": "Anaconda Prompt (anaconda3)",
                 "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
     "rendering.graphicsAPI": "direct2d",
     "rendering.software": true,
-    "schemes": [
+    "schemes": 
+    [
         {
             "background": "#282828",
             "black": "#1D2021",

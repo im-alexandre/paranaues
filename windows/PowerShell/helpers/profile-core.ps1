@@ -1,3 +1,22 @@
+function setPath {
+  param (
+    [Parameter(Mandatory=$true)]
+    [string] $NewPath,
+    [Parameter(Mandatory=$true)]
+    [string] $Scope
+  )
+
+  $path = [Environment]::GetEnvironmentVariable('Path', $Scope)
+
+  if (($path -split ';') -notcontains $NewPath) {
+    [Environment]::SetEnvironmentVariable(
+      'Path',
+      ($path.TrimEnd(';') + ';' + $NewPath),
+      $Scope
+    )
+  } 
+}
+
 function ollama-docker {
   param (
     [Parameter(ValueFromRemainingArguments = $true)]
@@ -324,10 +343,12 @@ try {
   Set-PSReadLineOption -EditMode Vi -ErrorAction Stop
   Set-PSReadLineOption -ViModeIndicator Cursor -ErrorAction Stop
 
-  try {
-    Set-PSReadLineOption -PredictionViewStyle ListView -ErrorAction Stop
-  } catch {
-    Set-PSReadLineOption -PredictionViewStyle InlineView -ErrorAction SilentlyContinue
+  if ((Get-Command Set-PSReadLineOption).Parameters.ContainsKey('PredictionViewStyle')) {
+    try {
+      Set-PSReadLineOption -PredictionViewStyle ListView -ErrorAction Stop
+    } catch {
+      Set-PSReadLineOption -PredictionViewStyle InlineView -ErrorAction Stop
+    }
   }
 
   $historyForward = {
