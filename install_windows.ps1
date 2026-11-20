@@ -13,9 +13,9 @@ $TERMINAL_REPO    = Join-Path $ROOT "windows\terminal_settings.json"
 $DEFENDER_FILE    = Join-Path $ROOT "windows\defender_exclusions.json"
 
 $POWERSHELL_REPO         = Join-Path $ROOT "windows\PowerShell"
-$POWERSHELL_PROFILE_REPO = Join-Path $POWERSHELL_REPO "Microsoft.PowerShell_profile.ps1"
 $POWERSHELL_HELPERS_REPO = Join-Path $POWERSHELL_REPO "helpers"
 $POWERSHELL_MODULES_REPO = Join-Path $POWERSHELL_REPO "Modules"
+$POWERSHELL_LOADERS_REPO = Join-Path $ROOT "windows\profile-loaders"
 
 $LAZYVIM_REPO  = "https://github.com/im-alexandre/lazyvim_config"
 $LAZYVIM_DIR   = Join-Path $env:LOCALAPPDATA "nvim"
@@ -66,7 +66,7 @@ function Get-TerminalTargets {
 }
 
 function Get-BackupPath([string]$Path) {
-  $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
+  $timestamp = Get-Date -Format "yyyyMMdd-HHmmss-fff"
   return "$Path.bak.$timestamp"
 }
 
@@ -120,38 +120,65 @@ function Prepend-PathEntry([string]$Value, [string]$Entry) {
 }
 
 function Install-PowerShellRepoProfile {
-  if (-not (Test-Path -LiteralPath $POWERSHELL_PROFILE_REPO)) {
-    throw "Profile do PowerShell não encontrado no repo: $POWERSHELL_PROFILE_REPO"
-  }
+  param(
+    [string]$DocumentsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::MyDocuments)
+  )
+
   if (-not (Test-Path -LiteralPath $POWERSHELL_HELPERS_REPO)) {
     throw "Diretório de helpers do PowerShell não encontrado no repo: $POWERSHELL_HELPERS_REPO"
   }
 
-  New-Item -ItemType Directory -Path $POWERSHELL_MODULES_REPO -Force | Out-Null
-
-  $documents = [Environment]::GetFolderPath([Environment+SpecialFolder]::MyDocuments)
-  $profileDirs = @(
-    Join-Path $documents "PowerShell"
-    Join-Path $documents "WindowsPowerShell"
+  $profiles = @(
+    foreach ($edition in @("PowerShell", "WindowsPowerShell")) {
+      $relativePath = Join-Path $edition "profile.ps1"
+      $sourcePath = Join-Path (Join-Path $ROOT "windows") $relativePath
+      $loaderPath = Join-Path $POWERSHELL_LOADERS_REPO $relativePath
+      if (-not (Test-Path -LiteralPath $sourcePath -PathType Leaf)) {
+        throw "Profile não encontrado no repo: $sourcePath"
+      }
+      if (-not (Test-Path -LiteralPath $loaderPath -PathType Leaf)) {
+        throw "Carregador de profile não encontrado no repo: $loaderPath"
+      }
+      [pscustomobject]@{
+        Path = Join-Path $DocumentsDirectory $relativePath
+        Content = ([IO.File]::ReadAllText($loaderPath)).Replace("__PARANAUES_ROOT__", $ROOT.Replace("'", "''"))
+        Source = $sourcePath
+      }
+    }
   )
 
-  foreach ($profileDir in $profileDirs) {
-    $profilePath = Join-Path $profileDir "Microsoft.PowerShell_profile.ps1"
-    $helpersPath = Join-Path $profileDir "helpers"
-
-    Force-Symlink -LinkPath $profilePath -TargetPath $POWERSHELL_PROFILE_REPO
-    Force-Symlink -LinkPath $helpersPath -TargetPath $POWERSHELL_HELPERS_REPO
-
-    Write-Host "PowerShell profile: $profilePath -> $POWERSHELL_PROFILE_REPO" -ForegroundColor Green
-    Write-Host "PowerShell helpers: $helpersPath -> $POWERSHELL_HELPERS_REPO" -ForegroundColor Green
+  foreach ($profile in $profiles) {
+    # Retira somente o carregador antigo criado por este repo; perfis proprios ficam intactos.
+    $legacyPath = Join-Path (Split-Path -Parent $profile.Path) "Microsoft.PowerShell_profile.ps1"
+    $legacySource = Join-Path (Split-Path -Parent $profile.Source) "Microsoft.PowerShell_profile.ps1"
+    if (Test-Path -LiteralPath $legacyPath -PathType Leaf) {
+      $legacyLoader = ". '" + $legacySource.Replace("'", "''") + "'"
+      if ([IO.File]::ReadAllText($legacyPath).Trim() -eq $legacyLoader) {
+        $backupPath = Get-BackupPath $legacyPath
+        Copy-Item -LiteralPath $legacyPath -Destination $backupPath
+        Remove-Item -LiteralPath $legacyPath -Force
+        Write-Host "Carregador antigo arquivado: $backupPath" -ForegroundColor DarkGray
+      }
+    }
+    $existing = Get-Item -LiteralPath $profile.Path -Force -ErrorAction SilentlyContinue
+    if ($existing) {
+      if ($existing.PSIsContainer) {
+        throw "O caminho do profile é um diretório: $($profile.Path)"
+      }
+      if ([IO.File]::ReadAllText($profile.Path) -eq $profile.Content) {
+        continue
+      }
+      $backupPath = Get-BackupPath $profile.Path
+      Copy-Item -LiteralPath $profile.Path -Destination $backupPath -Force
+      Write-Host "Backup: $backupPath" -ForegroundColor DarkGray
+      if ($existing.LinkType -eq "SymbolicLink") {
+        Remove-Item -LiteralPath $profile.Path -Force
+      }
+    }
+    New-Item -ItemType Directory -Path (Split-Path -Parent $profile.Path) -Force | Out-Null
+    [IO.File]::WriteAllText($profile.Path, $profile.Content, [Text.UTF8Encoding]::new($false))
+    Write-Host "PowerShell profile: $($profile.Path) -> $($profile.Source)" -ForegroundColor Green
   }
-
-  $userModulePath = [Environment]::GetEnvironmentVariable("PSModulePath", [EnvironmentVariableTarget]::User)
-  $newUserModulePath = Prepend-PathEntry -Value $userModulePath -Entry $POWERSHELL_MODULES_REPO
-  [Environment]::SetEnvironmentVariable("PSModulePath", $newUserModulePath, [EnvironmentVariableTarget]::User)
-
-  $env:PSModulePath = Prepend-PathEntry -Value $env:PSModulePath -Entry $POWERSHELL_MODULES_REPO
-  Write-Host "PSModulePath(User) começa com: $POWERSHELL_MODULES_REPO" -ForegroundColor Green
 }
 
 function Patch-TerminalRepoJsonInPlace([string]$PwshPath, [string]$WinPsPath) {
@@ -248,10 +275,16 @@ if ($targets -ne $null -gt 0) {
 }
 
 # --------------------------------------------------
-# 5) PowerShell profile/helpers/modules via repo
+# 5) PowerShell profiles/helpers/modules via repo
 # --------------------------------------------------
-Write-Host "`n[5/7] PowerShell profile/helpers/modules (repo links)..." -ForegroundColor Yellow
+Write-Host "`n[5/7] PowerShell profiles/helpers/modules (repo)..." -ForegroundColor Yellow
 Install-PowerShellRepoProfile
+New-Item -ItemType Directory -Path $POWERSHELL_MODULES_REPO -Force | Out-Null
+$userModulePath = [Environment]::GetEnvironmentVariable("PSModulePath", [EnvironmentVariableTarget]::User)
+$newUserModulePath = Prepend-PathEntry -Value $userModulePath -Entry $POWERSHELL_MODULES_REPO
+[Environment]::SetEnvironmentVariable("PSModulePath", $newUserModulePath, [EnvironmentVariableTarget]::User)
+$env:PSModulePath = Prepend-PathEntry -Value $env:PSModulePath -Entry $POWERSHELL_MODULES_REPO
+Write-Host "PSModulePath(User) começa com: $POWERSHELL_MODULES_REPO" -ForegroundColor Green
 
 # --------------------------------------------------
 # 6) Windows Defender Restore Exclusions

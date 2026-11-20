@@ -6,7 +6,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "Terminal.DuplicatePaneAuto",
@@ -25,7 +25,7 @@
             "keys": "ctrl+v"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "icon": null,
@@ -42,22 +42,22 @@
         }
     ],
     "newTabPosition": "afterCurrentTab",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "Gruvbox Material",
-            "font": 
+            "font":
             {
                 "face": "JetBrainsMono Nerd Font Mono",
-                "size": 11,
-                "weight": "bold"
+                "size": 14,
+                "weight": "normal"
             },
             "opacity": 100,
             "padding": "0,0,0,0",
             "useAcrylic": true
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -138,12 +138,24 @@
                 "icon": "C:\\Users\\imale\\miniconda3\\Menu\\anaconda_prompt.ico",
                 "name": "Anaconda Prompt (miniconda3)",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",
+                "hidden": false,
+                "name": "QMK MSYS",
+                "source": "QMK"
+            },
+            {
+                "guid": "{b4020604-43f8-5740-b9de-38d681673b3f}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
             }
         ]
     },
     "rendering.graphicsAPI": "direct2d",
     "rendering.software": true,
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#282828",
