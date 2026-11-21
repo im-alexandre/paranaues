@@ -55,7 +55,9 @@ if ($Host.Name -eq 'ConsoleHost' -and -not [Console]::IsInputRedirected -and -no
   if ((Get-Command Set-PSReadLineOption).Parameters.ContainsKey('PredictionViewStyle')) {
     Set-PSReadLineOption -PredictionViewStyle ListView
   }
-  Set-PSReadLineKeyHandler -ViMode Insert -Chord 'Ctrl+n' -Function HistorySearchForward
-  Set-PSReadLineKeyHandler -ViMode Insert -Chord 'Ctrl+p' -Function HistorySearchBackward
+  foreach ($mode in 'Insert', 'Command') {
+    Set-PSReadLineKeyHandler -ViMode $mode -Chord 'Ctrl+n' -Function HistorySearchForward
+    Set-PSReadLineKeyHandler -ViMode $mode -Chord 'Ctrl+p' -Function HistorySearchBackward
+  }
   Set-PSReadLineKeyHandler -ViMode Command -Chord 'v' -Function ViEditVisually
 }

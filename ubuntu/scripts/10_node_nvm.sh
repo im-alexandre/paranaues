@@ -22,8 +22,9 @@ set +eu
 # shellcheck disable=SC1091
 . "$NVM_DIR/nvm.sh" --no-use || exit "$?"
 
-nvm install --lts || exit "$?"
-nvm use --lts || exit "$?"
+if ! nvm use --lts >/dev/null 2>&1; then
+  nvm install --lts || exit "$?"
+fi
 set -eu
 node -v
 npm -v

@@ -8,9 +8,9 @@ LAZYVIM_REPO="${LAZYVIM_REPO:-https://github.com/im-alexandre/lazyvim_config}"
 TARGET="${TARGET:-$HOME/.config/nvim}"
 
 log "Installing LazyVim config -> $TARGET"
-mkdir -p "$HOME/.config"
-if [[ ! -d "$TARGET/.git" ]]; then
-  git clone "$LAZYVIM_REPO" "$TARGET"
-else
-  warn "LazyVim config já existe em $TARGET (git). Pulando clone."
+if [[ -e "$TARGET" || -L "$TARGET" ]]; then
+  log "Mantendo a configuração existente em $TARGET"
+  exit 0
 fi
+mkdir -p "$(dirname -- "$TARGET")"
+git clone "$LAZYVIM_REPO" "$TARGET"

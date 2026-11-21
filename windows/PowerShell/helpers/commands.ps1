@@ -31,13 +31,27 @@ function cd {
 }
 
 function np {
-  $directory = Split-Path -Parent $PSScriptRoot
-  if ($PSVersionTable.PSVersion.Major -lt 7) {
-    $directory = Join-Path (Split-Path -Parent $directory) 'WindowsPowerShell'
+  $installRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+  $checkoutFile = Join-Path $installRoot 'checkout.txt'
+  $checkout = if ([IO.File]::Exists($checkoutFile)) {
+    [IO.File]::ReadAllText($checkoutFile) 
+  } else {
+    Split-Path -Parent $installRoot 
   }
-  Push-Location -LiteralPath $directory
+  $profilePath = Join-Path $checkout 'windows\PowerShell\profile.ps1'
+  if (-not [IO.File]::Exists($profilePath)) {
+    throw 'Checkout do Paranaues movido. Execute install_windows.ps1 -ProfileOnly no novo local.'
+  }
+  Push-Location -LiteralPath (Split-Path -Parent $profilePath) -ErrorAction Stop
   try {
-    nvim (Join-Path $directory 'profile.ps1')
+    nvim $profilePath
+    if (-not $?) {
+      throw 'O Neovim encerrou com erro.' 
+    }
+    & pwsh -NoProfile -File (Join-Path $checkout 'install_windows.ps1') -ProfileOnly
+    if (-not $?) {
+      throw 'Falha ao atualizar a copia local do perfil.' 
+    }
   } finally {
     Pop-Location
   }

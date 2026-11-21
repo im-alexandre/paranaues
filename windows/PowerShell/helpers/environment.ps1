@@ -21,6 +21,23 @@ $env:OPENCODE_DISABLE_CLAUDE_CODE_PROMPT = '1'
 $env:OPENCODE_DISABLE_CLAUDE_CODE_SKILLS = '1'
 $env:COOLIFY_BASE_URL = 'https://coolify.drg.ink'
 
+$wingetLinks = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Links'
+if ((Test-Path -LiteralPath $wingetLinks -PathType Container) -and
+    ($env:Path -split ';' | ForEach-Object { $_.TrimEnd('\') }) -notcontains $wingetLinks) {
+  $env:Path = "$wingetLinks;$env:Path"
+}
+
+function setPath {
+  param (
+    [Parameter(Mandatory)][string]$NewPath,
+    [Parameter(Mandatory)][EnvironmentVariableTarget]$Scope
+  )
+  $paths = [Environment]::GetEnvironmentVariable('Path', $Scope) -split ';' | Where-Object { $_ }
+  if ($paths -notcontains $NewPath) {
+    [Environment]::SetEnvironmentVariable('Path', ((@($paths) + $NewPath) -join ';'), $Scope)
+  }
+}
+
 function source {
   param([Parameter(Mandatory = $true)][string]$Path)
   foreach ($line in (Get-Content -LiteralPath $Path -Encoding UTF8 -ErrorAction Stop)) {

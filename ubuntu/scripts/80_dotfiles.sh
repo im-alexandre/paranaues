@@ -7,20 +7,26 @@ source "$SCRIPT_DIR/lib.sh"
 
 DOT_DIR="$ROOT_DIR/dotfiles"
 
-log "Symlinking dotfiles (append-only for .bashrc)"
+log "Instalando dotfiles em arquivos locais"
 
-# 1) .bashrc: NÃO substitui. Só garante include do snippet.
-BASHRC="$HOME/.bashrc"
-SNIPPET="$HOME/.paranaues.bashrc"
+for name in bashrc bash_aliases profile; do
+  source_file="$DOT_DIR/.$name"
+  snippet="$HOME/.paranaues.$name"
+  profile="$HOME/.$name"
+  include="[ -f \"\$HOME/.paranaues.$name\" ] && . \"\$HOME/.paranaues.$name\""
 
-# Copia o snippet (ou atualiza)
-cp -f "$DOT_DIR/.bashrc" "$SNIPPET"
+  if ! cmp -s "$source_file" "$snippet"; then
+    install -m 644 "$source_file" "$snippet"
+  fi
 
-# Garante include único no ~/.bashrc
-INCLUDE_LINE='[ -f "$HOME/.paranaues.bashrc" ] && . "$HOME/.paranaues.bashrc"'
-grep -Fqx "$INCLUDE_LINE" "$BASHRC" 2>/dev/null || echo "" >>"$BASHRC"
-grep -Fqx "$INCLUDE_LINE" "$BASHRC" 2>/dev/null || echo "$INCLUDE_LINE" >>"$BASHRC"
-
-# 2) .bash_aliases e .profile: mantém como symlink (se você quiser)
-ln -sf "$DOT_DIR/.bash_aliases" "$HOME/.bash_aliases"
-ln -sf "$DOT_DIR/.profile" "$HOME/.profile"
+  # Troca links criados pelos instaladores anteriores, inclusive de outro checkout.
+  if [[ -L "$profile" && "$(readlink -- "$profile")" == */ubuntu/dotfiles/."$name" ]]; then
+    temporary=$(mktemp "$HOME/.paranaues-profile.XXXXXXXX")
+    printf '%s\n' "$include" >"$temporary"
+    mv -fT -- "$temporary" "$profile"
+  elif [[ -L "$profile" ]]; then
+    warn "Mantendo link personalizado: $profile"
+  else
+    ensure_line "$profile" "$include"
+  fi
+done

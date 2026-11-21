@@ -6,15 +6,13 @@ SCRIPT_DIR="$ROOT_DIR/ubuntu/scripts"
 # shellcheck disable=SC1091
 source "$SCRIPT_DIR/lib.sh"
 
-require_not_root
-
 APPLY_DOTFILES=1
 INSTALL_LAZYVIM=1
 
 usage() {
   cat <<'EOF'
 usage:
-  ./install_paranaues.sh [--no-dotfiles] [--no-lazyvim]
+  ./install_ubuntu.sh [--no-dotfiles] [--no-lazyvim]
 
 env vars:
   GO_VER=1.22.6
@@ -32,24 +30,24 @@ for arg in "$@"; do
   esac
 done
 
+require_not_root
+
 APT_LIST="$ROOT_DIR/ubuntu/dependencies/apt.txt"
 
-"$SCRIPT_DIR/00_apt.sh" "$APT_LIST"
-"$SCRIPT_DIR/10_node_nvm.sh"
-"$SCRIPT_DIR/20_rust.sh"
-"$SCRIPT_DIR/30_go.sh"
-"$SCRIPT_DIR/40_nvim.sh"
-"$SCRIPT_DIR/50_miniforge.sh"
-"$SCRIPT_DIR/60_clipboard.sh"
-
-if [[ "$INSTALL_LAZYVIM" -eq 1 ]]; then
-  "$SCRIPT_DIR/70_lazyvim.sh"
-fi
+bash "$SCRIPT_DIR/00_apt.sh" "$APT_LIST"
 
 if [[ "$APPLY_DOTFILES" -eq 1 ]]; then
-  "$SCRIPT_DIR/80_dotfiles.sh"
+  bash "$SCRIPT_DIR/80_dotfiles.sh"
 fi
 
-"$SCRIPT_DIR/90_checks.sh"
+for script in 10_node_nvm 20_rust 30_go 40_nvim 50_miniforge 60_clipboard; do
+  bash "$SCRIPT_DIR/$script.sh"
+done
+
+if [[ "$INSTALL_LAZYVIM" -eq 1 ]]; then
+  bash "$SCRIPT_DIR/70_lazyvim.sh"
+fi
+
+bash "$SCRIPT_DIR/90_checks.sh"
 
 log "Done. Reabre o terminal (ou: source ~/.profile && source ~/.bashrc)"

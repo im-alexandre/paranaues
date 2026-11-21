@@ -1,16 +1,11 @@
 # Perfis do PowerShell
 
-Cada versão usa **um perfil no repo e um carregador pequeno em Documentos**:
-
-| Versão | Perfil no repo | Carregador versionado |
-| --- | --- | --- |
-| PowerShell 7 | `PowerShell/profile.ps1` | `profile-loaders/PowerShell/profile.ps1` |
-| Windows PowerShell 5.1 | `WindowsPowerShell/profile.ps1` | `profile-loaders/WindowsPowerShell/profile.ps1` |
-
-O carregador é instalado em `$PROFILE.CurrentUserAllHosts`, que vale para todos os
-hosts da respectiva versão. Não precisamos de outro perfil específico do console
-(`Microsoft.PowerShell_profile.ps1`). Os dois perfis usam os mesmos helpers;
-as diferenças de encoding e console são tratadas neles.
+O PowerShell 7 e o 5.1 usam um único perfil compartilhado, `PowerShell/profile.ps1`.
+O instalador copia o perfil e os helpers para `%LOCALAPPDATA%\Paranaues`.
+Cada versão do PowerShell procura o seu `$PROFILE.CurrentUserAllHosts` em
+uma pasta diferente. O instalador coloca o mesmo [carregador](profile-loader.ps1)
+nas duas pastas. Ambos apontam para a cópia local do perfil, que continua
+disponível quando o checkout é movido ou o disco é desconectado.
 
 ## Helpers
 
@@ -26,30 +21,74 @@ scripts auxiliares que não devem iniciar com o shell ficam fora dela.
 - `services.ps1`: atalhos de Ollama, AgentHub, OpenClaw e retrieval.
 - `shell.ps1`: prompt e atalhos do PSReadLine no console interativo.
 
-`np` abre o perfil da versão atual **no repo** e restaura o diretório anterior ao
-fechar o editor. `.profile.ps1` de diretórios continua sendo executado ao iniciar
+`np` abre o perfil compartilhado **no repo**, atualiza a cópia local ao
+fechar o Neovim com sucesso e volta ao diretório anterior. `.profile.ps1` de
+diretórios continua sendo executado ao iniciar
 e ao usar `cd`; uma guarda impede que um `cd` dentro dele cause recursão.
 `cd` aceita `-LiteralPath`, `-PassThru` e `-StackName` e só carrega o perfil local
 se a navegação funcionar. `git-cp` só faz push depois de um commit bem-sucedido.
 
 ## Instalação e uso
 
-A etapa de perfis de `install_windows.ps1` instala os dois carregadores e
-substitui `__PARANAUES_ROOT__` pelo caminho do checkout. Antes de substituir um
-perfil diferente, cria uma cópia `.bak.<data-hora>` ao lado dele. A etapa também
-arquiva os antigos carregadores `Microsoft.PowerShell_profile.ps1` reconhecidos
-como gerados por este repo, preservando perfis de host personalizados.
-Repetir a instalação com os mesmos carregadores não reescreve os arquivos.
-O instalador completo também executa as demais etapas de configuração do Windows.
+Execute no PowerShell 7. Os modos de reparo funcionam sem elevação e podem ser
+combinados.
 
-Edite os perfis e helpers neste repositório. As alterações valem para novas
-sessões sem reinstalar os carregadores. Para recarregar na sessão atual:
+```powershell
+pwsh -NoProfile -File .\install_windows.ps1 -ProfileOnly -TerminalOnly
+```
+
+`-ProfileOnly` instala os perfis locais, registra o checkout para o comando
+`np` e configura os módulos. A instalação mantém o código personalizado já
+presente nos perfis e remove carregadores e links legados deste repositório.
+
+`-TerminalOnly` preserva um arquivo local válido e converte links válidos
+em arquivos com o mesmo conteúdo. Se o arquivo estiver ausente ou inválido,
+usa `windows/terminal_settings.json`. O Terminal detecta as distribuições WSL
+disponíveis na máquina.
+
+Para preparar outro Windows, execute `pwsh -NoProfile -File .\install_windows.ps1`.
+O instalador provisiona pacotes e clona o LazyVim se necessário. Use
+`-SkipPackages` para refazer só a configuração e `-UpgradeAll` quando quiser
+atualizar os pacotes existentes. As exclusões do Defender são opcionais e
+exigem elevação.
+
+Repetir a instalação com o mesmo conteúdo preserva os arquivos já configurados.
+
+## Módulos locais
+
+As duas versões buscam módulos em `%LOCALAPPDATA%\PowerShell\Modules` e nos
+diretórios do sistema. Os carregadores continuam no caminho de Documentos que o
+Windows informa. Quando ele está redirecionado para o OneDrive, os dois
+carregadores são os únicos scripts que a instalação cria ali. O instalador também
+configura o `powershell.config.json` do PowerShell 7.
+
+Para instalar um módulo da galeria na pasta local, indique o destino
+explicitamente. Os comandos tradicionais com `-Scope CurrentUser` ainda podem
+usar Documentos.
+
+```powershell
+# PowerShell 7
+Save-PSResource -Name NomeDoModulo -Path "$env:LOCALAPPDATA\PowerShell\Modules"
+
+# Windows PowerShell 5.1
+Save-Module -Name NomeDoModulo -Path "$env:LOCALAPPDATA\PowerShell\Modules"
+```
+
+Ao editar pelo `np`, a cópia local é atualizada automaticamente. Execute
+`-ProfileOnly` depois de editar por outro meio ou de mover o checkout para
+registrar o novo caminho. Para recarregar na sessão atual:
 
 ```powershell
 . $PROFILE.CurrentUserAllHosts
 ```
 
-O Conda não é executado ao iniciar o shell. Use `conda activate <ambiente>`.
+`$PROFILE` sozinho aponta para `Microsoft.PowerShell_profile.ps1`, o perfil
+específico do console. O instalador remove o antigo atalho gerado pelo projeto e
+preserva perfis de console personalizados.
+
+O Conda é localizado quando você chama `conda activate <ambiente>`, pelo
+`CONDA_EXE`, pelo `PATH` ou pelas instalações usuais de Miniconda, Miniforge e
+Anaconda.
 Os scripts com texto não ASCII usam UTF-8 com BOM para leitura correta no 5.1.
 
 Credenciais são carregadas de `$HOME/.api_keys/` por `environment.ps1`.

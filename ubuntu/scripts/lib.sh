@@ -17,6 +17,10 @@ require_not_root() {
 
 ensure_line() {
   local file="$1" line="$2"
+  if [[ -L "$file" ]]; then
+    warn "Mantendo link personalizado: $file"
+    return
+  fi
   grep -Fqx "$line" "$file" 2>/dev/null || echo "$line" >> "$file"
 }
 

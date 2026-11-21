@@ -5,14 +5,20 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$SCRIPT_DIR/lib.sh"
 
 log "Sanity checks"
-set +e
-echo "nvim:   $(command -v nvim)"; nvim --version | head -n1
-echo "rg:     $(command -v rg)"; rg --version | head -n1
-echo "fd:     $(command -v fd)"; fd --version 2>/dev/null | head -n1 || true
-echo "fzf:    $(command -v fzf)"; fzf --version | head -n1
-echo "node:   $(command -v node)"; node -v
-echo "npm:    $(command -v npm)"; npm -v
-echo "cargo:  $(command -v cargo)"; cargo -V
-echo "mamba:  $(command -v mamba)"; mamba --version
-echo "python: $(command -v python)"; python -V
-set -e
+export PATH="${MINIFORGE_DIR:-$HOME/miniforge3}/bin:$HOME/.cargo/bin:/usr/local/go/bin:/snap/bin:$PATH"
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+# NVM precisa de um novo carregamento porque foi instalado em outro processo.
+set +eu
+# shellcheck disable=SC1091
+. "$NVM_DIR/nvm.sh" --no-use && nvm use --lts >/dev/null || exit "$?"
+set -eu
+
+for tool in nvim rg fd fzf node npm cargo mamba python; do
+  if ! need_cmd "$tool"; then
+    warn "Comando ausente: $tool"
+    exit 1
+  fi
+  version=$("$tool" --version)
+  printf '%s: %s\n' "$tool" "${version%%$'\n'*}"
+done
+go version

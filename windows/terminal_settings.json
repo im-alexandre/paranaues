@@ -60,7 +60,7 @@
         "list":
         [
             {
-                "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
@@ -90,28 +90,8 @@
                 "elevate": true,
                 "guid": "{e4b440d3-672f-43d3-8163-697d6517a79e}",
                 "hidden": false,
-                "icon": "D:\\paranaues\\windows\\admin.png",
                 "name": "PowerShell (Admin)",
                 "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe --distribution-id {7fdf11af-f857-4c33-b53d-0d8b9b5ae3c3} --cd \"~\"",
-                "guid": "{a14db961-dbc8-5d5d-bfb3-975f4a6c0a56}",
-                "hidden": false,
-                "name": "Ubuntu-24.04",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "guid": "{b2b9dac5-eaee-5b40-983b-ab96dcfa27fd}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "guid": "{0ca619c4-be93-5dfe-b15b-e6ba309c0109}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Microsoft.WSL"
             },
             {
                 "guid": "{5db0b150-5092-517a-a512-4e3a96e01e28}",
@@ -126,48 +106,10 @@
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\alexandre\\AppData\\Local\\miniconda3' ",
-                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
-                "icon": "C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
-                "name": "Anaconda PowerShell Prompt (miniconda3)",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Scripts\\activate.bat C:\\Users\\alexandre\\AppData\\Local\\miniconda3",
-                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
-                "icon": "C:\\Users\\alexandre\\AppData\\Local\\miniconda3\\Menu\\anaconda_prompt.ico",
-                "name": "Anaconda Prompt (miniconda3)",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
                 "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",
                 "hidden": false,
                 "name": "QMK MSYS",
                 "source": "QMK"
-            },
-            {
-                "guid": "{b4020604-43f8-5740-b9de-38d681673b3f}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Microsoft.WSL"
-                "guid": "{e3d31804-cd51-5fd8-93e2-4399116cb5e7}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "commandline": "\"%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy ByPass -NoExit -Command & 'C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\alexandre\\AppData\\Local\\anaconda3' ",
-                "guid": "{eed49005-877d-5de2-94d5-5ce5e370f8c3}",
-                "icon": "C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Menu\\anaconda_powershell_prompt.ico",
-                "name": "Anaconda PowerShell Prompt (anaconda3)",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "\"%WINDIR%\\System32\\cmd.exe\" /K C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Scripts\\activate.bat C:\\Users\\alexandre\\AppData\\Local\\anaconda3",
-                "guid": "{e78b37b4-0017-568b-9279-1abde5e14cde}",
-                "icon": "C:\\Users\\alexandre\\AppData\\Local\\anaconda3\\Menu\\anaconda_prompt.ico",
-                "name": "Anaconda Prompt (anaconda3)",
-                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },

@@ -5,19 +5,22 @@ Bootstrap WSL (Ubuntu 24.04+) + LazyVim deps + Miniforge(mamba) + Rust + Node LT
 ## Run
 
 ```bash
-chmod +x ./install_paranaues.sh
-./install_paranaues.sh
+bash ./install_ubuntu.sh
 ```
 
 Flags:
 
 ```bash
-./install_paranaues.sh --no-dotfiles
-./install_paranaues.sh --no-lazyvim
+bash ./install_ubuntu.sh --no-dotfiles
+bash ./install_ubuntu.sh --no-lazyvim
 ```
 
 ## Layout
 
 - `dependencies/apt.txt`: pacotes apt
 - `scripts/*.sh`: módulos
-- `dotfiles/`: `.bashrc`, `.bash_aliases`, `.profile` (symlink no final, por padrão)
+- `dotfiles/`: trechos copiados para `~/.paranaues.*` e carregados pelos perfis locais
+
+Você pode executar o instalador novamente para aplicar mudanças nos dotfiles.
+Ele mantém o conteúdo personalizado nos perfis do usuário e substitui os
+links do próprio projeto por arquivos locais.

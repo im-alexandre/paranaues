@@ -24,7 +24,7 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 # export PATH=$PATH:/opt/node/bin
 
-[[ -f ~/.credenciais.sh ]] && source ~/.credenciais.sh
+[ ! -f "$HOME/.credenciais.sh" ] || . "$HOME/.credenciais.sh"
 
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla

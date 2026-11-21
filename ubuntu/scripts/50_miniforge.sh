@@ -18,14 +18,15 @@ fi
 if [[ -f "$MINIFORGE_DIR/etc/profile.d/conda.sh" ]]; then
   # shellcheck disable=SC1091
   source "$MINIFORGE_DIR/etc/profile.d/conda.sh"
-  conda config --set auto_activate_base false >/dev/null 2>&1 || true
+  if [[ "$(conda config --show auto_activate_base)" != *': false' ]]; then
+    conda config --set auto_activate_base false
+  fi
   if ! conda list -n base | awk '{print $1}' | grep -qx mamba; then
     conda install -n base -y mamba >/dev/null
   fi
 fi
 
-"$MINIFORGE_DIR/bin/python" -m pip install -U pip >/dev/null
-"$MINIFORGE_DIR/bin/python" -m pip install -U ruff black isort pytest >/dev/null
+"$MINIFORGE_DIR/bin/python" -m pip install ruff black isort pytest >/dev/null
 
 PROFILE="$HOME/.profile"
 ensure_line "$PROFILE" 'export PATH="$HOME/miniforge3/bin:$PATH"'

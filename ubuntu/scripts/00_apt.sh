@@ -10,13 +10,13 @@ if [[ -z "$APT_LIST" || ! -f "$APT_LIST" ]]; then
   exit 2
 fi
 
-log "APT update/upgrade"
+log "Atualizando indices do APT"
 sudo apt update
-sudo apt -y upgrade
 
 log "Installing apt dependencies"
-# shellcheck disable=SC2046
-sudo apt install -y $(grep -vE '^\s*($|#)' "$APT_LIST" | tr '\n' ' ')
+readarray -t packages < <(grep -vE '^\s*($|#)' "$APT_LIST")
+sudo apt install --no-upgrade -y "${packages[@]}"
 
-log "Fix fd (Ubuntu fornece como fdfind)"
-sudo ln -sf "$(command -v fdfind)" /usr/local/bin/fd || true
+if ! need_cmd fd; then
+  sudo ln -s "$(command -v fdfind)" /usr/local/bin/fd
+fi
